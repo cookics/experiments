@@ -1,0 +1,47 @@
+{
+    "task": "MiniHack-Boxoban-Hard-v0",
+    "action_frequency": {
+        "east": 25,
+        "south": 26,
+        "north": 29,
+        "west": 20
+    },
+    "input_tokens": 661789,
+    "output_tokens": 1394,
+    "done": true,
+    "episode_return": 0.10099999999999992,
+    "num_steps": 100,
+    "failed_candidates": [
+        " boulder fountain\nTurn :   boulder\nYes   is on a fountain\n\nNow for  \nFountain at  \nIf Im at   I move North to push   to  \nDone\n\nSo the plan:\nMove North to push   out of the way\n\nWait lets reverify the map one more time\ny: \ny: \ny: \nIf I move North from   I am at   and I move to  \nThe map says   is a   \nThe map says   is a \nSo moving North is possible and pushes the boulder\n\nAction: north\n\nWait is there any other better move\nIf I move West from   to  \nThen North to ",
+        "\n     Move North to  \n     Move West to   Wait B is at   So move West pushes B to  \n     Move West to  \n     Move North to  \n     Move East to  \n     Move East to  \n     Move South to  \n     Move South to    but I need B to be at  \n    Lets replan pushing B  to F :\n     Need to be at   to push B East to   Wait   to   is East\n     So: Move from            No B is at  \n     Move           ",
+        "thought\nThe goal is to push boulders onto fountains Looking at the map:\n Boulders  are at       and   Using a relative coordinate system where the agent is at   based on the map representation though the cursor says  \n Fountains  are at   and  \n Agent  is at  \n\nPath to push the boulder at   onto the fountain at  :\n The agent is at  \n Move South to  \n Move West to    this would push the boulder at   further west Instead we want to push it east or south\n If the agent moves South from   to   then South again to   the fountain\n From   the agent can push the boulder at   by moving North No the agent would be at   boulder at ",
+        "Wait I missed that the boulder at   is not there Lets look again:\ny:  \n is   is   \nWait if   is a boulder and   is a wall I cant push it east or west\nI can only push it north or south\nBut   and   are walls\nSo the boulder at   is stuck\n\nWait lets look at the boulder at  \ny: \n is   is   \nI can push it north to   if Im at  \nLets see if I can get to  \n                 No   is \nHow about      "
+    ],
+    "progression": 0.0,
+    "end_reason": -1,
+    "process_num": "ForkProcess-2",
+    "seed": 2737308572,
+    "agent": {
+        "type": "naive",
+        "remember_cot": true,
+        "max_text_history": 16,
+        "max_image_history": 0,
+        "max_cot_history": 1,
+        "max_icl_history": 1000,
+        "cache_icl": false
+    },
+    "client": {
+        "client_name": "gemini",
+        "model_id": "gemini-3-flash-preview",
+        "base_url": "http://localhost:8080/v1",
+        "generate_kwargs": {
+            "temperature": 1.0,
+            "max_tokens": 8192
+        },
+        "thinking_budget": null,
+        "timeout": 60,
+        "max_retries": 10,
+        "delay": 2,
+        "alternate_roles": false
+    }
+}

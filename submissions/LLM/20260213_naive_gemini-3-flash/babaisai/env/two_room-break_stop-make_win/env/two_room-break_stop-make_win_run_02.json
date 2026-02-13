@@ -1,0 +1,46 @@
+{
+    "task": "env/two_room-break_stop-make_win",
+    "action_frequency": {
+        "up": 35,
+        "right": 34,
+        "down": 19,
+        "left": 10,
+        "idle": 2
+    },
+    "input_tokens": 399611,
+    "output_tokens": 738,
+    "done": true,
+    "episode_return": 0.0,
+    "num_steps": 100,
+    "failed_candidates": [
+        "  and win to  \n    down  Baba  key \n    right  Baba \n    up  Baba  is \n\n    Lets try down first\n     down Baba \n     down Baba \n     right Baba \n     up Baba  key   wait key is now at  is was at  so is moves to \n     up Baba  key  is \n     right Baba  win \n\n    Now:\n    Baba \n    key \n    is \n    win \n\n    This is also messy Lets just try to push rule is and rule win down to the rule key\n     right Baba  is  win ",
+        "s look at the original positions again\n    rule is  step to the right  \n    rule win  steps to the right  \n    rule key  steps to the right and  step down  \n\n    Oh the observation changed\n    In the current observation:\n    BABA is at \n    rule is  step up  \n    rule win  step to the right and  step up  \n    rule key  step to the right  \n    key  steps down  \n\n    If I move right I push rule key to  \n    If I then move up I push rule win to  \n    Wait if I move up from  Im at  where rule is is\n    So is is pushed to  \n\n    Lets try to form KEY IS WIN vertically\n    I need:\n    KEY at x y\n    IS at x y\n    WIN at x y\n\n    Lets try to get them at x"
+    ],
+    "target_plan": "break[wall is stop], make[key is win], goto[key]",
+    "progression": 0.0,
+    "process_num": "ForkProcess-4",
+    "seed": 1989693913,
+    "agent": {
+        "type": "naive",
+        "remember_cot": true,
+        "max_text_history": 16,
+        "max_image_history": 0,
+        "max_cot_history": 1,
+        "max_icl_history": 1000,
+        "cache_icl": false
+    },
+    "client": {
+        "client_name": "gemini",
+        "model_id": "gemini-3-flash-preview",
+        "base_url": "http://localhost:8080/v1",
+        "generate_kwargs": {
+            "temperature": 1.0,
+            "max_tokens": 8192
+        },
+        "thinking_budget": null,
+        "timeout": 60,
+        "max_retries": 10,
+        "delay": 2,
+        "alternate_roles": false
+    }
+}
