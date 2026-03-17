@@ -1,0 +1,48 @@
+{
+    "task": "env/two_room-break_stop-goto_win",
+    "action_frequency": {
+        "right": 23,
+        "idle": 4,
+        "up": 17,
+        "left": 42,
+        "down": 14
+    },
+    "input_tokens": 479866,
+    "output_tokens": 764,
+    "done": true,
+    "episode_return": 0.0,
+    "num_steps": 100,
+    "failed_candidates": [
+        "I notice that my position hasnt changed despite multiple right commands There must be a wall blocking me Let me analyze the situation:\n\n Theres a wall  step to the right at my current row\n The key which is WIN is  steps to the right\n WALL IS STOP is active so I cant pass through walls\n\nI need to break the WALL IS STOP rule to get through Let me go up and left to reach those text blocks\n\nup",
+        "Let me analyze the situation I need to reach the key which is WIN but theres a wall blocking my path The wall is STOP so I cant pass through it I should try to break the WALL IS STOP rule by pushing one of the text blocks\n\nThe rule WALL IS STOP is to my left WALL  left IS  left STOP  left Let me push the STOP text to break this rule\n\nleft",
+        "I need to reach the key to win The key is  steps to the right and  steps down However theres a wall blocking my path wall is stop I need to break the WALL IS STOP rule first\n\nLet me push the STOP text to break the rule\n\nleft",
+        "I notice Im stuck  theres a wall blocking me to the right and the key which is WIN is  steps to the right The wall has STOP property I need to break the WALL IS STOP rule first\n\nLet me go left to reach the WALL IS STOP rule and break it\n\nleft"
+    ],
+    "target_plan": "break[wall is stop], goto[key]",
+    "progression": 0.0,
+    "process_num": "ForkProcess-1",
+    "seed": 3456010062,
+    "agent": {
+        "type": "naive",
+        "remember_cot": true,
+        "max_text_history": 16,
+        "max_image_history": 0,
+        "max_cot_history": 1,
+        "max_icl_history": 1000,
+        "cache_icl": false
+    },
+    "client": {
+        "client_name": "aws-bedrock",
+        "model_id": "global.anthropic.claude-opus-4-5-20251101-v1:0",
+        "base_url": null,
+        "generate_kwargs": {
+            "temperature": 1.0,
+            "max_tokens": 8192
+        },
+        "thinking_budget": null,
+        "timeout": 60,
+        "max_retries": 10,
+        "delay": 2,
+        "alternate_roles": false
+    }
+}
