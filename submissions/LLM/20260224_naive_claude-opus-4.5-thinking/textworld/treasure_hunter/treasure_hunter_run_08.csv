@@ -1,0 +1,140 @@
+Step,Action,Reasoning,Observation,Reward,Done
+0,goal,"I'm in a text-based adventure game where I need to find a specific object. I'm currently in a ""Sweaty Scullery"" and there's an exit to the north.
+
+First, I should check what my goal is to know what object I'm looking for. Let me use the ""goal"" command.",,0,False
+1,look,"The user wants me to check the goal of the game first. Let me see what the goal is. But the observation shows that the goal command was executed but the response is empty or just shows ""Current Observation:"" with nothing after it. This is strange.
+
+Let me try to explore the environment. I should look around to see what's in the room, or I can go north as suggested in the previous observation.
+
+Let me first try ""look"" to see what's in the current room.","-= Sweaty Scullery =-
+You've entered a sweaty scullery. You decide to just list off a complete list of everything you see in the room, because hey, why not?
+
+
+
+You need an unguarded exit? You should try going north.",0,False
+2,goal,I need to find the goal first to know what object I'm looking for. Let me try the goal command again.,,0,False
+3,go north,"The user is asking me to output an action. I tried ""goal"" twice but it seems like it's not giving me any useful information about what I need to find. Let me try to explore the environment by going north as suggested.","-= Kitchenette =-
+You find yourself in a kitchenette. A typical kind of place.
+
+
+
+There is an open door leading north. You need an unblocked exit? You should try going south.",0,False
+4,go north,I'm in a Kitchenette now. There's an open door leading north and I can also go south (back to the Sweaty Scullery). I should continue exploring to find the target object. Let me go north to explore more rooms.,"-= Kitchen =-
+You've just shown up in a kitchen. You start to take note of what's in the room.
+
+
+
+There is a closed cuboid portal leading north. There is a closed rectangular hatch leading west. There is an open door leading south.
+
+There is a cuboid keycard on the floor.",0,False
+5,take cuboid keycard,"I see there's a cuboid keycard on the floor. Based on the instructions, I should take keys whenever I can. The cuboid keycard might be useful to unlock the cuboid portal leading north.
+
+Let me take the cuboid keycard first.",You pick up the cuboid keycard from the ground.,0,False
+6,unlock cuboid portal with cuboid keycard,I found a cuboid keycard. This might be useful for unlocking a cuboid portal that I saw in the kitchen. Let me try to unlock the cuboid portal with this keycard.,You unlock cuboid portal.,0,False
+7,open cuboid portal,"I've unlocked the cuboid portal, but I still need to open it before I can go through it. The game mentioned that after unlocking, the door/portal remains closed. So I need to open it now.",You open cuboid portal.,0,False
+8,go north,The cuboid portal is now open. I should go through it to explore more rooms and find the target object. Let me go north through the portal.,"-= Steam Room =-
+You find yourself in a steam room. A normal one. The room is well lit.
+
+
+
+There is a closed gate leading north. There is an open cuboid portal leading south.",0,False
+9,open gate,I'm in a Steam Room now. There's a closed gate leading north and an open cuboid portal leading south (which I came from). I should try to open the gate and continue exploring north. But the gate might be locked. Let me try to open it first.,You open gate.,0,False
+10,go north,"The user wants me to continue playing the text-based adventure game. I just opened the gate, so now I should go north through it to continue exploring.","-= Cellar =-
+You arrive in a cellar. A normal kind of place.
+
+You can see a closed coffer right there by you. You can make out a locked typical looking crate here. You see a toolbox. Oh wow! Is that what I think it is? It is! It's a stand. You shudder, but continue examining the stand. The stand is typical. But oh no! there's nothing on this piece of junk.
+
+There is an open gate leading south. There is an unguarded exit to the west.",0,False
+11,open coffer,"I'm in a cellar now. Let me see what I can find here. There's:
+- A closed coffer
+- A locked typical looking crate
+- A toolbox
+- A stand (empty)
+
+I should explore to find the target object. First, let me check what goal I'm looking for. Actually, I never got the goal output - it seemed empty both times. Let me try opening containers to see if the target object is inside.
+
+Let me start by opening the closed coffer.",You open the coffer.,0,False
+12,look,I opened the coffer. Let me look inside to see what's there. I should examine the room again to see what's in the coffer.,"-= Cellar =-
+You arrive in a cellar. A normal kind of place.
+
+You can see an opened coffer right there by you. What a letdown! The coffer is empty! You can make out a locked typical looking crate here. You see a toolbox. Oh wow! Is that what I think it is? It is! It's a stand. You shudder, but continue examining the stand. The stand is typical. But oh no! there's nothing on this piece of junk.
+
+There is an open gate leading south. There is an unguarded exit to the west.",0,False
+13,take toolbox,"I need to check the toolbox and the locked typical looking crate. Let me first check the toolbox since it might be open or contain something. The crate is locked, so I'll need to find a ""typical"" key to unlock it.
+
+Let me examine the toolbox first.",That's fixed in place.,0,False
+14,open toolbox,"The toolbox is fixed in place. Let me check what's inside the toolbox instead, or look for other things. I should examine the toolbox or look inside it. But first, let me check if there's something inside by examining it. Actually, let me try to open the toolbox or look at it more carefully.
+
+Wait, I should also check the typical crate which is locked. I need to find a typical key to unlock it. Let me explore more.
+
+Let me go west to explore more rooms and potentially find a key for the typical crate.",The toolbox is welded shut.,0,False
+15,go west,"The toolbox is welded shut, so I can't open it. I should explore more. There's a locked typical looking crate that I might need a typical key for. Let me check the inventory and explore other rooms.
+
+Let me go west first to explore the unguarded exit.","-= Pantry =-
+You're now in the pantry.
+
+You see a workbench. The workbench is standard. On the workbench you can make out a rectangular latchkey.
+
+There is an unblocked exit to the east.",0,False
+16,take rectangular latchkey from workbench,"I'm in a Pantry now and I see a rectangular latchkey on a workbench. I should take this key as it might be useful for unlocking something. Earlier I saw a closed rectangular hatch in the Kitchen, so this rectangular latchkey is probably the key for that hatch.
+
+Let me take the rectangular latchkey.",You take the rectangular latchkey from the workbench.,0,False
+17,go east,"I found a rectangular latchkey. Earlier I saw a closed rectangular hatch in the Kitchen. This key might be for that hatch. Let me go back to the Kitchen and try to unlock the rectangular hatch.
+
+First, I need to go east to the Cellar, then south through the gate to the Steam Room, then south through the cuboid portal to the Kitchen.","-= Cellar =-
+You arrive in a cellar. A normal kind of place.
+
+You can see an opened coffer right there by you. What a letdown! The coffer is empty! You can make out a locked typical looking crate here. You see a toolbox. Oh wow! Is that what I think it is? It is! It's a stand. You shudder, but continue examining the stand. The stand is typical. But oh no! there's nothing on this piece of junk.
+
+There is an open gate leading south. There is an unguarded exit to the west.",0,False
+18,go south,"I'm back in the cellar. I have a cuboid keycard and a rectangular latchkey in my inventory. There's a locked typical looking crate here that I should try to open. But I have a rectangular latchkey - let me try to unlock the rectangular hatch I saw earlier in the kitchen, or I could try to find a typical key for the typical looking crate.
+
+Wait, the crate is described as ""typical looking crate"" and I have a ""rectangular latchkey"". These don't match. I should go back to the kitchen and try to unlock the rectangular hatch with the rectangular latchkey.
+
+Let me go south to the steam room, then south again to the kitchen, and try to unlock the rectangular hatch.","-= Steam Room =-
+You find yourself in a steam room. A normal one. The room is well lit.
+
+
+
+There is an open gate leading north. There is an open cuboid portal leading south.",0,False
+19,go south,"I need to find my goal. Let me check the goal first.
+
+I have:
+- cuboid keycard
+- rectangular latchkey
+
+I found a locked typical looking crate in the cellar. I need a typical key to unlock it, not the rectangular latchkey.
+
+There was also a closed rectangular hatch in the kitchen that I haven't explored yet. I should go back and unlock it with the rectangular latchkey.
+
+Let me go south to the kitchen.","-= Kitchen =-
+You've just shown up in a kitchen. You start to take note of what's in the room.
+
+
+
+There is an open cuboid portal leading north. There is a closed rectangular hatch leading west. There is an open door leading south.",0,False
+20,unlock rectangular hatch with rectangular latchkey,"I found a rectangular latchkey, and there's a closed rectangular hatch leading west. I should try to unlock it with the rectangular latchkey.",You unlock rectangular hatch.,0,False
+21,open rectangular hatch,I unlocked the rectangular hatch with the rectangular latchkey. Now I need to open it and go through to explore the area.,You open rectangular hatch.,0,False
+22,go west,I've unlocked and opened the rectangular hatch. Now I should go through it to explore the west area.,"-= Canteen =-
+Well how about that, you are in a place we're calling a canteen.
+
+You make out a case. The case contains a napkin. You idly wonder how they came up with the name TextWorld for this place. It's pretty fitting.
+
+There is an open rectangular hatch leading east. There is an open passageway leading west. You don't like doors? Why not try going south, that entranceway is unblocked.",0,False
+23,goal,"I'm in a canteen now. I can see a case that contains a napkin. I should check my goal to see what I'm looking for. Let me first check the goal, and then decide what to do.
+
+Actually, I should first check the goal to know what I'm looking for. But since I don't know the goal yet, let me explore more or take the napkin if it's visible.
+
+The case contains a napkin. I should take the napkin if that's what I'm looking for, or continue exploring. Let me take the napkin first.",,0,False
+24,take napkin from case,"The goal command didn't return the goal of the game. Let me continue exploring to find the target object. I should check the case first to see what's inside, then continue exploring.
+
+The case contains a napkin. Let me take it in case it's the target object.","You take the napkin from the case.
+
+
+                              *** You lost! ***
+
+You scored 0 out of a possible 1, in 25 turns.
+
+
+Would you like to RESTART, RESTORE a saved game, QUIT or UNDO the last command?
+>",0,True

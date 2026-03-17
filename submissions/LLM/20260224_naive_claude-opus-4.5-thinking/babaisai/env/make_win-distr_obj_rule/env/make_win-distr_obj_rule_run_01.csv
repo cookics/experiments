@@ -1,0 +1,4795 @@
+Step,Action,Reasoning,Observation,Reward,Done
+0,up,"Let me understand the current state of the game:
+
+Active rules:
+- baba is you (so I control baba)
+
+Objects on the map (relative to my position as baba):
+- rule `is` - 4 steps left, 1 step up
+- rule `win` - 3 steps left, 1 step up
+- rule `key` - 1 step left, 1 step up
+- rule `door` - 4 steps left, 1 step down
+- door (object) - 3 steps left, 1 step down
+- rule `baba` - 5 steps left, 4 steps down
+- rule `is` - 4 steps left, 4 steps down
+- rule `you` - 3 steps left, 4 steps down
+- key (object) - 4 steps down
+
+So the layout seems to be:
+- There are text blocks for ""is"", ""win"", ""key"" in a row 1 step up
+- There's a door text and actual door 1 step down
+- There's ""baba is you"" rule 4 steps down
+- There's a key object 4 steps down
+
+I need to form a win condition. I can see ""is"" and ""win"" text blocks. I need to connect something to ""is win"".
+
+Looking at the positions:
+- rule `is` is 4 left, 1 up
+- rule `win` is 3 left, 1 up
+- rule `key` is 1 left, 1 up
+
+So if I can push `key` to be next to `is win`, I could form ""key is win"", then touch the key to win.
+
+The key text is 1 step left and 1 step up from me.
+The ""is win"" is at 3-4 steps left, 1 up.
+
+So if I go up and then push key left, I could form ""key is win"".
+
+
+Let me work through the positions more carefully. Using my current location as (0,0): `is` sits at (-4, 1), `win` at (-3, 1), and `key` at (-1, 1). If I push the key left once, it only reaches (-2, 1), which leaves a gap between it and the ""is win"" pair. I need to push it further left to actually connect the rule.","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 4 step to the left
+rule `win` 3 step to the left
+rule `key` 1 step to the left
+rule `door` 4 step to the left and 2 steps down
+door 3 step to the left and 2 steps down
+rule `baba` 5 step to the left and 5 steps down
+rule `is` 4 step to the left and 5 steps down
+rule `you` 3 step to the left and 5 steps down
+key 5 steps down",0,False
+1,left,"Let me analyze the current state:
+
+Active rules:
+- baba is you
+
+Objects on the map (relative to my position):
+- rule `is` 4 steps to the left
+- rule `win` 3 steps to the left
+- rule `key` 1 step to the left
+- rule `door` 4 steps to the left and 2 steps down
+- door 3 steps to the left and 2 steps down
+- rule `baba` 5 steps to the left and 5 steps down
+- rule `is` 4 steps to the left and 5 steps down
+- rule `you` 3 steps to the left and 5 steps down
+- key 5 steps down
+
+I can see text blocks that could form rules. Currently I see:
+- `is` and `win` and `key` in a row to my left
+- `door` text and actual door below that
+- `baba is you` rule below
+
+I need to form a WIN condition. I see `key` text, `is` text, and `win` text. If I can form ""KEY IS WIN"", then the key would become the win condition, and I can reach the key (which is 5 steps down).
+
+Currently:
+- `is` is 4 steps left
+- `win` is 3 steps left
+- `key` is 1 step left
+
+So the row looks like: ... IS WIN ... KEY (from left to right relative to me)
+
+To form ""KEY IS WIN"", I need to push KEY to the left to be adjacent to IS, or move IS and WIN to the right.
+
+Actually, let me reconsider. The positions:
+- `is` at (-4, 0)
+- `win` at (-3, 0)
+- `key` at (-1, 0)
+
+So there's: IS WIN _ KEY
+
+I need to push KEY left to make: IS WIN KEY? No that doesn't work.
+
+I need KEY IS WIN.","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left
+rule `win` 2 step to the left
+rule `key` 1 step to the left
+rule `door` 3 step to the left and 2 steps down
+door 2 step to the left and 2 steps down
+rule `baba` 4 step to the left and 5 steps down
+rule `is` 3 step to the left and 5 steps down
+rule `you` 2 step to the left and 5 steps down
+key 1 step to the right and 5 steps down",0,False
+2,left,"Let me analyze the current state:
+
+Active rules:
+- baba is you
+
+Objects on the map:
+- rule `is` 3 steps to the left
+- rule `win` 2 steps to the left
+- rule `key` 1 step to the left
+- rule `door` 3 steps to the left and 2 steps down
+- door 2 steps to the left and 2 steps down
+- rule `baba` 4 steps to the left and 5 steps down
+- rule `is` 3 steps to the left and 5 steps down
+- rule `you` 2 steps to the left and 5 steps down
+- key 1 step to the right and 5 steps down
+
+I need to create a win condition. I see that:
+- `is` is 3 steps left
+- `win` is 2 steps left
+- `key` is 1 step left
+
+If I push `key` to the left, it will connect with `is` and `win` to form ""key is win"". Then I need to reach the key.
+
+Let me push `key` to the left by going left.","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left
+rule `win` 2 step to the left
+rule `key` 1 step to the left
+rule `door` 2 step to the left and 2 steps down
+door 1 step to the left and 2 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+key 2 steps to the right and 5 steps down",0,False
+3,left,"Let me analyze the current state:
+
+Active rules:
+- baba is you
+
+Objects on the map:
+- rule `is` 3 steps to the left
+- rule `win` 2 steps to the left
+- rule `key` 1 step to the left
+- rule `door` 2 steps to the left and 2 steps down
+- door 1 step to the left and 2 steps down
+- rule `baba` 3 steps to the left and 5 steps down
+- rule `is` 2 steps to the left and 5 steps down
+- rule `you` 1 step to the left and 5 steps down
+- key 2 steps to the right and 5 steps down
+
+So I'm at position (0,0). Let me map out the objects:
+- rule `is` at (-3, 0)
+- rule `win` at (-2, 0)
+- rule `key` at (-1, 0)
+
+These are in a row: `is` `win` `key` - this doesn't form a valid rule.
+
+I need to create ""KEY IS WIN"" to win by touching the key. Currently the text blocks are:
+- `is` at (-3, 0)
+- `win` at (-2, 0)  
+- `key` at (-1, 0)
+
+The order from left to right would be: `is`, `win`, `key`
+But I need: `key`, `is`, `win`
+
+I could push `key` to the left. If I go left to position (-1, 0), I'll be at the `key` text block. Then if I push it left, it would hit `win`...
+
+Actually, let me think again. I'm at (0,0). The rule `key` is 1 step to my left at (-1, 0). If I move left, I'll push `key` to (-2, 0) where `win` is, which would push `win` to (-3, 0) where `is` is...","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left
+rule `win` 2 step to the left
+rule `key` 1 step to the left
+rule `door` 2 step to the left and 2 steps down
+door 1 step to the left and 2 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+key 2 steps to the right and 5 steps down",0,False
+4,left,"Let me analyze the current state:
+
+Active rules: baba is you
+
+Objects on the map:
+- rule `is` 3 steps to the left
+- rule `win` 2 steps to the left
+- rule `key` 1 step to the left
+- rule `door` 2 steps to the left and 2 steps down
+- door 1 step to the left and 2 steps down
+- rule `baba` 3 steps to the left and 5 steps down
+- rule `is` 2 steps to the left and 5 steps down
+- rule `you` 1 step to the left and 5 steps down
+- key 2 steps to the right and 5 steps down
+
+I see there are text blocks above me: IS, WIN, KEY arranged horizontally.
+There's a door and DOOR rule to my left and down.
+
+To win, I need to form a rule like ""KEY IS WIN"" or ""DOOR IS WIN"" and then touch the corresponding object.
+
+The text blocks IS, WIN, KEY are at my level (sort of). Let me see:
+- IS is 3 left
+- WIN is 2 left
+- KEY is 1 left
+
+So they're arranged: IS - WIN - KEY (from left to right, relative to me at the rightmost position)
+
+That doesn't form a valid rule. I need to rearrange them to be KEY IS WIN.
+
+If I go left, I'll push KEY. Let me think...
+
+The arrangement is: [IS] [WIN] [KEY] [BABA/me]
+If I go left, I push KEY into WIN.
+
+Actually wait, let me reconsider. The observation says I moved left but the positions didn't change from the previous observation. That's strange. Maybe I was blocked?
+
+Let me try a different approach. I need to form KEY IS WIN. Currently the arrangement seems to be IS-WIN-KEY from left to right.
+
+I should try to push KEY to the left to form KEY IS WIN... no wait, that would give KEY WIN IS which isn't right.","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left
+rule `win` 2 step to the left
+rule `key` 1 step to the left
+rule `door` 2 step to the left and 2 steps down
+door 1 step to the left and 2 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+key 2 steps to the right and 5 steps down",0,False
+5,left,"Let me analyze the current situation:
+
+Active rules:
+- baba is you
+
+Objects on the map (relative to my position):
+- rule `is` 3 steps to the left
+- rule `win` 2 steps to the left
+- rule `key` 1 step to the left
+- rule `door` 2 steps to the left and 2 steps down
+- door 1 step to the left and 2 steps down
+- rule `baba` 3 steps to the left and 5 steps down
+- rule `is` 2 steps to the left and 5 steps down
+- rule `you` 1 step to the left and 5 steps down
+- key 2 steps to the right and 5 steps down
+
+I can see that there are text blocks for `is`, `win`, and `key` in a row to my left. If I push `key` to the left, it would create ""KEY IS WIN"" rule.
+
+Let me think about what I need to do:
+1. Create a win condition - I could form ""KEY IS WIN"" or ""DOOR IS WIN""
+2. Then reach the winning object
+
+Currently, if I go left, I'll push `key` text, which will form ""KEY IS WIN"" since `is` is 3 steps left and `win` is 2 steps left, and `key` is 1 step left.
+
+Wait, let me reconsider. It seems like I tried to go left but the observation didn't change. Maybe I'm blocked or something.
+
+Looking at the positions:
+- `is` at 3 left
+- `win` at 2 left
+- `key` at 1 left
+
+If I go left, I push `key` to 2 left, where `win` is. Then `win` would be pushed to 3 left where `is` is, and `is` would be pushed to 4 left. This wouldn't form a proper rule.","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left
+rule `win` 2 step to the left
+rule `key` 1 step to the left
+rule `door` 2 step to the left and 2 steps down
+door 1 step to the left and 2 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+key 2 steps to the right and 5 steps down",0,False
+6,up,"Let me analyze the current situation:
+
+Active rules:
+- baba is you
+
+Objects on the map:
+- rule `is` 3 steps to the left
+- rule `win` 2 steps to the left
+- rule `key` 1 step to the left
+- rule `door` 2 steps to the left and 2 steps down
+- door 1 step to the left and 2 steps down
+- rule `baba` 3 steps to the left and 5 steps down
+- rule `is` 2 steps to the left and 5 steps down
+- rule `you` 1 step to the left and 5 steps down
+- key 2 steps to the right and 5 steps down
+
+So there are text blocks at various positions. I see:
+- ""IS"" and ""WIN"" and ""KEY"" in a row above me (possibly forming ""KEY IS WIN"" if arranged)
+- ""DOOR"" and actual door nearby
+- ""BABA IS YOU"" down below
+
+It seems like my position is the same as before - I'm stuck or can't move left anymore. I need to reconsider my approach.
+
+Looking at the text blocks:
+- ""IS"" is 3 steps left
+- ""WIN"" is 2 steps left
+- ""KEY"" is 1 step left
+
+If I push ""KEY"" to the left, it would go next to ""WIN"", then if I push more, it would form ""KEY IS WIN"".
+
+Wait, for ""KEY IS WIN"", I need KEY-IS-WIN in that order. Currently IS is leftmost, then WIN, then KEY.
+
+So the arrangement is: IS ... WIN ... KEY (from left to right)
+
+To form ""KEY IS WIN"", I need to push KEY to the left past WIN and IS, or rearrange differently.
+
+Let me try going up to push one of the text blocks down, or maybe go down to form a different rule.
+
+Since I can't move left (maybe blocked), let me try another direction. 
+
+I'll attempt moving upward.","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left
+rule `win` 2 step to the left
+rule `key` 1 step to the left
+rule `door` 2 step to the left and 2 steps down
+door 1 step to the left and 2 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+key 2 steps to the right and 5 steps down",0,False
+7,left,"Let me analyze the current situation:
+
+I'm at some position (let's call it 0,0) and I can see:
+- rule `is` 3 step to the left (at -3, 0)
+- rule `win` 2 step to the left (at -2, 0)
+- rule `key` 1 step to the left (at -1, 0)
+- rule `door` 2 step to the left and 2 steps down (at -2, -2)
+- door 1 step to the left and 2 steps down (at -1, -2)
+- rule `baba` 3 step to the left and 5 steps down (at -3, -5)
+- rule `is` 2 step to the left and 5 steps down (at -2, -5)
+- rule `you` 1 step to the left and 5 steps down (at -1, -5)
+- key 2 steps to the right and 5 steps down (at 2, -5)
+
+Active rules:
+- baba is you
+
+I see that the text blocks ""IS"" and ""WIN"" and ""KEY"" are arranged in a row to my left. If I push KEY to the left, it would form ""KEY IS WIN"".
+
+Currently I'm right next to KEY (1 step to the left). If I move left, I'd push KEY... Let me see if I can form ""KEY IS WIN"".
+
+The current positions:
+- IS is at -3
+- WIN is at -2
+- KEY is at -1
+
+If I push KEY left, it would go to -2, pushing WIN to -3, pushing IS to -4. That doesn't form a rule.
+
+Wait, I need to think about this differently. The rule format is [Subject] IS [Property]. So KEY IS WIN would need KEY, then IS, then WIN in that order from left to right.
+
+Currently the order from left to right is: IS, WIN, KEY","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left
+rule `win` 2 step to the left
+rule `key` 1 step to the left
+rule `door` 2 step to the left and 2 steps down
+door 1 step to the left and 2 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+key 2 steps to the right and 5 steps down",0,False
+8,right,"Looking at this puzzle, I need to understand the current state:
+
+Active rules: baba is you
+
+Objects on the map:
+- rule `is` 3 step to the left
+- rule `win` 2 step to the left
+- rule `key` 1 step to the left
+- rule `door` 2 step to the left and 2 steps down
+- door 1 step to the left and 2 steps down
+- rule `baba` 3 step to the left and 5 steps down
+- rule `is` 2 step to the left and 5 steps down
+- rule `you` 1 step to the left and 5 steps down
+- key 2 steps to the right and 5 steps down
+
+I see that there's text blocks above me that could form rules. There's `is` (3 left), `win` (2 left), `key` (1 left) - these could form ""KEY IS WIN"" if arranged properly.
+
+My position seems to be at a place where I'm not able to move left anymore (I've been trying left multiple times with no change).
+
+Let me think about what I need to do:
+1. I need to create a WIN condition
+2. I see KEY text, IS text, and WIN text in a row above me
+3. If I can form ""KEY IS WIN"", then I can touch the key to win
+
+It seems like I'm stuck. Let me try going in a different direction. Maybe I need to go down or right to find a way around.
+
+Let me try going right first to see if I can move.","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 4 step to the left
+rule `win` 3 step to the left
+rule `key` 2 step to the left
+rule `door` 3 step to the left and 2 steps down
+door 2 step to the left and 2 steps down
+rule `baba` 4 step to the left and 5 steps down
+rule `is` 3 step to the left and 5 steps down
+rule `you` 2 step to the left and 5 steps down
+key 1 step to the right and 5 steps down",0,False
+9,left,"Let me analyze the current state:
+
+Current rules: ""baba is you""
+
+Objects on the map:
+- rule `is` 4 steps to the left
+- rule `win` 3 steps to the left
+- rule `key` 2 steps to the left
+- rule `door` 3 steps to the left and 2 steps down
+- door 2 steps to the left and 2 steps down
+- rule `baba` 4 steps to the left and 5 steps down
+- rule `is` 3 steps to the left and 5 steps down
+- rule `you` 2 steps to the left and 5 steps down
+- key 1 step to the right and 5 steps down
+
+I need to form a rule that makes something WIN. Currently, I see:
+- `is` and `win` are 4 and 3 steps to my left respectively on the same row
+- `key` is 2 steps to my left on the same row
+
+So at my current row, we have: IS - WIN - KEY from left to right.
+
+I need to form ""KEY IS WIN"" to make the key the win condition. Currently, the order seems to be IS, WIN, KEY which doesn't form a valid rule.
+
+Let me think about this more carefully. I need to push KEY to align with IS and WIN to form ""KEY IS WIN"".
+
+If I go left and push key, I could potentially form ""KEY IS WIN"". Let me go left to push the KEY text.","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left
+rule `win` 2 step to the left
+rule `key` 1 step to the left
+rule `door` 2 step to the left and 2 steps down
+door 1 step to the left and 2 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+key 2 steps to the right and 5 steps down",0,False
+10,down,"Let me analyze the current state:
+
+Active rules:
+- baba is you
+
+Objects on the map (relative to my position):
+- rule `is` 3 steps to the left
+- rule `win` 2 steps to the left
+- rule `key` 1 step to the left
+- rule `door` 2 steps to the left and 2 steps down
+- door 1 step to the left and 2 steps down
+- rule `baba` 3 steps to the left and 5 steps down
+- rule `is` 2 steps to the left and 5 steps down
+- rule `you` 1 step to the left and 5 steps down
+- key 2 steps to the right and 5 steps down
+
+So the text blocks `is` `win` `key` are in a row above me.
+I need to create a rule like ""KEY IS WIN"" to make the key the win condition.
+
+Currently:
+- Row with me: `is` (3 left), `win` (2 left), `key` (1 left)
+- So they're arranged as: IS WIN KEY (from left to right)
+
+I need to rearrange them to: KEY IS WIN
+
+Let me push `key` to the left so it's before `is`. I'm 1 step to the right of `key`. If I go left, I'll push `key` which will push `win` which will push `is`.
+
+Actually wait, I need to be more careful. The rule needs to be formed horizontally or vertically as ""[Subject] IS [Property]"".
+
+Currently: IS WIN KEY (from left to right, which is read right to left from my perspective)
+
+From my position:
+- `key` is 1 step to the left
+- `win` is 2 steps to the left  
+- `is` is 3 steps to the left
+
+So reading left to right: IS WIN KEY
+
+I need to create KEY IS WIN, which means I need to move the `key` block to be to the left of `is`.","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left and 1 step up
+rule `win` 2 step to the left and 1 step up
+rule `key` 1 step to the left and 1 step up
+rule `door` 2 step to the left and 1 step down
+door 1 step to the left and 1 step down
+rule `baba` 3 step to the left and 4 steps down
+rule `is` 2 step to the left and 4 steps down
+rule `you` 1 step to the left and 4 steps down
+key 2 steps to the right and 4 steps down",0,False
+11,up,"Let me analyze the current state:
+
+Active rules:
+- baba is you
+
+Objects on the map:
+- rule `is` 3 steps to the left and 1 step up
+- rule `win` 2 steps to the left and 1 step up
+- rule `key` 1 step to the left and 1 step up
+- rule `door` 2 steps to the left and 1 step down
+- door 1 step to the left and 1 step down
+- rule `baba` 3 steps to the left and 4 steps down
+- rule `is` 2 steps to the left and 4 steps down
+- rule `you` 1 step to the left and 4 steps down
+- key 2 steps to the right and 4 steps down
+
+I need to form a win condition. I see `key` text is 1 step to the left and 1 step up. There's also `is` at 3 steps left and 1 up, and `win` at 2 steps left and 1 up.
+
+So the text blocks at the top are: `is` `win` `key` (from left to right)
+
+If I can push `key` to the left, I could form ""KEY IS WIN"".
+
+Let me think about this more carefully. The layout seems to be:
+- Top row (1 step up): `is` (3 left), `win` (2 left), `key` (1 left)
+
+To form ""KEY IS WIN"", I need to arrange them as `key` `is` `win`.
+
+Currently they are arranged as `is` `win` `key`. 
+
+I need to push `key` to the left to form ""KEY IS WIN"". If I go up and then push key to the left...
+
+Let me go up first.","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left
+rule `win` 2 step to the left
+rule `key` 1 step to the left
+rule `door` 2 step to the left and 2 steps down
+door 1 step to the left and 2 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+key 2 steps to the right and 5 steps down",0,False
+12,left,"Let me analyze the current state:
+
+Active rules:
+- baba is you
+
+Objects on the map (relative to my position):
+- rule `is` 3 step to the left
+- rule `win` 2 step to the left
+- rule `key` 1 step to the left
+- rule `door` 2 step to the left and 2 steps down
+- door 1 step to the left and 2 steps down
+- rule `baba` 3 step to the left and 5 steps down
+- rule `is` 2 step to the left and 5 steps down
+- rule `you` 1 step to the left and 5 steps down
+- key 2 steps to the right and 5 steps down
+
+I see that there's text blocks that could form rules. Currently:
+- ""IS"" and ""WIN"" and ""KEY"" are on my row (to my left)
+- ""DOOR"" is 2 steps left and 2 down
+- There's a door object 1 step left and 2 down
+
+I need to form ""KEY IS WIN"" rule to win by touching the key, since there's a key object.
+
+Currently the text blocks are:
+- IS is 3 left
+- WIN is 2 left
+- KEY is 1 left
+
+So they're arranged as: IS - WIN - KEY (from my perspective going left)
+That means from left to right it's: IS, WIN, KEY
+
+I need to rearrange to get KEY IS WIN.
+
+Let me push the KEY text to form KEY IS WIN. If I go left to the KEY text and push it further left...
+
+Actually wait, if I push KEY left, I'll get: IS - WIN - KEY becoming IS - KEY - WIN... no that's not right either.
+
+Let me think again. The positions from left to right (relative to me):
+- 3 left: IS
+- 2 left: WIN
+- 1 left: KEY","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left
+rule `win` 2 step to the left
+rule `key` 1 step to the left
+rule `door` 2 step to the left and 2 steps down
+door 1 step to the left and 2 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+key 2 steps to the right and 5 steps down",0,False
+13,left,"Let me analyze the current state:
+
+I'm at some position and I need to look at where objects are:
+- rule `is` is 3 steps to the left
+- rule `win` is 2 steps to the left
+- rule `key` is 1 step to the left
+- rule `door` is 2 steps to the left and 2 steps down
+- door (object) is 1 step to the left and 2 steps down
+- rule `baba` is 3 steps to the left and 5 steps down
+- rule `is` is 2 steps to the left and 5 steps down
+- rule `you` is 1 step to the left and 5 steps down
+- key (object) is 2 steps to the right and 5 steps down
+
+The current active rule is ""baba is you"" which means I control baba.
+
+I see text blocks: IS, WIN, KEY at my row (to the left)
+And DOOR text and door object below.
+And BABA IS YOU text blocks below that.
+
+To win, I need to create a WIN rule. The KEY text is 1 step to the left, and IS is 3 steps to the left, WIN is 2 steps to the left.
+
+So the text blocks in my row are arranged as: IS - WIN - KEY (from left to right)
+
+If I push KEY to the left, I could create ""KEY IS WIN"" which would make the key object the win condition!
+
+Let me try going left to push the KEY text block. But wait, I tried that before and it seems I'm stuck.
+
+Let me reconsider. The IS is 3 left, WIN is 2 left, KEY is 1 left. So from my position going left:
+- position -1: KEY
+- position -2: WIN
+- position -3: IS
+
+If I go left, I push KEY into WIN into IS... that would make the sequence IS - WIN - KEY from left to right, which doesn't form a valid rule.","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left
+rule `win` 2 step to the left
+rule `key` 1 step to the left
+rule `door` 2 step to the left and 2 steps down
+door 1 step to the left and 2 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+key 2 steps to the right and 5 steps down",0,False
+14,left,"Let me analyze the current state of the game:
+
+Active rules:
+- baba is you
+
+Objects on the map (relative to my position):
+- rule `is` 3 step to the left
+- rule `win` 2 step to the left
+- rule `key` 1 step to the left
+- rule `door` 2 step to the left and 2 steps down
+- door 1 step to the left and 2 steps down
+- rule `baba` 3 step to the left and 5 steps down
+- rule `is` 2 step to the left and 5 steps down
+- rule `you` 1 step to the left and 5 steps down
+- key 2 steps to the right and 5 steps down
+
+There's a row of text blocks above me: `is`, `win`, `key` (from left to right, 3, 2, 1 steps to the left)
+
+I need to form a rule to win. I could form ""KEY IS WIN"" by pushing the `key` text block to line up with `is` and `win`.
+
+Currently the text blocks are arranged as:
+- `is` at position (-3, 0)
+- `win` at position (-2, 0)
+- `key` at position (-1, 0)
+
+So the order from left to right is: is, win, key
+
+To make ""KEY IS WIN"", I need to rearrange them so they read ""key is win"" from left to right.
+
+Let me think about how to do this. I could push the `key` block to the left. If I go left and then push key further left, I might be able to form the rule.
+
+Actually, wait. If I push `key` to the left, it would push into `win`, and then into `is`. That might not help.
+
+Let me think differently. The row has: is(-3), win(-2), key(-1).
+
+
+Pushing `key` downward first could free up space, then I might reposition `is` by moving it right. I'll head left to start manipulating these blocks.","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left
+rule `win` 2 step to the left
+rule `key` 1 step to the left
+rule `door` 2 step to the left and 2 steps down
+door 1 step to the left and 2 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+key 2 steps to the right and 5 steps down",0,False
+15,up,"Let me analyze the current state:
+
+Active rules: baba is you
+
+Objects on the map:
+- rule `is` 3 steps to the left
+- rule `win` 2 steps to the left
+- rule `key` 1 step to the left
+- rule `door` 2 steps to the left and 2 steps down
+- door 1 step to the left and 2 steps down
+- rule `baba` 3 steps to the left and 5 steps down
+- rule `is` 2 steps to the left and 5 steps down
+- rule `you` 1 step to the left and 5 steps down
+- key 2 steps to the right and 5 steps down
+
+So the layout is:
+- Row at my level: [IS] [WIN] [KEY] [ME]
+- 2 steps down: [DOOR text] [door object]
+- 5 steps down: [BABA] [IS] [YOU] ... [key object]
+
+To win, I need to form a ""X IS WIN"" rule and then touch X. I have KEY, IS, and WIN text blocks available.
+
+I should try to form ""KEY IS WIN"" by pushing KEY to the left to meet IS and WIN.
+
+Currently: IS WIN KEY are in a row (3 left, 2 left, 1 left)
+If I push KEY to the left, it would become KEY IS WIN? No, the order would be IS WIN KEY pushed left...
+
+Wait, let me think about this more carefully. The blocks are:
+- IS at 3 left
+- WIN at 2 left
+- KEY at 1 left
+
+So the row looks like: IS WIN KEY [ME]
+
+If I go left, I'll push KEY into WIN, making it: IS KEY WIN [ME]? No wait, that's not how pushing works.
+
+If I'm at position 0 and KEY is at position -1, WIN at -2, IS at -3, and I move left, I push KEY to position -2, which pushes WIN to -3, which pushes IS to -4.
+
+
+Pushing left just shifts the entire row, so I need to separate these blocks to rearrange them properly. I could move KEY down first, then navigate around to reposition the text blocks into the correct sequence. Let me head upward to get above the rule row and approach from a different angle.","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left
+rule `win` 2 step to the left
+rule `key` 1 step to the left
+rule `door` 2 step to the left and 2 steps down
+door 1 step to the left and 2 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+key 2 steps to the right and 5 steps down",0,False
+16,down,"Let me analyze the current state:
+
+Active rules:
+- baba is you
+
+Objects on the map:
+- rule `is` 3 steps to the left
+- rule `win` 2 steps to the left
+- rule `key` 1 step to the left
+- rule `door` 2 steps to the left and 2 steps down
+- door 1 step to the left and 2 steps down
+- rule `baba` 3 steps to the left and 5 steps down
+- rule `is` 2 steps to the left and 5 steps down
+- rule `you` 1 step to the left and 5 steps down
+- key 2 steps to the right and 5 steps down
+
+So I need to form ""KEY IS WIN"" or ""DOOR IS WIN"" to win the level.
+
+Looking at the text blocks:
+- There's `is` and `win` and `key` at the top (3 left, 2 left, 1 left respectively)
+
+If I can push `key` to be next to `is` and `win`, I can form ""KEY IS WIN"".
+
+Currently:
+- `is` is 3 steps left
+- `win` is 2 steps left  
+- `key` is 1 step left
+
+So if I push `key` to the left, I can form ""KEY IS WIN"" - they would align as KEY IS WIN.
+
+Wait, let me think about this more carefully. I need them to be in a row: KEY IS WIN.
+
+Currently they seem to be arranged as IS WIN KEY from left to right. I need to rearrange them to KEY IS WIN.
+
+I'm at the position where KEY is 1 step to my left. If I go left and push KEY, it will push into WIN and IS.
+
+Actually, let me reconsider. If `is` is 3 left, `win` is 2 left, and `key` is 1 left, then from my position looking left, the order is: `is` (farthest), `win` (middle), `key` (closest).","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left and 1 step up
+rule `win` 2 step to the left and 1 step up
+rule `key` 1 step to the left and 1 step up
+rule `door` 2 step to the left and 1 step down
+door 1 step to the left and 1 step down
+rule `baba` 3 step to the left and 4 steps down
+rule `is` 2 step to the left and 4 steps down
+rule `you` 1 step to the left and 4 steps down
+key 2 steps to the right and 4 steps down",0,False
+17,up,"Let me analyze the current situation:
+
+Active rules:
+- baba is you
+
+Objects on the map:
+- rule `is` 3 step to the left and 1 step up
+- rule `win` 2 step to the left and 1 step up
+- rule `key` 1 step to the left and 1 step up
+- rule `door` 2 step to the left and 1 step down
+- door 1 step to the left and 1 step down
+- rule `baba` 3 step to the left and 4 steps down
+- rule `is` 2 step to the left and 4 steps down
+- rule `you` 1 step to the left and 4 steps down
+- key 2 steps to the right and 4 steps down
+
+So I see:
+- There are text blocks `is`, `win`, `key` in a row (1 step up from me)
+- There's `door` text and actual door (1 step down from me)
+- There's the rule `baba is you` (4 steps down)
+- There's a key object (2 steps right and 4 steps down)
+
+I need to form a rule like ""KEY IS WIN"" to win by touching the key.
+
+The text blocks I need are:
+- `key` is 1 step to the left and 1 step up
+- `is` is 3 step to the left and 1 step up
+- `win` is 2 step to the left and 1 step up
+
+So from top row (1 step up): `is` `win` `key` from left to right (but not in right order for a rule)
+
+I need to arrange them as KEY IS WIN. 
+
+Let me go up first to be at the row with the text blocks, then push them to form the rule.","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left
+rule `win` 2 step to the left
+rule `key` 1 step to the left
+rule `door` 2 step to the left and 2 steps down
+door 1 step to the left and 2 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+key 2 steps to the right and 5 steps down",0,False
+18,left,"Let me analyze the current state:
+
+Active rules:
+- baba is you
+
+Objects on the map:
+- rule `is` 3 steps to the left
+- rule `win` 2 steps to the left
+- rule `key` 1 step to the left
+- rule `door` 2 steps to the left and 2 steps down
+- door 1 step to the left and 2 steps down
+- rule `baba` 3 steps to the left and 5 steps down
+- rule `is` 2 steps to the left and 5 steps down
+- rule `you` 1 step to the left and 5 steps down
+- key 2 steps to the right and 5 steps down
+
+So there's a row of rules at my level: IS - WIN - KEY (from left to right, 3, 2, 1 steps to the left)
+
+I need to form a win condition. I could try to make ""KEY IS WIN"" by pushing the KEY text to the left of IS and WIN.
+
+Currently I'm at position (0, 0). The KEY text is 1 step to the left.
+IS is 3 steps to the left, WIN is 2 steps to the left, KEY is 1 step to the left.
+
+Wait, that means the order from left to right is: IS, WIN, KEY
+That's not forming a valid rule.
+
+I need to rearrange them to form ""KEY IS WIN"".
+
+Let me think about this more carefully. I should push KEY to the left so it aligns with IS and WIN to form ""KEY IS WIN"".
+
+If I go left and push KEY, it would become KEY WIN IS which still isn't right.
+
+I think I need to push KEY down, then push IS and WIN to align properly.
+
+Actually, let me try a different approach. I need to get the key object (which is 2 steps to the right and 5 steps down) to be ""WIN"".
+
+To form ""KEY IS WIN"", I need to arrange the text blocks in order. 
+
+The text blocks are positioned at (-3, 0), (-2, 0), and (-1, 0) respectively. Pushing KEY leftward would reverse the sequence rather than create the correct arrangement. I need to consider moving IS and WIN instead to get them in the right order for a valid rule.","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left
+rule `win` 2 step to the left
+rule `key` 1 step to the left
+rule `door` 2 step to the left and 2 steps down
+door 1 step to the left and 2 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+key 2 steps to the right and 5 steps down",0,False
+19,left,"Let me analyze the current state:
+
+Active rules:
+- baba is you
+
+Objects on the map:
+- rule `is` 3 steps to the left
+- rule `win` 2 steps to the left
+- rule `key` 1 step to the left
+- rule `door` 2 steps to the left and 2 steps down
+- door 1 step to the left and 2 steps down
+- rule `baba` 3 steps to the left and 5 steps down
+- rule `is` 2 steps to the left and 5 steps down
+- rule `you` 1 step to the left and 5 steps down
+- key 2 steps to the right and 5 steps down
+
+So there's text blocks at the top that could form ""KEY IS WIN"" if arranged properly (they're currently: IS, WIN, KEY from left to right, all in the same row).
+
+To win, I need to form a rule like ""KEY IS WIN"" and then touch the key.
+
+Currently:
+- `is` is 3 steps left
+- `win` is 2 steps left
+- `key` is 1 step left
+
+So the arrangement is: IS - WIN - KEY (from left to right)
+
+I need to rearrange to make KEY - IS - WIN.
+
+I should push the `key` text block to the left to form KEY IS WIN.
+
+Let me go left to push the KEY block.","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left
+rule `win` 2 step to the left
+rule `key` 1 step to the left
+rule `door` 2 step to the left and 2 steps down
+door 1 step to the left and 2 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+key 2 steps to the right and 5 steps down",0,False
+20,left,"Let me analyze the current situation:
+
+Active rules:
+- baba is you
+
+Objects on the map:
+- rule `is` 3 steps to the left
+- rule `win` 2 steps to the left
+- rule `key` 1 step to the left
+- rule `door` 2 steps to the left and 2 steps down
+- door 1 step to the left and 2 steps down
+- rule `baba` 3 steps to the left and 5 steps down
+- rule `is` 2 steps to the left and 5 steps down
+- rule `you` 1 step to the left and 5 steps down
+- key 2 steps to the right and 5 steps down
+
+So there are text blocks ""IS"", ""WIN"", ""KEY"" in a row to the left.
+And ""DOOR"" text and a door object below.
+Also ""BABA IS YOU"" rule at the bottom.
+
+To win, I need to create a rule like ""KEY IS WIN"" or ""DOOR IS WIN"" and then touch that object.
+
+The text blocks IS, WIN, KEY are in a horizontal row at the top left.
+Currently: IS - WIN - KEY (from left to right, relative to me)
+
+If I go left to the KEY text and push it left, I could form ""KEY IS WIN"".
+
+Let me try going left to reach the KEY text block.","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left
+rule `win` 2 step to the left
+rule `key` 1 step to the left
+rule `door` 2 step to the left and 2 steps down
+door 1 step to the left and 2 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+key 2 steps to the right and 5 steps down",0,False
+21,left,"Let me analyze the current state:
+
+Active rules:
+- baba is you
+
+Objects on the map:
+- rule `is` 3 steps to the left
+- rule `win` 2 steps to the left
+- rule `key` 1 step to the left
+- rule `door` 2 steps to the left and 2 steps down
+- door 1 step to the left and 2 steps down
+- rule `baba` 3 steps to the left and 5 steps down
+- rule `is` 2 steps to the left and 5 steps down
+- rule `you` 1 step to the left and 5 steps down
+- key 2 steps to the right and 5 steps down
+
+I see there are text blocks ""IS"" and ""WIN"" and ""KEY"" in a row to my left. If I can form ""KEY IS WIN"", I can win by touching the key.
+
+Currently there's:
+- `is` 3 left
+- `win` 2 left
+- `key` 1 left
+
+So the order from my position going left is: key, win, is
+That would read backwards as ""is win key"" which doesn't form a valid rule.
+
+I need to rearrange these. I should push the `key` text to form ""KEY IS WIN"".
+
+Let me think about positions:
+- I need KEY IS WIN in a row (left to right)
+- Currently: is (3L), win (2L), key (1L)
+
+I need to push `key` to the left of `is`. Let me go left and push `key`.
+
+If I go left, I'll push `key` left into `win`, and `win` will push into `is`.
+
+Let me try going left to see if I can arrange these blocks properly.","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left
+rule `win` 2 step to the left
+rule `key` 1 step to the left
+rule `door` 2 step to the left and 2 steps down
+door 1 step to the left and 2 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+key 2 steps to the right and 5 steps down",0,False
+22,left,"Let me analyze the current state:
+
+Active rules: baba is you
+
+Objects on the map:
+- rule `is` 3 steps to the left
+- rule `win` 2 steps to the left
+- rule `key` 1 step to the left
+- rule `door` 2 steps to the left and 2 steps down
+- door 1 step to the left and 2 steps down
+- rule `baba` 3 steps to the left and 5 steps down
+- rule `is` 2 steps to the left and 5 steps down
+- rule `you` 1 step to the left and 5 steps down
+- key 2 steps to the right and 5 steps down
+
+I see there are text blocks: IS, WIN, KEY at the top row (to my left)
+And DOOR, door object nearby
+And BABA IS YOU at the bottom
+
+I need to form ""KEY IS WIN"" to make the key a winning object, then reach the key.
+
+Currently I'm somewhere. The text blocks IS, WIN, KEY are to my left (1, 2, 3 steps). They seem to be arranged horizontally but not forming a rule yet.
+
+I need to push KEY to join with IS and WIN to form ""KEY IS WIN"".
+
+Let me go left to reach the KEY text block and push it further left to align with IS and WIN.
+
+Actually, wait - the text blocks are:
+- IS at 3 left
+- WIN at 2 left  
+- KEY at 1 left
+
+So they're in the order: IS - WIN - KEY (from left to right)
+To form KEY IS WIN, I need KEY IS WIN in that order from left to right.
+
+I should push KEY to the left side of IS. But that's tricky...
+
+Actually, I could push the WIN block to form ""KEY IS WIN"" by rearranging. Let me think more carefully.
+
+Current arrangement (left to right): IS - WIN - KEY","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left
+rule `win` 2 step to the left
+rule `key` 1 step to the left
+rule `door` 2 step to the left and 2 steps down
+door 1 step to the left and 2 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+key 2 steps to the right and 5 steps down",0,False
+23,down,"Let me analyze the current state of the puzzle:
+
+Active rules:
+- baba is you
+
+Objects on the map (relative to my position):
+- rule `is` 3 steps to the left
+- rule `win` 2 steps to the left
+- rule `key` 1 step to the left
+- rule `door` 2 steps to the left and 2 steps down
+- door 1 step to the left and 2 steps down
+- rule `baba` 3 steps to the left and 5 steps down
+- rule `is` 2 steps to the left and 5 steps down
+- rule `you` 1 step to the left and 5 steps down
+- key 2 steps to the right and 5 steps down
+
+I see text blocks that can form rules:
+- At the top row (relative to me): `is`, `win`, `key` - they seem to be in a row
+- At the bottom: `baba`, `is`, `you` (forming ""baba is you"")
+- `door` text is also there
+
+I need to create a win condition. I could try to form ""KEY IS WIN"" using the top row blocks.
+
+Currently, `is` is 3 left, `win` is 2 left, `key` is 1 left. So they're arranged as: IS - WIN - KEY from left to right.
+
+If I push `key` to the left, I might be able to form ""KEY IS WIN"".
+
+Let me try going left to reach the `key` text block and push it further left, or rearrange to form a rule.
+
+It seems I'm stuck at a wall or something since my position isn't changing when I go left. Let me try a different direction - maybe go down to work with the bottom text blocks, or go right to eventually reach the key.","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left and 1 step up
+rule `win` 2 step to the left and 1 step up
+rule `key` 1 step to the left and 1 step up
+rule `door` 2 step to the left and 1 step down
+door 1 step to the left and 1 step down
+rule `baba` 3 step to the left and 4 steps down
+rule `is` 2 step to the left and 4 steps down
+rule `you` 1 step to the left and 4 steps down
+key 2 steps to the right and 4 steps down",0,False
+24,up,"Let me analyze the current state of the puzzle:
+
+Active rules:
+- baba is you
+
+Objects on the map:
+- rule `is` 3 steps to the left and 1 step up
+- rule `win` 2 steps to the left and 1 step up
+- rule `key` 1 step to the left and 1 step up
+- rule `door` 2 steps to the left and 1 step down
+- door 1 step to the left and 1 step down
+- rule `baba` 3 steps to the left and 4 steps down
+- rule `is` 2 steps to the left and 4 steps down
+- rule `you` 1 step to the left and 4 steps down
+- key 2 steps to the right and 4 steps down
+
+So there are text blocks ""is"", ""win"", ""key"" in a row 1 step up.
+There's ""door"" text and a door object 1 step down.
+There's ""baba is you"" rule 4 steps down.
+And a key object 2 steps to the right and 4 steps down.
+
+I need to form a win condition. I see ""key"" and ""win"" text blocks. If I can form ""KEY IS WIN"", I can then reach the key to win.
+
+The ""is"" is at 3 left and 1 up
+The ""win"" is at 2 left and 1 up
+The ""key"" is at 1 left and 1 up
+
+So the order is: `is` `win` `key` from left to right
+
+I need to rearrange them to form ""KEY IS WIN"". Let me think about how to do this.
+
+I should go up and then push the ""key"" text to form ""KEY IS WIN"".
+
+Let me go up first.","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left
+rule `win` 2 step to the left
+rule `key` 1 step to the left
+rule `door` 2 step to the left and 2 steps down
+door 1 step to the left and 2 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+key 2 steps to the right and 5 steps down",0,False
+25,left,"Let me analyze the current situation:
+
+Active rules:
+- baba is you
+
+Objects on the map:
+- rule `is` 3 steps to the left
+- rule `win` 2 steps to the left
+- rule `key` 1 step to the left
+- rule `door` 2 steps to the left and 2 steps down
+- door 1 step to the left and 2 steps down
+- rule `baba` 3 steps to the left and 5 steps down
+- rule `is` 2 steps to the left and 5 steps down
+- rule `you` 1 step to the left and 5 steps down
+- key 2 steps to the right and 5 steps down
+
+I need to create a WIN rule. I see there's `is` and `win` at the top, with `key` next to them. I could push `key` to the left to form ""KEY IS WIN"".
+
+The rule text blocks at the top are:
+- `is` at 3 left
+- `win` at 2 left
+- `key` at 1 left
+
+So the order from left to right is: `is`, `win`, `key`
+
+If I push `key` to the left, it would become `is`, `key`, `win` - that doesn't work.
+
+I need to form ""KEY IS WIN"". Currently, the blocks are arranged as IS, WIN, KEY from left to right. I need to rearrange them.
+
+Let me think about how to get to the key text block and push it to the right place. If I'm currently at position (0,0), then:
+- `key` is at (-1, 0)
+- `win` is at (-2, 0)
+- `is` is at (-3, 0)
+
+If I go left and push `key` further left, it will push into `win`, which will push into `is`. That won't work.
+
+I need to get the `key` block to be in front of `is`. 
+
+I should move `key` down first to clear the top row, then reposition it. Let me head left to start manipulating these text blocks.","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left
+rule `win` 2 step to the left
+rule `key` 1 step to the left
+rule `door` 2 step to the left and 2 steps down
+door 1 step to the left and 2 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+key 2 steps to the right and 5 steps down",0,False
+26,left,"Let me analyze the current situation:
+
+Active rules: baba is you
+
+Objects on the map:
+- rule `is` 3 steps to the left
+- rule `win` 2 steps to the left
+- rule `key` 1 step to the left
+- rule `door` 2 steps to the left and 2 steps down
+- door 1 step to the left and 2 steps down
+- rule `baba` 3 steps to the left and 5 steps down
+- rule `is` 2 steps to the left and 5 steps down
+- rule `you` 1 step to the left and 5 steps down
+- key 2 steps to the right and 5 steps down
+
+I see there are text blocks ""IS WIN KEY"" in a row to my left. If I can form ""KEY IS WIN"", then I can win by touching the key.
+
+Currently, the text blocks seem to be arranged as:
+- `is` is 3 steps left
+- `win` is 2 steps left
+- `key` is 1 step left
+
+So the row reads: IS WIN KEY (from left to right)
+
+I need to rearrange them to form ""KEY IS WIN"". I need to push the `key` text to the left of `is`.
+
+Let me think about this differently. If I go left, I'll push `key`. But I seem to be stuck because the observation keeps showing the same positions even when I move left.
+
+Maybe there's a wall or something blocking me. Let me try a different approach - maybe I need to go down and work with the bottom row, or push other blocks.
+
+Actually, I need to form ""KEY IS WIN"" by pushing blocks. The current arrangement seems to be ""IS WIN KEY"" from left to right. I need to push the KEY text to form the rule.
+
+Let me try going down first, then navigate to push the blocks properly.","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left
+rule `win` 2 step to the left
+rule `key` 1 step to the left
+rule `door` 2 step to the left and 2 steps down
+door 1 step to the left and 2 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+key 2 steps to the right and 5 steps down",0,False
+27,left,"Let me analyze the current state of the game:
+
+Active rules:
+- baba is you
+
+Objects on the map:
+- rule `is` 3 step to the left
+- rule `win` 2 step to the left
+- rule `key` 1 step to the left
+- rule `door` 2 step to the left and 2 steps down
+- door 1 step to the left and 2 steps down
+- rule `baba` 3 step to the left and 5 steps down
+- rule `is` 2 step to the left and 5 steps down
+- rule `you` 1 step to the left and 5 steps down
+- key 2 steps to the right and 5 steps down
+
+So there are text blocks arranged as:
+- Top row: IS, WIN, KEY (from left to right, with IS being 3 left, WIN being 2 left, KEY being 1 left from me)
+- Middle: DOOR (2 left, 2 down) and door object (1 left, 2 down)
+- Bottom row: BABA, IS, YOU (from left to right, 5 down)
+- key object at 2 right and 5 down
+
+I need to form ""KEY IS WIN"" to win the game by touching the key.
+
+The blocks are: IS (3 left), WIN (2 left), KEY (1 left)
+So they are arranged as: IS WIN KEY
+
+I need to push KEY to the left to form KEY IS WIN. Let me go to the right of KEY and push it left.
+
+Currently KEY is 1 step to the left of me, so I need to go around it to push it left.
+
+Let me go up and then left to be above KEY, then down to push it... no wait, I need to push horizontally.
+
+Let me go down and then left to be below KEY, then... no that won't help either.
+
+Actually I need to push KEY to the left so it lines up as KEY IS WIN. KEY is at 1 left, IS is at 3 left, WIN is at 2 left.
+
+
+The current layout is IS WIN KEY from left to right. To get KEY IS WIN, I need to shift KEY two positions left. If I move left from my current position, I'll push KEY left since it's directly adjacent. Let me do that.","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left
+rule `win` 2 step to the left
+rule `key` 1 step to the left
+rule `door` 2 step to the left and 2 steps down
+door 1 step to the left and 2 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+key 2 steps to the right and 5 steps down",0,False
+28,left,"Let me analyze the current situation:
+
+Active rules:
+- baba is you
+
+Objects on the map:
+- rule `is` 3 steps to the left
+- rule `win` 2 steps to the left
+- rule `key` 1 step to the left
+- rule `door` 2 steps to the left and 2 steps down
+- door 1 step to the left and 2 steps down
+- rule `baba` 3 steps to the left and 5 steps down
+- rule `is` 2 steps to the left and 5 steps down
+- rule `you` 1 step to the left and 5 steps down
+- key 2 steps to the right and 5 steps down
+
+I need to create a win condition. The text blocks available at the top are:
+- `is` (3 left)
+- `win` (2 left)
+- `key` (1 left)
+
+These seem to be arranged in a row. If I can push `key` to the left, I might form ""KEY IS WIN"".
+
+Actually, looking at the positions:
+- `is` is at 3 left
+- `win` is at 2 left
+- `key` is at 1 left
+
+So from left to right it would be: IS, WIN, KEY
+
+I need to rearrange these to form ""KEY IS WIN"".
+
+Let me think about where I am and what I need to do. The key text is 1 step to the left. If I go left and push it further left, I might be able to form ""KEY IS WIN"".
+
+Actually, positions indicate:
+- `is` at x=-3
+- `win` at x=-2
+- `key` at x=-1
+
+So reading from left to right: IS WIN KEY
+
+I need KEY IS WIN. So I should push KEY to position x=-4 (to the left of IS).
+
+Let me go left to the key and push it.","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left
+rule `win` 2 step to the left
+rule `key` 1 step to the left
+rule `door` 2 step to the left and 2 steps down
+door 1 step to the left and 2 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+key 2 steps to the right and 5 steps down",0,False
+29,left,"Let me analyze the current state of the game:
+
+Active rules:
+- baba is you
+
+Objects on the map:
+- rule `is` 3 steps to the left
+- rule `win` 2 steps to the left
+- rule `key` 1 step to the left
+- rule `door` 2 steps to the left and 2 steps down
+- door 1 step to the left and 2 steps down
+- rule `baba` 3 steps to the left and 5 steps down
+- rule `is` 2 steps to the left and 5 steps down
+- rule `you` 1 step to the left and 5 steps down
+- key 2 steps to the right and 5 steps down
+
+I need to create a win condition. I see the text blocks `is`, `win`, and `key` at the top. If I can form ""KEY IS WIN"", then touching the key would win the game.
+
+Currently:
+- `is` is 3 steps left
+- `win` is 2 steps left
+- `key` is 1 step left
+
+These seem to be already in a row. Let me think about their arrangement. If they're horizontal, I need to check if ""KEY IS WIN"" is formed.
+
+Actually, the observation says:
+- rule `is` 3 step to the left (so it's at position -3, 0 relative to me)
+- rule `win` 2 step to the left (so it's at position -2, 0)
+- rule `key` 1 step to the left (so it's at position -1, 0)
+
+This would form ""WIN IS KEY"" reading from left to right? No wait... the positions are:
+- is at -3
+- win at -2
+- key at -1
+
+So the order from left to right is: is, win, key which doesn't form a valid rule.
+
+I need to rearrange these to form ""KEY IS WIN"". For this, I need:
+
+
+- key at position x
+- is at position x+1
+- win at position x+2
+
+So I should push the `key` block to the left to form ""KEY IS WIN"". I'm at position 0, and `key` is directly to my left. If I move left and push it, it will collide with `win`, which will then push into `is`. I need to move left and push the key block further.","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left
+rule `win` 2 step to the left
+rule `key` 1 step to the left
+rule `door` 2 step to the left and 2 steps down
+door 1 step to the left and 2 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+key 2 steps to the right and 5 steps down",0,False
+30,down,"Looking at the current state:
+- Active rules: baba is you
+- There are text blocks at the top: `is` (3 left), `win` (2 left), `key` (1 left)
+- There's a door and `door` text block 2 steps down and to the left
+- There's the rule ""baba is you"" at the bottom (5 steps down)
+- There's a key object 5 steps down and 2 steps to the right
+
+I need to form a ""KEY IS WIN"" rule so I can win by touching the key. The text blocks `key`, `is`, and `win` are at the top. Currently they seem to be arranged as `is`, `win`, `key` from left to right (from my perspective).
+
+Wait, let me re-read the positions:
+- rule `is` 3 step to the left
+- rule `win` 2 step to the left  
+- rule `key` 1 step to the left
+
+So from my position, going left: first `key`, then `win`, then `is`. That's the order: IS - WIN - KEY from left to right.
+
+I need to rearrange them to form KEY IS WIN. I should push the `key` text to the left to form ""KEY IS WIN"".
+
+Let me go left to get to the `key` text block (1 step to the left), then push it further left.
+
+Going left seems to not be working. Maybe there's a wall or something blocking me. Let me try a different approach - maybe I need to go down first and then navigate.
+
+Let me try going down.","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left and 1 step up
+rule `win` 2 step to the left and 1 step up
+rule `key` 1 step to the left and 1 step up
+rule `door` 2 step to the left and 1 step down
+door 1 step to the left and 1 step down
+rule `baba` 3 step to the left and 4 steps down
+rule `is` 2 step to the left and 4 steps down
+rule `you` 1 step to the left and 4 steps down
+key 2 steps to the right and 4 steps down",0,False
+31,up,"Let me analyze the current state:
+
+Active rules:
+- baba is you
+
+Objects on the map (relative to my position):
+- rule `is` 3 step to the left and 1 step up
+- rule `win` 2 step to the left and 1 step up
+- rule `key` 1 step to the left and 1 step up
+- rule `door` 2 step to the left and 1 step down
+- door 1 step to the left and 1 step down
+- rule `baba` 3 step to the left and 4 steps down
+- rule `is` 2 step to the left and 4 steps down
+- rule `you` 1 step to the left and 4 steps down
+- key 2 steps to the right and 4 steps down
+
+I need to create a ""KEY IS WIN"" rule to win by touching the key.
+
+The text blocks `is`, `win`, and `key` are positioned at:
+- `is` at 3 left, 1 up
+- `win` at 2 left, 1 up
+- `key` at 1 left, 1 up
+
+So they're arranged as: IS WIN KEY from left to right (looking at it from my position).
+
+To make ""KEY IS WIN"", I need to arrange them as KEY IS WIN.
+
+Let me think about how to push them. If I go left and up, I can push the KEY text. Let me go to position where I can push key to the left, then push IS to the left, and arrange them as KEY IS WIN.
+
+Actually let me think more carefully. The current arrangement from left to right is:
+IS (at 3 left, 1 up) - WIN (at 2 left, 1 up) - KEY (at 1 left, 1 up)
+
+So it reads: IS WIN KEY (from left to right)
+
+To make KEY IS WIN, I could:
+
+
+1. Push KEY to the left of IS
+
+I should move up first to align with the row where these text blocks sit.","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left
+rule `win` 2 step to the left
+rule `key` 1 step to the left
+rule `door` 2 step to the left and 2 steps down
+door 1 step to the left and 2 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+key 2 steps to the right and 5 steps down",0,False
+32,left,"Let me analyze the current situation:
+
+Active rules:
+- baba is you
+
+Objects on the map relative to me (Baba):
+- rule `is` 3 steps to the left
+- rule `win` 2 steps to the left
+- rule `key` 1 step to the left
+- rule `door` 2 steps to the left and 2 steps down
+- door 1 step to the left and 2 steps down
+- rule `baba` 3 steps to the left and 5 steps down
+- rule `is` 2 steps to the left and 5 steps down
+- rule `you` 1 step to the left and 5 steps down
+- key 2 steps to the right and 5 steps down
+
+So there's a row with `is`, `win`, `key` text blocks to my left.
+There's a door and `door` text below.
+And the rule ""baba is you"" is formed at the bottom.
+There's a key object to my right and down.
+
+To win, I need to create a ""KEY IS WIN"" or ""DOOR IS WIN"" rule and then touch that object, or become the key/door.
+
+Currently, looking at the text blocks:
+- `is` is 3 left
+- `win` is 2 left
+- `key` is 1 left
+
+So the order from left to right is: IS, WIN, KEY
+
+I need to form ""KEY IS WIN"" by rearranging these. If I push `key` to the left, it would become: IS, WIN, KEY → KEY, IS, WIN, KEY... that's not right.
+
+Let me think again. I need to push `key` to the left of `is` somehow, or push `is` and `win` to form the rule.
+
+Actually, if I go left and push `key`, it will hit `win`. So that won't work directly.
+
+Maybe I should approach from a different angle. 
+
+I could try moving toward the `key` text block and pushing it in a way that repositions the rule blocks into the right sequence. Let me head left to manipulate the `key` block and see what configurations I can create.","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left
+rule `win` 2 step to the left
+rule `key` 1 step to the left
+rule `door` 2 step to the left and 2 steps down
+door 1 step to the left and 2 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+key 2 steps to the right and 5 steps down",0,False
+33,left,"Let me analyze the current situation:
+
+Active rules:
+- baba is you
+
+Objects on the map:
+- rule `is` 3 steps to the left
+- rule `win` 2 steps to the left
+- rule `key` 1 step to the left
+- rule `door` 2 steps to the left and 2 steps down
+- door 1 step to the left and 2 steps down
+- rule `baba` 3 steps to the left and 5 steps down
+- rule `is` 2 steps to the left and 5 steps down
+- rule `you` 1 step to the left and 5 steps down
+- key 2 steps to the right and 5 steps down
+
+So I see there are text blocks for ""IS"", ""WIN"", ""KEY"" in a row. If I can form ""KEY IS WIN"", then the key becomes the win condition and I can win by touching the key.
+
+Currently:
+- `is` is 3 steps left
+- `win` is 2 steps left
+- `key` is 1 step left
+
+These seem to already be in a row! If I push `key` to the left, it would form ""KEY IS WIN"". Let me go left to push KEY into the IS WIN.
+
+Wait, I'm at some position and I need to push key into IS. Let me think more carefully.
+
+If KEY is 1 step to the left, IS is 3 steps to the left, WIN is 2 steps to the left...
+
+So the arrangement from left to right is: IS (at -3), WIN (at -2), KEY (at -1), ME (at 0)
+
+If I go left, I'd push KEY, and if KEY pushes WIN, and WIN pushes IS... that would move them all left.
+
+To form ""KEY IS WIN"", I need KEY, then IS, then WIN in that order from left to right.
+
+The current order is IS, WIN, KEY (from left to right). To form KEY IS WIN, I need to rearrange.
+
+
+I could try repositioning the blocks by moving them vertically first, then sliding them back into the correct sequence. Let me attempt pushing KEY downward to clear space, then maneuver the other text blocks into the proper alignment.","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left
+rule `win` 2 step to the left
+rule `key` 1 step to the left
+rule `door` 2 step to the left and 2 steps down
+door 1 step to the left and 2 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+key 2 steps to the right and 5 steps down",0,False
+34,left,"Let me analyze the current situation:
+
+Active rules:
+- baba is you
+
+Objects on the map:
+- rule `is` 3 step to the left
+- rule `win` 2 step to the left
+- rule `key` 1 step to the left
+- rule `door` 2 step to the left and 2 steps down
+- door 1 step to the left and 2 steps down
+- rule `baba` 3 step to the left and 5 steps down
+- rule `is` 2 step to the left and 5 steps down
+- rule `you` 1 step to the left and 5 steps down
+- key 2 steps to the right and 5 steps down
+
+It looks like there are text blocks at the top that could form ""KEY IS WIN"" if arranged properly. The blocks are:
+- `is` 3 left
+- `win` 2 left
+- `key` 1 left
+
+So it seems like I need to push `key` to form ""KEY IS WIN"". But the arrangement seems wrong - currently it would be ""IS WIN KEY"" from left to right.
+
+Wait, let me reconsider. The text blocks are:
+- `is` at 3 left
+- `win` at 2 left
+- `key` at 1 left
+
+So from left to right it's: IS - WIN - KEY
+
+I need to form KEY IS WIN. So I need to push the KEY block to the left past the other blocks.
+
+I'm currently at some position, and KEY is 1 step to the left. Let me go left and push it.
+
+Actually, it seems like I've been stuck in a loop going left without making progress. Let me think about this more carefully.
+
+To form ""KEY IS WIN"", I need to arrange the blocks as: KEY - IS - WIN from left to right.
+
+Currently: IS - WIN - KEY (from left to right based on distances)
+
+
+The KEY block needs to move leftward past both IS and WIN to reach the correct position.","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left
+rule `win` 2 step to the left
+rule `key` 1 step to the left
+rule `door` 2 step to the left and 2 steps down
+door 1 step to the left and 2 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+key 2 steps to the right and 5 steps down",0,False
+35,down,"Let me analyze the current state of the game:
+
+Active rules:
+- baba is you
+
+Objects on the map:
+- rule `is` 3 steps to the left
+- rule `win` 2 steps to the left
+- rule `key` 1 step to the left
+- rule `door` 2 steps to the left and 2 steps down
+- door 1 step to the left and 2 steps down
+- rule `baba` 3 steps to the left and 5 steps down
+- rule `is` 2 steps to the left and 5 steps down
+- rule `you` 1 step to the left and 5 steps down
+- key 2 steps to the right and 5 steps down
+
+I see that there are text blocks `is`, `win`, and `key` at the top. If I can form `KEY IS WIN`, then I can win by touching the key.
+
+Currently:
+- `key` is 1 step to the left
+- `is` is 3 steps to the left
+- `win` is 2 steps to the left
+
+It seems like the text blocks are already aligned horizontally. If `is` is 3 left, `win` is 2 left, and `key` is 1 left, then the order from left to right would be: `is`, `win`, `key`. That doesn't form a valid rule.
+
+I need to rearrange them to form `KEY IS WIN`. So I need to push `key` to be to the left of `is`, which should be to the left of `win`.
+
+Let me try moving to push the `key` text block. It's 1 step to the left. If I go left and then push it left, it would go next to `win`. 
+
+Wait, looking at the positions again - if `is` is 3 left, `win` is 2 left, `key` is 1 left, then the current arrangement from left to right is: `is` `win` `key`.
+
+
+To form the winning rule, I need to shift `key` further left past both `is` and `win`. Moving left directly seems blocked, so I should try repositioning from below—going down first to get underneath the text blocks, then pushing them into the correct sequence.","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left and 1 step up
+rule `win` 2 step to the left and 1 step up
+rule `key` 1 step to the left and 1 step up
+rule `door` 2 step to the left and 1 step down
+door 1 step to the left and 1 step down
+rule `baba` 3 step to the left and 4 steps down
+rule `is` 2 step to the left and 4 steps down
+rule `you` 1 step to the left and 4 steps down
+key 2 steps to the right and 4 steps down",0,False
+36,up,"Let me analyze the current state:
+
+Active rules:
+- baba is you
+
+Objects on the map:
+- rule `is` 3 step to the left and 1 step up
+- rule `win` 2 step to the left and 1 step up
+- rule `key` 1 step to the left and 1 step up
+- rule `door` 2 step to the left and 1 step down
+- door 1 step to the left and 1 step down
+- rule `baba` 3 step to the left and 4 steps down
+- rule `is` 2 step to the left and 4 steps down
+- rule `you` 1 step to the left and 4 steps down
+- key 2 steps to the right and 4 steps down
+
+So I see there are text blocks:
+- ""is"", ""win"", ""key"" in a row (1 step up from me)
+- ""door"" and an actual door object (1 step down from me)
+- ""baba"", ""is"", ""you"" in a row (4 steps down from me)
+
+I need to form a WIN rule. The available text blocks are:
+- KEY, IS, WIN (up there)
+- DOOR (down there)
+- BABA, IS, YOU (down there)
+
+I could form ""KEY IS WIN"" by pushing the KEY text to the left to connect with IS WIN. Let me check positions:
+- IS is 3 left and 1 up
+- WIN is 2 left and 1 up
+- KEY is 1 left and 1 up
+
+So from my position, KEY is directly to my left and 1 up. If I go up and then push KEY to the left, it would create ""IS KEY WIN"" which isn't a valid rule.
+
+Wait, let me reconsider. The order should be KEY IS WIN. Currently we have IS, WIN, KEY from left to right. To make KEY IS WIN, I need to move KEY to be in front of IS WIN.
+
+
+If I move up and left, I can push KEY further left to align it properly and form ""KEY IS WIN"". Let me head up first.","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left
+rule `win` 2 step to the left
+rule `key` 1 step to the left
+rule `door` 2 step to the left and 2 steps down
+door 1 step to the left and 2 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+key 2 steps to the right and 5 steps down",0,False
+37,left,"Let me analyze the current state of the game:
+
+Active rules:
+- baba is you
+
+Objects on the map:
+- rule `is` 3 steps to the left
+- rule `win` 2 steps to the left
+- rule `key` 1 step to the left
+- rule `door` 2 steps to the left and 2 steps down
+- door 1 step to the left and 2 steps down
+- rule `baba` 3 steps to the left and 5 steps down
+- rule `is` 2 steps to the left and 5 steps down
+- rule `you` 1 step to the left and 5 steps down
+- key 2 steps to the right and 5 steps down
+
+So I have text blocks that could form ""KEY IS WIN"" at the top (is, win, key are in a row). I need to push the KEY text to line up with IS and WIN.
+
+Looking at the layout:
+- Top row has: IS (3 left), WIN (2 left), KEY (1 left) - these are horizontal
+- I need to form ""KEY IS WIN""
+
+Wait, the order seems wrong. Let me reconsider. The texts are:
+- IS at 3 left
+- WIN at 2 left
+- KEY at 1 left
+
+So from left to right: IS, WIN, KEY
+
+I need to rearrange them to form ""KEY IS WIN"". I could push KEY to the left to form this rule.
+
+Actually, I think I need to move the KEY text to the left of IS to form ""KEY IS WIN"".
+
+Let me try going left to reach the KEY text block and push it.","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left
+rule `win` 2 step to the left
+rule `key` 1 step to the left
+rule `door` 2 step to the left and 2 steps down
+door 1 step to the left and 2 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+key 2 steps to the right and 5 steps down",0,False
+38,down,"Let me analyze the current state of the game:
+
+Active rules:
+- baba is you
+
+Objects on the map (relative to my position):
+- rule `is` 3 steps to the left
+- rule `win` 2 steps to the left
+- rule `key` 1 step to the left
+- rule `door` 2 steps to the left and 2 steps down
+- door 1 step to the left and 2 steps down
+- rule `baba` 3 steps to the left and 5 steps down
+- rule `is` 2 steps to the left and 5 steps down
+- rule `you` 1 step to the left and 5 steps down
+- key 2 steps to the right and 5 steps down
+
+I see there are text blocks that could form ""KEY IS WIN"" if I push the `key` text block to align with `is` and `win`.
+
+Currently:
+- `is` is 3 steps to the left
+- `win` is 2 steps to the left
+- `key` is 1 step to the left
+
+So the row has: IS - WIN - KEY (from left to right)
+
+If I push KEY to the left, it would become: IS - KEY - WIN? No wait, I'm to the right of KEY.
+
+Actually, looking at the positions:
+- `is` at (-3, 0)
+- `win` at (-2, 0)
+- `key` at (-1, 0)
+
+So from left to right: IS WIN KEY BABA(me)
+
+If I push KEY to the left, it would push into WIN, which would push into IS.
+
+I need to form ""KEY IS WIN"" to make the key the win condition, then go touch the key.
+
+Let me try pushing the KEY text block. I'll go left.
+
+Wait, I've been trying left multiple times and the observation doesn't change. Maybe I'm hitting a wall or the edge of the map. 
+
+I should head down toward the actual key object instead—it's positioned 5 steps down and 2 steps to the right from here.","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left and 1 step up
+rule `win` 2 step to the left and 1 step up
+rule `key` 1 step to the left and 1 step up
+rule `door` 2 step to the left and 1 step down
+door 1 step to the left and 1 step down
+rule `baba` 3 step to the left and 4 steps down
+rule `is` 2 step to the left and 4 steps down
+rule `you` 1 step to the left and 4 steps down
+key 2 steps to the right and 4 steps down",0,False
+39,up,"Let me analyze the current situation:
+
+Active rules:
+- baba is you
+
+Objects on the map:
+- rule `is` 3 step to the left and 1 step up
+- rule `win` 2 step to the left and 1 step up
+- rule `key` 1 step to the left and 1 step up
+- rule `door` 2 step to the left and 1 step down
+- door 1 step to the left and 1 step down
+- rule `baba` 3 step to the left and 4 steps down
+- rule `is` 2 step to the left and 4 steps down
+- rule `you` 1 step to the left and 4 steps down
+- key 2 steps to the right and 4 steps down
+
+So there's text blocks for ""IS WIN KEY"" in a row 1 step up and to my left. 
+There's ""DOOR"" text and a door object 1-2 steps down and to my left.
+There's ""BABA IS YOU"" rule 4 steps down.
+And a key 2 steps to the right and 4 steps down.
+
+I need to create a WIN rule. I can see ""IS WIN KEY"" arranged horizontally. If I push KEY to the left, I could form ""KEY IS WIN"" which would make the key the win condition! 
+
+Actually, looking at the arrangement:
+- `is` is at 3 left, 1 up
+- `win` is at 2 left, 1 up
+- `key` is at 1 left, 1 up
+
+So they're arranged as IS WIN KEY from left to right. I need to form ""KEY IS WIN"".
+
+I should go up to get to that row, then push the KEY text to the left to form ""KEY IS WIN"".
+
+Let me go up first.","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left
+rule `win` 2 step to the left
+rule `key` 1 step to the left
+rule `door` 2 step to the left and 2 steps down
+door 1 step to the left and 2 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+key 2 steps to the right and 5 steps down",0,False
+40,left,"Let me analyze the current state of the game:
+
+Active rules: baba is you
+
+Objects on the map:
+- rule `is` 3 steps to the left
+- rule `win` 2 steps to the left
+- rule `key` 1 step to the left
+- rule `door` 2 steps to the left and 2 steps down
+- door 1 step to the left and 2 steps down
+- rule `baba` 3 steps to the left and 5 steps down
+- rule `is` 2 steps to the left and 5 steps down
+- rule `you` 1 step to the left and 5 steps down
+- key 2 steps to the right and 5 steps down
+
+It seems like there are text blocks that could form ""KEY IS WIN"" horizontally if I push them together. Currently:
+- `key` is 1 step to the left
+- `is` is 3 steps to the left
+- `win` is 2 steps to the left
+
+So they're arranged as: IS WIN KEY (from left to right at my position level)
+
+I need to form KEY IS WIN to make the key the win condition, then reach the key.
+
+Let me think about this differently. I need to push the KEY text to the left so it forms KEY IS WIN.
+
+Currently I'm at position (0,0). The key text is 1 step to the left (-1, 0). If I go left, I'll push it further left to form the rule.
+
+Actually, looking at it again:
+- rule `is` 3 steps to the left (at -3, 0)
+- rule `win` 2 steps to the left (at -2, 0)
+- rule `key` 1 step to the left (at -1, 0)
+
+So from left to right: IS WIN KEY
+
+I need to form KEY IS WIN, which means I need to rearrange them. 
+
+One approach is to push the KEY text to the left so it becomes: IS WIN KEY -> IS KEY WIN (not valid) or push more...
+
+
+Pushing KEY left will cascade into WIN and IS, so that won't work cleanly. I should try moving KEY vertically first to separate it from the row, then reposition the pieces individually.","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left
+rule `win` 2 step to the left
+rule `key` 1 step to the left
+rule `door` 2 step to the left and 2 steps down
+door 1 step to the left and 2 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+key 2 steps to the right and 5 steps down",0,False
+41,left,"Let me analyze the current state:
+
+Active rules: baba is you
+
+Objects on the map:
+- rule `is` 3 step to the left
+- rule `win` 2 step to the left
+- rule `key` 1 step to the left
+- rule `door` 2 step to the left and 2 steps down
+- door 1 step to the left and 2 steps down
+- rule `baba` 3 step to the left and 5 steps down
+- rule `is` 2 step to the left and 5 steps down
+- rule `you` 1 step to the left and 5 steps down
+- key 2 steps to the right and 5 steps down
+
+So I can see there are text blocks:
+- `is`, `win`, `key` in a row above me
+- `door` and actual door 2 steps down
+- `baba`, `is`, `you` in a row 5 steps down
+
+I need to form ""KEY IS WIN"" to make the key the win condition, then reach the key.
+
+The text blocks `is`, `win`, `key` are 3, 2, and 1 steps to the left respectively. They seem to be in a row already but in the wrong order. They might form ""KEY IS WIN"" if arranged properly.
+
+Actually, looking at their positions:
+- `is` is 3 left
+- `win` is 2 left
+- `key` is 1 left
+
+So from left to right: is, win, key - that doesn't form a valid rule.
+
+I need to push `key` to the left to form ""KEY IS WIN"".
+
+If I go left and then push key, I can make ""KEY IS WIN"".
+
+Let me go left one more step to be next to `key`.","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left
+rule `win` 2 step to the left
+rule `key` 1 step to the left
+rule `door` 2 step to the left and 2 steps down
+door 1 step to the left and 2 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+key 2 steps to the right and 5 steps down",0,False
+42,left,"Let me analyze the current situation:
+
+Active rules:
+- baba is you
+
+Objects on the map:
+- rule `is` 3 steps to the left
+- rule `win` 2 steps to the left
+- rule `key` 1 step to the left
+- rule `door` 2 steps to the left and 2 steps down
+- door 1 step to the left and 2 steps down
+- rule `baba` 3 steps to the left and 5 steps down
+- rule `is` 2 steps to the left and 5 steps down
+- rule `you` 1 step to the left and 5 steps down
+- key 2 steps to the right and 5 steps down
+
+I see that I have text blocks for IS, WIN, KEY at the top row. I need to form ""KEY IS WIN"" to make the key the win condition, then reach the key.
+
+To form ""KEY IS WIN"", I need to push the KEY block to the left of IS, and WIN should already be on the right. Let me see:
+- rule `is` 3 steps to the left
+- rule `win` 2 steps to the left  
+- rule `key` 1 step to the left
+
+So the order from my position going left is: KEY (1 left), WIN (2 left), IS (3 left)
+
+Currently they're in order IS - WIN - KEY from left to right. I need KEY - IS - WIN.
+
+If I push KEY to the left, I can create KEY IS WIN.
+
+Let me go left and push KEY.","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left
+rule `win` 2 step to the left
+rule `key` 1 step to the left
+rule `door` 2 step to the left and 2 steps down
+door 1 step to the left and 2 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+key 2 steps to the right and 5 steps down",0,False
+43,left,"Let me analyze the current state:
+
+Active rules:
+- baba is you
+
+Objects on the map:
+- rule `is` 3 step to the left
+- rule `win` 2 step to the left
+- rule `key` 1 step to the left
+- rule `door` 2 step to the left and 2 steps down
+- door 1 step to the left and 2 steps down
+- rule `baba` 3 step to the left and 5 steps down
+- rule `is` 2 step to the left and 5 steps down
+- rule `you` 1 step to the left and 5 steps down
+- key 2 steps to the right and 5 steps down
+
+So it seems like I'm stuck in the same position every time. I need to think about how to form a win condition.
+
+At the top, there are: IS, WIN, KEY in a horizontal line
+I need to form ""KEY IS WIN"" by pushing KEY next to IS and WIN.
+
+Currently KEY is 1 step to the left. If I go left, I'll push KEY further left.
+
+Wait, let me reconsider. If KEY is 1 step to the left and IS is 3 steps to the left, WIN is 2 steps to the left...
+
+The order from left to right is: IS (3 left), WIN (2 left), KEY (1 left), and then me.
+
+So if I push KEY to the left, it would go towards WIN and IS.
+
+If I go left once, I'd push KEY. KEY would then be at 2 left (where WIN is). But wait, that would push WIN too if they're in the same position?
+
+Actually, I think the observations show I'm not moving or my movement isn't being recognized. Let me try going a different direction to reach those text blocks.
+
+I should try to form ""KEY IS WIN"" by positioning the blocks correctly. Let me go left to push KEY towards IS and WIN.","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left
+rule `win` 2 step to the left
+rule `key` 1 step to the left
+rule `door` 2 step to the left and 2 steps down
+door 1 step to the left and 2 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+key 2 steps to the right and 5 steps down",0,False
+44,up,"I notice that my position doesn't seem to be changing - the observations show the same relative positions of objects. It seems like I might be hitting a wall or boundary when moving left.
+
+Let me analyze the current situation:
+- Active rule: ""baba is you"" (so I control baba)
+- There are text blocks: `is`, `win`, `key` in a row to my left
+- There's `door` text and a door object below
+- There's `baba is you` rule below
+- There's a key object to my right and down
+
+I need to form a winning condition. The text blocks available are:
+- `key`, `is`, `win` (which could form ""KEY IS WIN"")
+- `door`, and a door object
+
+My goal should be to either:
+1. Form ""KEY IS WIN"" and then touch the key
+2. Form ""DOOR IS WIN"" and touch the door
+
+Since I have `key`, `is`, and `win` text blocks available at the top, I should try to arrange them to form ""KEY IS WIN"".
+
+Currently the arrangement seems to be:
+- `is` is 3 left
+- `win` is 2 left  
+- `key` is 1 left
+
+So they're arranged as: IS WIN KEY (from left to right from my perspective, or KEY WIN IS from my position going left)
+
+I need to rearrange them to form ""KEY IS WIN"". 
+
+Let me try moving up to get to the row with the text blocks, then rearrange them.","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left
+rule `win` 2 step to the left
+rule `key` 1 step to the left
+rule `door` 2 step to the left and 2 steps down
+door 1 step to the left and 2 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+key 2 steps to the right and 5 steps down",0,False
+45,left,"Let me analyze the current state:
+
+Active rules:
+- baba is you
+
+Objects on the map:
+- rule `is` 3 steps to the left
+- rule `win` 2 steps to the left
+- rule `key` 1 step to the left
+- rule `door` 2 steps to the left and 2 steps down
+- door 1 step to the left and 2 steps down
+- rule `baba` 3 steps to the left and 5 steps down
+- rule `is` 2 steps to the left and 5 steps down
+- rule `you` 1 step to the left and 5 steps down
+- key 2 steps to the right and 5 steps down
+
+There are text blocks that could form ""KEY IS WIN"" if I push them together. The `key` block is 1 step to the left, and there's `is` 3 steps to the left and `win` 2 steps to the left.
+
+Looking at the positions:
+- rule `is` is at (-3, 0) relative to me
+- rule `win` is at (-2, 0)
+- rule `key` is at (-1, 0)
+
+So they're in the order: IS, WIN, KEY from left to right. I need to rearrange them to form ""KEY IS WIN"".
+
+I should push KEY to the left to align with IS and WIN. But currently KEY is at (-1, 0) and IS is at (-3, 0), WIN at (-2, 0).
+
+If I go left and push KEY, it would become: IS, WIN, KEY -> doesn't form a valid rule.
+
+I need to get KEY to be to the left of IS. Let me think about this differently.
+
+Actually, to form KEY IS WIN, the KEY needs to be furthest left, then IS, then WIN.
+
+Currently: IS (-3, 0), WIN (-2, 0), KEY (-1, 0)","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left
+rule `win` 2 step to the left
+rule `key` 1 step to the left
+rule `door` 2 step to the left and 2 steps down
+door 1 step to the left and 2 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+key 2 steps to the right and 5 steps down",0,False
+46,left,"Let me analyze the current situation:
+
+Active rules:
+- baba is you
+
+Objects on the map:
+- rule `is` 3 step to the left
+- rule `win` 2 step to the left
+- rule `key` 1 step to the left
+- rule `door` 2 step to the left and 2 steps down
+- door 1 step to the left and 2 steps down
+- rule `baba` 3 step to the left and 5 steps down
+- rule `is` 2 step to the left and 5 steps down
+- rule `you` 1 step to the left and 5 steps down
+- key 2 steps to the right and 5 steps down
+
+So I see there's text blocks for ""IS"" and ""WIN"" and ""KEY"" in a row to my left. I could potentially form ""KEY IS WIN"" by pushing the KEY text.
+
+Let me think about this more carefully. If I go left once, I'll be at the KEY text. If I push it left, it would line up with IS and WIN to form ""KEY IS WIN"".
+
+Wait, let me check the positions again:
+- rule `is` 3 step to the left
+- rule `win` 2 step to the left
+- rule `key` 1 step to the left
+
+So the order from left to right is: IS, WIN, KEY. If I push KEY to the left, it would become IS WIN KEY which doesn't make sense.
+
+I need to rearrange to form ""KEY IS WIN"". Currently it's IS WIN KEY from left to right.
+
+I should try to push KEY to the left of IS to make KEY IS WIN. But that would require pushing KEY 3+ spaces to the left.
+
+Actually wait - if I push KEY left, it becomes part of that line. Let me think about this differently.
+
+The positions are:
+- IS at (-3, 0) - 3 left
+- WIN at (-2, 0) - 2 left  
+
+
+- KEY at (-1, 0) - 1 left
+
+So the text reads from left to right: IS WIN KEY - which doesn't form a rule. I need to get KEY positioned before IS to create a valid rule, or rearrange the entire sequence. Moving left will let me push KEY further in that direction.","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left
+rule `win` 2 step to the left
+rule `key` 1 step to the left
+rule `door` 2 step to the left and 2 steps down
+door 1 step to the left and 2 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+key 2 steps to the right and 5 steps down",0,False
+47,down,"Let me analyze the current state:
+
+Active rules:
+- baba is you
+
+Objects on the map:
+- rule `is` 3 step to the left
+- rule `win` 2 step to the left
+- rule `key` 1 step to the left
+- rule `door` 2 step to the left and 2 steps down
+- door 1 step to the left and 2 steps down
+- rule `baba` 3 step to the left and 5 steps down
+- rule `is` 2 step to the left and 5 steps down
+- rule `you` 1 step to the left and 5 steps down
+- key 2 steps to the right and 5 steps down
+
+I see there's text blocks for ""IS"", ""WIN"", ""KEY"" at the top (to my left). I need to form ""KEY IS WIN"" to win by touching the key.
+
+The rule blocks `is`, `win`, `key` are at the top in a row (3 left, 2 left, 1 left from me). If I can push `key` to the left to form ""KEY IS WIN"", that would work.
+
+Wait, looking at positions:
+- `is` is 3 left
+- `win` is 2 left
+- `key` is 1 left
+
+So from left to right it's: IS, WIN, KEY
+
+If I push KEY left, it would become: IS, KEY WIN - that doesn't work.
+
+I need to rearrange them to form ""KEY IS WIN"".
+
+Let me think about this differently. I need to move these blocks around to form ""KEY IS WIN"" horizontally.
+
+Currently: IS (3L), WIN (2L), KEY (1L)
+
+If I go left and push KEY further left, I'd push WIN and then IS. That won't help directly.
+
+Maybe I need to push from above or below? Let me try going down and around.
+
+Actually, I should try to go to the KEY text and push it down, then rearrange.
+
+
+I'll move left to reach the KEY block and push it downward to create space for repositioning the text blocks.","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left and 1 step up
+rule `win` 2 step to the left and 1 step up
+rule `key` 1 step to the left and 1 step up
+rule `door` 2 step to the left and 1 step down
+door 1 step to the left and 1 step down
+rule `baba` 3 step to the left and 4 steps down
+rule `is` 2 step to the left and 4 steps down
+rule `you` 1 step to the left and 4 steps down
+key 2 steps to the right and 4 steps down",0,False
+48,up,"Let me analyze the current situation:
+
+Active rules:
+- baba is you
+
+Objects on the map (relative to my position):
+- rule `is` 3 steps left, 1 step up
+- rule `win` 2 steps left, 1 step up
+- rule `key` 1 step left, 1 step up
+- rule `door` 2 steps left, 1 step down
+- door 1 step left, 1 step down
+- rule `baba` 3 steps left, 4 steps down
+- rule `is` 2 steps left, 4 steps down
+- rule `you` 1 step left, 4 steps down
+- key 2 steps right, 4 steps down
+
+I need to create a win condition. Currently I have text blocks for ""KEY IS WIN"" available at row 1 step up from me (they're arranged as `is`, `win`, `key` from left to right).
+
+I need to form ""KEY IS WIN"" to make the key the win condition, then touch the key.
+
+Let me see - I'm currently at some position. To form ""KEY IS WIN"", I need to push these blocks together. They seem to be already in a row at 1 step up from me. Let me check their arrangement:
+- rule `is` 3 steps left, 1 step up
+- rule `win` 2 steps left, 1 step up  
+- rule `key` 1 step left, 1 step up
+
+So from left to right at row (1 step up): IS, WIN, KEY
+
+That's not in the right order. I need KEY IS WIN.
+
+I should push the KEY block to the left to form ""KEY IS WIN"". Let me move up to the row with the text blocks.","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left
+rule `win` 2 step to the left
+rule `key` 1 step to the left
+rule `door` 2 step to the left and 2 steps down
+door 1 step to the left and 2 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+key 2 steps to the right and 5 steps down",0,False
+49,left,"Let me analyze the current situation:
+
+Active rules:
+- baba is you
+
+Objects on the map:
+- rule `is` 3 steps to the left
+- rule `win` 2 steps to the left
+- rule `key` 1 step to the left
+- rule `door` 2 steps to the left and 2 steps down
+- door 1 step to the left and 2 steps down
+- rule `baba` 3 steps to the left and 5 steps down
+- rule `is` 2 steps to the left and 5 steps down
+- rule `you` 1 step to the left and 5 steps down
+- key 2 steps to the right and 5 steps down
+
+I see there's a row with `is` - `win` - `key` text blocks to the left of me.
+There's also `door` and a door object below.
+And there's `baba` - `is` - `you` forming a rule.
+
+I need to form a win condition. I can see `KEY IS WIN` could be formed if I rearrange the text blocks at the top. Currently they are: `IS` - `WIN` - `KEY`
+
+If I push `KEY` to the left to make `KEY IS WIN`, I would win by touching the key.
+
+Let me think about the positioning:
+- rule `is` 3 steps to the left
+- rule `win` 2 steps to the left
+- rule `key` 1 step to the left
+
+So they're in order: IS - WIN - KEY (from left to right)
+
+I need to push KEY to the left to form KEY IS WIN, or I could try DOOR IS WIN.
+
+Let me go left to reach the KEY text and push it.","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left
+rule `win` 2 step to the left
+rule `key` 1 step to the left
+rule `door` 2 step to the left and 2 steps down
+door 1 step to the left and 2 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+key 2 steps to the right and 5 steps down",0,False
+50,left,"Let me analyze the current state of the game:
+
+Active rules:
+- baba is you
+
+Objects on the map:
+- rule `is` 3 step to the left
+- rule `win` 2 step to the left
+- rule `key` 1 step to the left
+- rule `door` 2 step to the left and 2 steps down
+- door 1 step to the left and 2 steps down
+- rule `baba` 3 step to the left and 5 steps down
+- rule `is` 2 step to the left and 5 steps down
+- rule `you` 1 step to the left and 5 steps down
+- key 2 steps to the right and 5 steps down
+
+So there's a row of text blocks: IS, WIN, KEY (from left to right, relative to my position)
+And there's DOOR and door below, with BABA IS YOU further down.
+
+I need to form a WIN condition. I could try to make ""KEY IS WIN"" by pushing the KEY text block to form a rule.
+
+Currently, the text blocks are:
+- IS (3 left)
+- WIN (2 left)
+- KEY (1 left)
+
+If I go left and push KEY, I can potentially form ""KEY IS WIN"" by pushing KEY to the left so it becomes ""KEY IS WIN"" (reading left to right).
+
+Wait, that's already potentially there: IS WIN KEY? No, that would be backwards.
+
+Let me think again. The blocks are at:
+- IS: 3 left
+- WIN: 2 left
+- KEY: 1 left
+
+So from left to right: IS, WIN, KEY - this doesn't form a valid rule.
+
+I need to rearrange to make ""KEY IS WIN"". I would need KEY, IS, WIN in that order from left to right.
+
+Let me try to push KEY to the left so it goes past IS, then maneuver to form the rule.","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left
+rule `win` 2 step to the left
+rule `key` 1 step to the left
+rule `door` 2 step to the left and 2 steps down
+door 1 step to the left and 2 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+key 2 steps to the right and 5 steps down",0,False
+51,left,"Let me analyze the current state:
+
+Active rules: baba is you
+
+Objects on the map:
+- rule `is` 3 steps to the left
+- rule `win` 2 steps to the left
+- rule `key` 1 step to the left
+- rule `door` 2 steps to the left and 2 steps down
+- door 1 step to the left and 2 steps down
+- rule `baba` 3 steps to the left and 5 steps down
+- rule `is` 2 steps to the left and 5 steps down
+- rule `you` 1 step to the left and 5 steps down
+- key 2 steps to the right and 5 steps down
+
+There's a horizontal row of text blocks near me: IS, WIN, KEY (from left to right)
+There's DOOR and a door below.
+There's BABA IS YOU at the bottom.
+
+I need to form a WIN rule. If I can push KEY to join with IS and WIN to form ""KEY IS WIN"", then I can win by touching the key.
+
+Currently, KEY is 1 step to the left, WIN is 2 steps to the left, IS is 3 steps to the left.
+
+So the arrangement seems to be: IS - WIN - KEY (from left to right)
+
+If I go left and push KEY, it would move left and potentially form KEY IS WIN... wait, that's not the right order. I need [Subject] IS [Property], so it should be ""KEY IS WIN"".
+
+Let me think about this more carefully. The text blocks are:
+- IS at 3 steps left
+- WIN at 2 steps left  
+- KEY at 1 step left
+
+So reading from left to right: IS - WIN - KEY
+
+I need to rearrange them to form ""KEY IS WIN"".
+
+I'm currently at some position. If I move left, I'll be at position where KEY is, and if I push it left, KEY will be at 2 steps left (where WIN was), WIN will be at 3 steps left (where IS was), and IS will be at 4 steps left.
+
+
+That arrangement still won't work. I need to approach this differently—maybe I should push from the right side to move IS and WIN rightward, or consider using the door and key objects instead. Let me head down toward the lower area where there's another key object and explore forming DOOR IS WIN as an alternative winning condition.","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left
+rule `win` 2 step to the left
+rule `key` 1 step to the left
+rule `door` 2 step to the left and 2 steps down
+door 1 step to the left and 2 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+key 2 steps to the right and 5 steps down",0,False
+52,left,"Let me analyze the current situation:
+
+Active rules:
+- baba is you
+
+Objects on the map:
+- rule `is` 3 steps to the left
+- rule `win` 2 steps to the left
+- rule `key` 1 step to the left
+- rule `door` 2 steps to the left and 2 steps down
+- door 1 step to the left and 2 steps down
+- rule `baba` 3 steps to the left and 5 steps down
+- rule `is` 2 steps to the left and 5 steps down
+- rule `you` 1 step to the left and 5 steps down
+- key 2 steps to the right and 5 steps down
+
+There's a row of text blocks: `is`, `win`, `key` to my left (at same row)
+And another row: `baba`, `is`, `you` below
+
+To win the level, I need to create a ""X IS WIN"" rule and then reach X.
+
+I can see the `key` text is 1 step to my left, and `is` is 3 steps to my left, `win` is 2 steps to my left.
+
+I could try to form ""KEY IS WIN"" by pushing `key` to the left to connect with `is` and `win`.
+
+Let me push `key` to the left. If I go left, I'll push `key` toward `win` and `is`.
+
+Let me try going left to push `key` into position with `is` and `win`.","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left
+rule `win` 2 step to the left
+rule `key` 1 step to the left
+rule `door` 2 step to the left and 2 steps down
+door 1 step to the left and 2 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+key 2 steps to the right and 5 steps down",0,False
+53,down,"It seems like I'm stuck and not making progress. The observations keep showing the same positions, which suggests there might be a wall or obstacle preventing me from moving left.
+
+Let me analyze the current situation:
+- Active rules: ""baba is you""
+- I need to create a win condition
+
+Looking at the objects:
+- rule `is` is 3 steps to the left
+- rule `win` is 2 steps to the left
+- rule `key` is 1 step to the left
+- rule `door` is 2 steps to the left and 2 steps down
+- door object is 1 step to the left and 2 steps down
+- rule `baba` is 3 steps to the left and 5 steps down
+- rule `is` is 2 steps to the left and 5 steps down
+- rule `you` is 1 step to the left and 5 steps down
+- key object is 2 steps to the right and 5 steps down
+
+There's a row of text blocks at the top: IS WIN KEY (from left to right relative to me)
+And another row at the bottom: BABA IS YOU
+
+I need to form ""KEY IS WIN"" to make the key the win condition, then touch the key.
+
+Since I can't seem to move left, maybe there's a wall. Let me try going down first and then approaching the text blocks from a different angle.
+
+Let me try going down.","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left and 1 step up
+rule `win` 2 step to the left and 1 step up
+rule `key` 1 step to the left and 1 step up
+rule `door` 2 step to the left and 1 step down
+door 1 step to the left and 1 step down
+rule `baba` 3 step to the left and 4 steps down
+rule `is` 2 step to the left and 4 steps down
+rule `you` 1 step to the left and 4 steps down
+key 2 steps to the right and 4 steps down",0,False
+54,up,"Let me analyze this level:
+
+Current rules:
+- baba is you
+
+Objects:
+- rule `is` 3 step to the left and 1 step up
+- rule `win` 2 step to the left and 1 step up
+- rule `key` 1 step to the left and 1 step up
+- rule `door` 2 step to the left and 1 step down
+- door 1 step to the left and 1 step down
+- rule `baba` 3 step to the left and 4 steps down
+- rule `is` 2 step to the left and 4 steps down
+- rule `you` 1 step to the left and 4 steps down
+- key 2 steps to the right and 4 steps down
+
+So there's text blocks ""IS"" and ""WIN"" and ""KEY"" arranged horizontally 1 step up.
+There's ""DOOR"" text and a door object 1 step down.
+There's ""BABA IS YOU"" at 4 steps down.
+There's a key object at 2 steps right and 4 steps down.
+
+I need to form ""KEY IS WIN"" to make the key the win condition, then touch the key.
+
+The text ""KEY"" is 1 step to the left and 1 step up.
+The text ""IS"" is 3 step to the left and 1 step up.
+The text ""WIN"" is 2 step to the left and 1 step up.
+
+So the arrangement from left to right is: IS, WIN, KEY (not in the right order to form a rule)
+
+I need to push KEY to the left of IS, or rearrange them to form KEY IS WIN.
+
+Let me think about the positions:
+- IS: 3 left, 1 up
+- WIN: 2 left, 1 up
+- KEY: 1 left, 1 up
+
+So horizontally: IS - WIN - KEY (from left to right)
+
+
+To create the rule KEY IS WIN, I need to rearrange these blocks so KEY comes first. I'll push KEY leftward to position it before IS, then navigate up and left to reach the text blocks and start moving them into the correct sequence.","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left
+rule `win` 2 step to the left
+rule `key` 1 step to the left
+rule `door` 2 step to the left and 2 steps down
+door 1 step to the left and 2 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+key 2 steps to the right and 5 steps down",0,False
+55,left,"Let me analyze the current state of the game:
+
+Active rules:
+- baba is you
+
+Objects on the map:
+- rule `is` 3 steps to the left
+- rule `win` 2 steps to the left
+- rule `key` 1 step to the left
+- rule `door` 2 steps to the left and 2 steps down
+- door 1 step to the left and 2 steps down
+- rule `baba` 3 steps to the left and 5 steps down
+- rule `is` 2 steps to the left and 5 steps down
+- rule `you` 1 step to the left and 5 steps down
+- key 2 steps to the right and 5 steps down
+
+I need to form a win condition. I see there's a `key` text and a `win` text. I can potentially form ""KEY IS WIN"" to make the key the winning object.
+
+The rule texts `is`, `win`, and `key` are already aligned (3 left, 2 left, 1 left). I need to push `key` to connect with `is` and `win`.
+
+If I'm at the current position and `key` is 1 step to the left, `win` is 2 steps to the left, and `is` is 3 steps to the left, then they appear to be in a horizontal line.
+
+I need to push `key` to the left to form ""KEY IS WIN"". Let me go left and push the key.
+
+Actually, let me think about this more carefully. The text blocks seem to be:
+- `is` at 3 left
+- `win` at 2 left
+- `key` at 1 left
+
+If I go left and push `key`, it would become:
+- `is` at 3 left (pushed to 4 left)
+- `win` at 2 left (pushed to 3 left)
+- `key` at 1 left (pushed to 2 left)
+
+
+Wait, pushing the key leftward would shift all the text blocks further left. I should move left to push the `key` text and align it properly with the other text to form the complete rule.","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left
+rule `win` 2 step to the left
+rule `key` 1 step to the left
+rule `door` 2 step to the left and 2 steps down
+door 1 step to the left and 2 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+key 2 steps to the right and 5 steps down",0,False
+56,left,"Let me analyze the current situation:
+
+Active rules:
+- baba is you
+
+Objects on the map:
+- rule `is` 3 step to the left
+- rule `win` 2 step to the left
+- rule `key` 1 step to the left
+- rule `door` 2 step to the left and 2 steps down
+- door 1 step to the left and 2 steps down
+- rule `baba` 3 step to the left and 5 steps down
+- rule `is` 2 step to the left and 5 steps down
+- rule `you` 1 step to the left and 5 steps down
+- key 2 steps to the right and 5 steps down
+
+I need to form a ""KEY IS WIN"" rule or ""DOOR IS WIN"" rule to win this level. The text blocks `is`, `win`, `key` are nearby, and I can push `key` to the left to form ""KEY IS WIN"".
+
+Currently:
+- rule `is` is 3 steps to the left
+- rule `win` is 2 steps to the left
+- rule `key` is 1 step to the left
+
+So they're aligned horizontally. If I push `key` to the left, it would form ""KEY IS WIN""!
+
+Let me go left to push the `key` text block.","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left
+rule `win` 2 step to the left
+rule `key` 1 step to the left
+rule `door` 2 step to the left and 2 steps down
+door 1 step to the left and 2 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+key 2 steps to the right and 5 steps down",0,False
+57,left,"Let me analyze the current state:
+
+Active rules:
+- baba is you
+
+Objects on the map:
+- rule `is` 3 steps to the left
+- rule `win` 2 steps to the left
+- rule `key` 1 step to the left
+- rule `door` 2 steps to the left and 2 steps down
+- door 1 step to the left and 2 steps down
+- rule `baba` 3 steps to the left and 5 steps down
+- rule `is` 2 steps to the left and 5 steps down
+- rule `you` 1 step to the left and 5 steps down
+- key 2 steps to the right and 5 steps down
+
+So there are text blocks for: IS, WIN, KEY (at the top), DOOR, IS, YOU, BABA (at the bottom).
+
+I need to form a WIN rule. Looking at the top row, I have:
+- IS (3 left)
+- WIN (2 left)
+- KEY (1 left)
+
+If I could push KEY to form ""KEY IS WIN"", that would give me a win condition. But currently KEY is to the right of IS and WIN.
+
+Let me think about positions. If KEY is 1 step to the left, IS is 3 steps to the left, WIN is 2 steps to the left... So from my position going left: KEY, WIN, IS. That's the wrong order for ""KEY IS WIN"".
+
+I need to form ""KEY IS WIN"" by arranging them in that order from left to right.
+
+I should try to push the KEY text block to be left of IS, or rearrange them somehow.
+
+Actually, let me reconsider. The observation says I'm at some position and:
+- IS is 3 left
+- WIN is 2 left
+- KEY is 1 left
+
+So the order from left to right is: IS, WIN, KEY
+
+I need to form KEY IS WIN. I could push KEY to the left twice to make it KEY IS WIN? No wait, that would make it IS KEY WIN if I push KEY left.
+
+
+Actually, if I go left and push KEY, it moves left. So:
+- Starting: IS (3 left), WIN (2 left), KEY (1 left)
+- After pushing KEY left: IS (3 left), WIN+KEY at position 2 left
+
+That doesn't create the right arrangement. Maybe I should explore moving down to interact with the key object and find another path to victory.","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left
+rule `win` 2 step to the left
+rule `key` 1 step to the left
+rule `door` 2 step to the left and 2 steps down
+door 1 step to the left and 2 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+key 2 steps to the right and 5 steps down",0,False
+58,left,"Let me analyze the current situation:
+
+Active rules:
+- baba is you
+
+Objects on the map (relative to my position):
+- rule `is` 3 steps to the left
+- rule `win` 2 steps to the left
+- rule `key` 1 step to the left
+- rule `door` 2 steps to the left and 2 steps down
+- door 1 step to the left and 2 steps down
+- rule `baba` 3 steps to the left and 5 steps down
+- rule `is` 2 steps to the left and 5 steps down
+- rule `you` 1 step to the left and 5 steps down
+- key 2 steps to the right and 5 steps down
+
+So I see text blocks at the top: `IS` `WIN` `KEY` (from left to right relative to me)
+And there's `DOOR` text and a door object below.
+And at the bottom there's `BABA IS YOU` rule.
+
+I need to form a rule like ""KEY IS WIN"" to win by touching the key.
+
+The text blocks I need are:
+- `KEY` is 1 step to the left
+- `IS` is 3 steps to the left
+- `WIN` is 2 steps to the left
+
+Current arrangement seems to be: IS - WIN - KEY (left to right)
+I need to make: KEY IS WIN
+
+So I need to push KEY to the left of IS, or rearrange them. Let me think about this more carefully.
+
+If I go left to KEY and push it further left, I could create KEY IS WIN if I position them correctly.
+
+Actually, let me go left to reach KEY, then push it left to create KEY IS WIN.","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left
+rule `win` 2 step to the left
+rule `key` 1 step to the left
+rule `door` 2 step to the left and 2 steps down
+door 1 step to the left and 2 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+key 2 steps to the right and 5 steps down",0,False
+59,left,"Let me analyze the current state of the game:
+
+Active rules:
+- baba is you
+
+Objects on the map:
+- rule `is` 3 steps to the left
+- rule `win` 2 steps to the left
+- rule `key` 1 step to the left
+- rule `door` 2 steps to the left and 2 steps down
+- door 1 step to the left and 2 steps down
+- rule `baba` 3 steps to the left and 5 steps down
+- rule `is` 2 steps to the left and 5 steps down
+- rule `you` 1 step to the left and 5 steps down
+- key 2 steps to the right and 5 steps down
+
+I notice that there are text blocks that could form rules:
+- `is`, `win`, `key` are in a row (at the top area)
+- `door`, `is` could potentially form rules
+- `baba`, `is`, `you` form the current ""BABA IS YOU"" rule
+
+To win, I need to create a rule that makes something WIN. Since I have `key` and `win` text blocks near each other, I could potentially form ""KEY IS WIN"" and then touch the key.
+
+Currently, `key` is 1 step to the left, `win` is 2 steps to the left, and `is` is 3 steps to the left. If I can arrange them as ""KEY IS WIN"", I can make the key the win condition.
+
+Let me think about my position. The text blocks are:
+- `is` at (-3, 0)
+- `win` at (-2, 0)
+- `key` at (-1, 0)
+
+This would read as ""IS WIN KEY"" from left to right, which isn't a valid rule.
+
+I need to rearrange them to form ""KEY IS WIN"". I should push the `key` text to the left so it reads ""KEY IS WIN"".","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left
+rule `win` 2 step to the left
+rule `key` 1 step to the left
+rule `door` 2 step to the left and 2 steps down
+door 1 step to the left and 2 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+key 2 steps to the right and 5 steps down",0,False
+60,up,"Let me analyze the current state:
+
+Active rules:
+- baba is you
+
+Objects on the map:
+- rule `is` 3 steps to the left
+- rule `win` 2 steps to the left
+- rule `key` 1 step to the left
+- rule `door` 2 steps to the left and 2 steps down
+- door 1 step to the left and 2 steps down
+- rule `baba` 3 steps to the left and 5 steps down
+- rule `is` 2 steps to the left and 5 steps down
+- rule `you` 1 step to the left and 5 steps down
+- key 2 steps to the right and 5 steps down
+
+I notice there are text blocks for ""IS"", ""WIN"", and ""KEY"" above me. I could potentially form ""KEY IS WIN"" by pushing blocks.
+
+The text blocks appear to be:
+- `is` at (-3, 0)
+- `win` at (-2, 0)
+- `key` at (-1, 0)
+
+These are in a row: IS WIN KEY
+
+To make ""KEY IS WIN"", I need to rearrange them to: KEY IS WIN
+
+Currently they're: IS WIN KEY
+
+I should try to push the KEY block to the left to form KEY IS WIN. But that would just make: IS WIN KEY -> if I push KEY left it becomes IS WIN on top of each other? No wait, they're in a horizontal row.
+
+Let me think again. The blocks are at:
+- IS at (-3, 0) relative to me
+- WIN at (-2, 0) relative to me
+- KEY at (-1, 0) relative to me
+
+So the row reads (from left to right): IS WIN KEY
+
+I need to move KEY to position (-4, 0) to form KEY IS WIN.
+
+Or I could push IS right to form: [nothing] WIN KEY IS, which doesn't help.
+
+Actually, I think I need to get above the KEY block and push it down, then rearrange.
+
+
+If I move up and then left, I can position myself above KEY. Pushing down from there would move KEY downward, giving me space to rearrange the blocks horizontally. Let me try moving up first.","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left
+rule `win` 2 step to the left
+rule `key` 1 step to the left
+rule `door` 2 step to the left and 2 steps down
+door 1 step to the left and 2 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+key 2 steps to the right and 5 steps down",0,False
+61,down,"Let me analyze the current state:
+
+Active rules:
+- baba is you
+
+Objects on the map (relative to my position):
+- rule `is` 3 steps to the left
+- rule `win` 2 steps to the left
+- rule `key` 1 step to the left
+- rule `door` 2 steps to the left and 2 steps down
+- door 1 step to the left and 2 steps down
+- rule `baba` 3 steps to the left and 5 steps down
+- rule `is` 2 steps to the left and 5 steps down
+- rule `you` 1 step to the left and 5 steps down
+- key 2 steps to the right and 5 steps down
+
+I see there are text blocks at the top: IS, WIN, KEY arranged horizontally.
+And at the bottom: BABA, IS, YOU arranged horizontally.
+
+To win, I need to create a rule like ""KEY IS WIN"" and then touch the key, or ""DOOR IS WIN"" and touch the door.
+
+The text blocks at the top are IS, WIN, KEY. If I push KEY to the left, I could form ""KEY IS WIN"".
+
+Wait, let me reconsider. The blocks are:
+- `is` at 3 left
+- `win` at 2 left
+- `key` at 1 left
+
+So from left to right it's: IS, WIN, KEY
+
+To form ""KEY IS WIN"", I need to rearrange them. Or I could try to form ""DOOR IS WIN"" using the DOOR text block below.
+
+Let me try moving left to get closer to the KEY text block and push it.
+
+Actually, I've been stuck in a loop. The observation doesn't seem to change when I move left. Maybe there's a wall or something blocking me.
+
+Let me try a different approach - go down first to get to the key object, and try to form a rule like ""KEY IS WIN"" by pushing text blocks.
+
+
+Moving downward to explore other options.","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left and 1 step up
+rule `win` 2 step to the left and 1 step up
+rule `key` 1 step to the left and 1 step up
+rule `door` 2 step to the left and 1 step down
+door 1 step to the left and 1 step down
+rule `baba` 3 step to the left and 4 steps down
+rule `is` 2 step to the left and 4 steps down
+rule `you` 1 step to the left and 4 steps down
+key 2 steps to the right and 4 steps down",0,False
+62,up,"Let me analyze the current situation:
+
+Active rules:
+- baba is you
+
+Objects on the map (relative to my position):
+- rule `is` 3 step to the left and 1 step up
+- rule `win` 2 step to the left and 1 step up
+- rule `key` 1 step to the left and 1 step up
+- rule `door` 2 step to the left and 1 step down
+- door 1 step to the left and 1 step down
+- rule `baba` 3 step to the left and 4 steps down
+- rule `is` 2 step to the left and 4 steps down
+- rule `you` 1 step to the left and 4 steps down
+- key 2 steps to the right and 4 steps down
+
+So I need to create a WIN condition. There are text blocks for KEY, IS, and WIN at the top row. I could form ""KEY IS WIN"" by pushing them together.
+
+Currently, it seems like the text blocks KEY, IS, WIN are at position: 
+- IS: 3 left, 1 up
+- WIN: 2 left, 1 up
+- KEY: 1 left, 1 up
+
+So they're in a row: IS WIN KEY (from left to right)
+
+I need to rearrange them to form ""KEY IS WIN"". 
+
+Let me think about approaching this. I need to push KEY to the left of IS, or push IS and WIN to the right of KEY.
+
+Actually, looking at it, the current arrangement is IS - WIN - KEY from left to right (starting from the leftmost).
+
+To make KEY IS WIN, I need to get KEY on the left side.
+
+Let me go up to approach the KEY text block and push it around. Or I could push IS WIN to the right past KEY.
+
+Actually, the simplest approach might be to push the KEY block to form a rule. Let me go up first to get to that row.","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left
+rule `win` 2 step to the left
+rule `key` 1 step to the left
+rule `door` 2 step to the left and 2 steps down
+door 1 step to the left and 2 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+key 2 steps to the right and 5 steps down",0,False
+63,left,"Let me analyze the current situation:
+
+Active rules:
+- baba is you
+
+Objects on the map:
+- rule `is` 3 steps to the left
+- rule `win` 2 steps to the left
+- rule `key` 1 step to the left
+- rule `door` 2 steps to the left and 2 steps down
+- door 1 step to the left and 2 steps down
+- rule `baba` 3 steps to the left and 5 steps down
+- rule `is` 2 steps to the left and 5 steps down
+- rule `you` 1 step to the left and 5 steps down
+- key 2 steps to the right and 5 steps down
+
+I see there are text blocks `is`, `win`, and `key` aligned horizontally (left of me). If I push `key` to the left, it would form ""KEY IS WIN""!
+
+Currently:
+- `is` is 3 steps left
+- `win` is 2 steps left
+- `key` is 1 step left
+
+If I move left, I should push `key` into `win` and `is`, forming ""KEY IS WIN"" from left to right.
+
+Let me try going left to push `key` toward the other rule blocks.","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left
+rule `win` 2 step to the left
+rule `key` 1 step to the left
+rule `door` 2 step to the left and 2 steps down
+door 1 step to the left and 2 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+key 2 steps to the right and 5 steps down",0,False
+64,left,"Let me analyze the current state:
+
+Active rules:
+- baba is you
+
+Objects on the map (relative to my position):
+- rule `is` 3 steps to the left
+- rule `win` 2 steps to the left
+- rule `key` 1 step to the left
+- rule `door` 2 steps to the left and 2 steps down
+- door 1 step to the left and 2 steps down
+- rule `baba` 3 steps to the left and 5 steps down
+- rule `is` 2 steps to the left and 5 steps down
+- rule `you` 1 step to the left and 5 steps down
+- key 2 steps to the right and 5 steps down
+
+It seems like I can form ""KEY IS WIN"" by pushing the `key` text block to the left to align with `is` and `win`. Currently:
+- `is` is 3 steps left
+- `win` is 2 steps left
+- `key` is 1 step left
+
+So if I push `key` to the left, it would be at 2 steps left, and I need to form ""KEY IS WIN"" which means KEY-IS-WIN should be in a row.
+
+Let me think about the positions:
+- If `is` is at position x-3
+- If `win` is at position x-2
+- If `key` is at position x-1
+
+To form ""KEY IS WIN"", I need them to be in a row: KEY - IS - WIN
+
+So I need to push `key` further left. If I go left to position x-1 (where key is), then push left, key moves to x-2 (where win is). That's not right.
+
+Wait, I think I need to push the `key` text block to form ""KEY IS WIN"". Let me reconsider the positions - they're all on the same row apparently (no up/down offset mentioned for these three).","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left
+rule `win` 2 step to the left
+rule `key` 1 step to the left
+rule `door` 2 step to the left and 2 steps down
+door 1 step to the left and 2 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+key 2 steps to the right and 5 steps down",0,False
+65,left,"Let me analyze the current situation:
+
+Active rules:
+- baba is you
+
+Objects on the map:
+- rule `is` 3 steps to the left
+- rule `win` 2 steps to the left
+- rule `key` 1 step to the left
+- rule `door` 2 steps to the left and 2 steps down
+- door 1 step to the left and 2 steps down
+- rule `baba` 3 steps to the left and 5 steps down
+- rule `is` 2 steps to the left and 5 steps down
+- rule `you` 1 step to the left and 5 steps down
+- key 2 steps to the right and 5 steps down
+
+The text blocks at the top row (from my position):
+- `is` is 3 left
+- `win` is 2 left
+- `key` is 1 left
+
+So they are arranged as: IS - WIN - KEY (from left to right, relative to me)
+
+I need to form ""KEY IS WIN"" to make the key the win condition. Currently I'm next to the KEY text block.
+
+If I push KEY to the left, it would become KEY - IS - WIN which doesn't form a rule because it's backwards.
+
+I need to rearrange so it reads ""KEY IS WIN"" from left to right.
+
+Currently the arrangement is: IS (at 3 left) - WIN (at 2 left) - KEY (at 1 left)
+
+I need to push KEY two more spaces to the left to form: KEY - IS - WIN
+
+Let me go left and push the KEY block.","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left
+rule `win` 2 step to the left
+rule `key` 1 step to the left
+rule `door` 2 step to the left and 2 steps down
+door 1 step to the left and 2 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+key 2 steps to the right and 5 steps down",0,False
+66,up,"Let me analyze the current situation:
+
+Active rules:
+- baba is you
+
+Objects on the map:
+- rule `is` 3 step to the left
+- rule `win` 2 step to the left
+- rule `key` 1 step to the left
+- rule `door` 2 step to the left and 2 steps down
+- door 1 step to the left and 2 steps down
+- rule `baba` 3 step to the left and 5 steps down
+- rule `is` 2 step to the left and 5 steps down
+- rule `you` 1 step to the left and 5 steps down
+- key 2 steps to the right and 5 steps down
+
+I see that there are text blocks that could form ""KEY IS WIN"" if I push them together. The blocks `is` and `win` are at the top, and `key` is also there.
+
+Let me think about the positions:
+- `is` is 3 steps left
+- `win` is 2 steps left
+- `key` is 1 step left
+
+So these are arranged as: [is] [win] [key] from left to right? No wait, let me reconsider. If `is` is 3 steps left, `win` is 2 steps left, and `key` is 1 step left, then from the player's perspective (left to right): is, win, key
+
+To form ""KEY IS WIN"", I need to arrange them as: key, is, win
+
+I need to move the `key` text block to be to the left of `is`. Let me try to push `key` to the left. If I go left until I reach `key`, then push it further left...
+
+Actually, I seem to be stuck. The observation isn't changing despite my movements. Let me try going in a different direction to understand my position better.
+
+Let me try to form ""KEY IS WIN"" by pushing the text blocks. I should go up to reach the row with `is`, `win`, `key` text blocks.","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left
+rule `win` 2 step to the left
+rule `key` 1 step to the left
+rule `door` 2 step to the left and 2 steps down
+door 1 step to the left and 2 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+key 2 steps to the right and 5 steps down",0,False
+67,left,"Let me analyze the current situation:
+
+Active rules: ""baba is you""
+
+I see text blocks:
+- ""is"", ""win"", ""key"" in a row (at the top area)
+- ""door"" and a door object nearby
+- ""baba"", ""is"", ""you"" in a row (forming the active rule)
+- A key object somewhere
+
+I need to form a rule to win. The key text blocks available are:
+- ""is"" (3 left)
+- ""win"" (2 left)
+- ""key"" (1 left)
+
+So I could potentially form ""KEY IS WIN"" if I can arrange them properly.
+
+Currently these are positioned:
+- rule `is` 3 step to the left
+- rule `win` 2 step to the left
+- rule `key` 1 step to the left
+
+So they're arranged as: IS - WIN - KEY (from left to right relative to me)
+If I push KEY left, it would become: IS - KEY - WIN? No wait...
+
+Let me think about their positions more carefully:
+- rule `is` is 3 steps to the left of me
+- rule `win` is 2 steps to the left of me
+- rule `key` is 1 step to the left of me
+
+So the arrangement from left to right is: IS - WIN - KEY - [me]
+
+If I go left and push KEY, it becomes: IS - KEY - WIN? No, I'd push KEY into WIN, making it IS - KEY/WIN - [me]
+
+Actually, to form ""KEY IS WIN"", I need them in order KEY - IS - WIN from left to right.
+
+Currently: IS - WIN - KEY
+
+I need to rearrange them. This is tricky. Let me think about how to do this.
+
+Maybe I should push KEY up or down first to get it out of the way, then rearrange?
+
+Or I could try a different approach - maybe form ""DOOR IS WIN"" instead?
+
+The door text is at ""2 step to the left and 2 steps down""","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left
+rule `win` 2 step to the left
+rule `key` 1 step to the left
+rule `door` 2 step to the left and 2 steps down
+door 1 step to the left and 2 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+key 2 steps to the right and 5 steps down",0,False
+68,up,"Let me analyze the current state of the game:
+
+Active rules:
+- baba is you
+
+Objects on the map:
+- rule `is` 3 step to the left
+- rule `win` 2 step to the left
+- rule `key` 1 step to the left
+- rule `door` 2 step to the left and 2 steps down
+- door 1 step to the left and 2 steps down
+- rule `baba` 3 step to the left and 5 steps down
+- rule `is` 2 step to the left and 5 steps down
+- rule `you` 1 step to the left and 5 steps down
+- key 2 steps to the right and 5 steps down
+
+So I see that there are text blocks that could form ""KEY IS WIN"" if I push the KEY text block to the left to align with IS and WIN.
+
+Currently the text blocks at the top are arranged as:
+- `is` at 3 left
+- `win` at 2 left
+- `key` at 1 left
+
+If I go up and push KEY to the left, I could create KEY IS WIN.
+
+Wait, actually looking at the positions:
+- `is` is 3 steps to the left
+- `win` is 2 steps to the left
+- `key` is 1 step to the left
+
+So the arrangement is: IS WIN KEY (from left to right)
+
+To create KEY IS WIN, I need to move the KEY block to the left of IS, which would mean pushing it further left.
+
+Let me try going up and then left to push KEY to the left.
+
+Actually, I think I'm stuck because moving left doesn't seem to be working. Let me try going up first to get near the text blocks.","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left
+rule `win` 2 step to the left
+rule `key` 1 step to the left
+rule `door` 2 step to the left and 2 steps down
+door 1 step to the left and 2 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+key 2 steps to the right and 5 steps down",0,False
+69,left,"Let me analyze the current state:
+
+Active rules:
+- baba is you
+
+Objects on the map relative to my position:
+- rule `is` 3 steps to the left
+- rule `win` 2 steps to the left
+- rule `key` 1 step to the left
+- rule `door` 2 steps to the left and 2 steps down
+- door 1 step to the left and 2 steps down
+- rule `baba` 3 steps to the left and 5 steps down
+- rule `is` 2 steps to the left and 5 steps down
+- rule `you` 1 step to the left and 5 steps down
+- key 2 steps to the right and 5 steps down
+
+So there's a row with `is`, `win`, `key` arranged horizontally (from left to right: is, win, key).
+
+I need to form ""KEY IS WIN"" to make the key the win condition, then go touch the key.
+
+Currently the text blocks are:
+- `is` at (-3, 0)
+- `win` at (-2, 0)
+- `key` at (-1, 0)
+
+Wait, if they're arranged like that, we'd have ""IS WIN KEY"" which isn't a valid rule.
+
+To make ""KEY IS WIN"", I need to arrange them as: KEY, IS, WIN from left to right.
+
+Let me push the `key` text block to the left to form ""KEY IS WIN"". If I go left and push, I would push `key` into `win` into `is`.
+
+Actually, let me think about this more carefully. The text blocks are:
+- `is` at 3 steps left = (-3, 0)
+- `win` at 2 steps left = (-2, 0)
+- `key` at 1 step left = (-1, 0)
+
+So the order from left to right is: IS, WIN, KEY","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left
+rule `win` 2 step to the left
+rule `key` 1 step to the left
+rule `door` 2 step to the left and 2 steps down
+door 1 step to the left and 2 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+key 2 steps to the right and 5 steps down",0,False
+70,left,"Let me analyze the current situation:
+
+Active rules:
+- baba is you
+
+Objects on the map:
+- rule `is` 3 step to the left
+- rule `win` 2 step to the left
+- rule `key` 1 step to the left
+- rule `door` 2 step to the left and 2 steps down
+- door 1 step to the left and 2 steps down
+- rule `baba` 3 step to the left and 5 steps down
+- rule `is` 2 step to the left and 5 steps down
+- rule `you` 1 step to the left and 5 steps down
+- key 2 steps to the right and 5 steps down
+
+So there's a row with `is`, `win`, `key` text blocks that I could potentially form into a rule.
+
+If I can push `key` to the left, it would align with `is` and `win` to form ""KEY IS WIN"".
+
+I need to get to the `key` text block which is 1 step to the left. Let me try moving left.
+
+Wait, but I've been trying to move and the observation seems to stay the same. Maybe I'm at a wall boundary?
+
+Let me try going left to reach the `key` text block and push it left to form ""KEY IS WIN"".
+
+Current position relative to objects:
+- rule `key` is 1 step to the left
+- If I go left, I'll push `key` to the left
+
+Let me go left.","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left
+rule `win` 2 step to the left
+rule `key` 1 step to the left
+rule `door` 2 step to the left and 2 steps down
+door 1 step to the left and 2 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+key 2 steps to the right and 5 steps down",0,False
+71,down,"Let me analyze the current situation:
+
+Active rules:
+- baba is you
+
+Objects on the map:
+- rule `is` 3 steps to the left
+- rule `win` 2 steps to the left
+- rule `key` 1 step to the left
+- rule `door` 2 steps to the left and 2 steps down
+- door 1 step to the left and 2 steps down
+- rule `baba` 3 steps to the left and 5 steps down
+- rule `is` 2 steps to the left and 5 steps down
+- rule `you` 1 step to the left and 5 steps down
+- key 2 steps to the right and 5 steps down
+
+So there are text blocks that could form rules:
+- IS, WIN, KEY are in a row (could form ""KEY IS WIN"")
+- DOOR is separate with a door nearby
+- BABA IS YOU is already formed
+
+I need to form ""KEY IS WIN"" to make the key the win condition, then reach the key.
+
+Let me think about positions:
+- rule `key` is 1 step to the left
+- rule `is` is 3 steps to the left
+- rule `win` is 2 steps to the left
+
+So they're arranged as: IS - WIN - KEY (from left to right)
+That doesn't form a valid rule. I need to push KEY to the left of IS, or rearrange them.
+
+Actually wait - if KEY is 1 left, WIN is 2 left, IS is 3 left, then from left to right it's: IS - WIN - KEY
+
+To form ""KEY IS WIN"" I need KEY - IS - WIN
+
+I should push the KEY text block to the left to form ""KEY IS WIN""
+
+So I should go left to push the KEY block. But I've been trying that and it seems I'm hitting a wall or something.
+
+Let me try a different approach - maybe I need to go down first to reach the key text block and push it, or rearrange things differently.","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left and 1 step up
+rule `win` 2 step to the left and 1 step up
+rule `key` 1 step to the left and 1 step up
+rule `door` 2 step to the left and 1 step down
+door 1 step to the left and 1 step down
+rule `baba` 3 step to the left and 4 steps down
+rule `is` 2 step to the left and 4 steps down
+rule `you` 1 step to the left and 4 steps down
+key 2 steps to the right and 4 steps down",0,False
+72,up,"Let me analyze the current state:
+
+Active rules:
+- baba is you
+
+Objects on the map:
+- rule `is` 3 step to the left and 1 step up
+- rule `win` 2 step to the left and 1 step up
+- rule `key` 1 step to the left and 1 step up
+- rule `door` 2 step to the left and 1 step down
+- door 1 step to the left and 1 step down
+- rule `baba` 3 step to the left and 4 steps down
+- rule `is` 2 step to the left and 4 steps down
+- rule `you` 1 step to the left and 4 steps down
+- key 2 steps to the right and 4 steps down
+
+So I see text blocks that could form ""KEY IS WIN"" if arranged properly. The text blocks are:
+- `is` at 3 left, 1 up
+- `win` at 2 left, 1 up
+- `key` at 1 left, 1 up
+
+These are already in a row but in the wrong order. The order from left to right is: is, win, key - which doesn't form a valid rule.
+
+I need to rearrange them to form ""KEY IS WIN"". 
+
+Let me think about positioning. If I go up one step, I'll be at the same row as these text blocks. Then I could push `key` to the left to form ""KEY IS WIN"".
+
+Actually, looking at this more carefully:
+- `is` is at 3 left, 1 up
+- `win` is at 2 left, 1 up  
+- `key` is at 1 left, 1 up
+
+So from left to right it's: IS, WIN, KEY
+
+If I push KEY to the left, it would become: IS, KEY, WIN - still not right.
+
+I need to form KEY IS WIN. 
+
+The text blocks need to be repositioned so KEY ends up leftmost. I'll move up to align with them on the same row, then push KEY further left to get the correct sequence.","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left
+rule `win` 2 step to the left
+rule `key` 1 step to the left
+rule `door` 2 step to the left and 2 steps down
+door 1 step to the left and 2 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+key 2 steps to the right and 5 steps down",0,False
+73,left,"Let me analyze the current state of the game:
+
+Active rules:
+- baba is you
+
+Objects on the map:
+- rule `is` 3 steps to the left
+- rule `win` 2 steps to the left
+- rule `key` 1 step to the left
+- rule `door` 2 steps to the left and 2 steps down
+- door 1 step to the left and 2 steps down
+- rule `baba` 3 steps to the left and 5 steps down
+- rule `is` 2 steps to the left and 5 steps down
+- rule `you` 1 step to the left and 5 steps down
+- key 2 steps to the right and 5 steps down
+
+I need to create a ""KEY IS WIN"" rule or similar to win the game. Currently, there's:
+- `is` and `win` and `key` in a row (from left to right: `is`, `win`, `key`)
+
+If I push `key` to the left, I can create ""KEY IS WIN"" rule. Let me check the positions again:
+- rule `is` 3 steps to the left
+- rule `win` 2 steps to the left
+- rule `key` 1 step to the left
+
+So from my position, going left: `key`, `win`, `is` 
+
+To form ""KEY IS WIN"", I need to arrange them as KEY, IS, WIN in a horizontal line.
+
+Currently they are arranged as: IS, WIN, KEY (from left to right, 3, 2, 1 steps away)
+
+So if I push KEY to the left, I'd get: IS, WIN + KEY = IS, WIN/KEY?
+
+Actually, let me think differently. I need to push the `key` text to the left to form `key is win`. But currently it's IS, WIN, KEY. So I need KEY IS WIN order.
+
+I should push `key` all the way to the left and then maybe rearrange. Or I could try a different approach - push KEY down and create a vertical rule.","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left
+rule `win` 2 step to the left
+rule `key` 1 step to the left
+rule `door` 2 step to the left and 2 steps down
+door 1 step to the left and 2 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+key 2 steps to the right and 5 steps down",0,False
+74,left,"Let me analyze the current state of the puzzle:
+
+Active rules:
+- baba is you
+
+Objects on the map:
+- rule `is` 3 steps to the left
+- rule `win` 2 steps to the left
+- rule `key` 1 step to the left
+- rule `door` 2 steps to the left and 2 steps down
+- door 1 step to the left and 2 steps down
+- rule `baba` 3 steps to the left and 5 steps down
+- rule `is` 2 steps to the left and 5 steps down
+- rule `you` 1 step to the left and 5 steps down
+- key 2 steps to the right and 5 steps down
+
+So I need to create a win condition. I see there's `KEY` and `WIN` as text blocks. If I can form ""KEY IS WIN"", then I can win by touching the key.
+
+The `KEY` text is 1 step to the left, `IS` is 3 steps to the left, and `WIN` is 2 steps to the left - all on the same row.
+
+So if I push `KEY` to the left twice, it will align with `IS` and `WIN` to form ""KEY IS WIN"" horizontally.
+
+Currently I'm at some position, and the key text is 1 step to the left. Let me move left to get next to key, then push it left.
+
+Wait, if KEY is 1 step to the left, IS is 3 steps to the left, and WIN is 2 steps to the left, they're arranged as:
+IS ... WIN ... KEY ... (me)
+
+So from left to right: IS, WIN, KEY, (me)
+
+If I push KEY left, it would become IS, WIN-KEY merged, which doesn't make a rule.
+
+I need to push KEY further left to create KEY IS WIN. But the order would be wrong...
+
+Let me think again. 
+
+The arrangement might work differently than I'm picturing. Maybe I should try moving WIN or rearranging the blocks vertically instead. Let me explore downward to get a better sense of the full layout and see what other options I have for repositioning these text blocks.","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left
+rule `win` 2 step to the left
+rule `key` 1 step to the left
+rule `door` 2 step to the left and 2 steps down
+door 1 step to the left and 2 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+key 2 steps to the right and 5 steps down",0,False
+75,left,"Let me analyze the current state of the game:
+
+Active rules:
+- baba is you
+
+Objects on the map (relative to my position):
+- rule `is` 3 steps to the left
+- rule `win` 2 steps to the left
+- rule `key` 1 step to the left
+- rule `door` 2 steps to the left and 2 steps down
+- door 1 step to the left and 2 steps down
+- rule `baba` 3 steps to the left and 5 steps down
+- rule `is` 2 steps to the left and 5 steps down
+- rule `you` 1 step to the left and 5 steps down
+- key 2 steps to the right and 5 steps down
+
+I see there are text blocks: `is`, `win`, `key` in a row to my left.
+There's also `door` rule and a door object below.
+And `baba`, `is`, `you` forming a rule at the bottom.
+There's also a key object.
+
+To win, I need to create a rule that makes something ""WIN"" and then touch that object. The key and door are the objects available.
+
+The text blocks `is`, `win`, `key` are arranged horizontally. If I can arrange them as ""KEY IS WIN"", then I can touch the key to win.
+
+Currently they seem to be in the order: `is` (3 left), `win` (2 left), `key` (1 left)
+So they're arranged as: IS WIN KEY
+
+I need to push the KEY to the left to make it: KEY IS WIN
+
+Let me try going left to push the KEY block.
+
+Actually, it seems like my movements haven't been changing anything. There might be something blocking me. Let me try a different approach.
+
+Let me go down toward the key object and try to form a rule there.","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left
+rule `win` 2 step to the left
+rule `key` 1 step to the left
+rule `door` 2 step to the left and 2 steps down
+door 1 step to the left and 2 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+key 2 steps to the right and 5 steps down",0,False
+76,left,"Let me analyze the current situation:
+
+Active rules:
+- baba is you
+
+Objects on the map:
+- rule `is` 3 step to the left
+- rule `win` 2 step to the left
+- rule `key` 1 step to the left
+- rule `door` 2 step to the left and 2 steps down
+- door 1 step to the left and 2 steps down
+- rule `baba` 3 step to the left and 5 steps down
+- rule `is` 2 step to the left and 5 steps down
+- rule `you` 1 step to the left and 5 steps down
+- key 2 steps to the right and 5 steps down
+
+So I can see there's text blocks for ""IS"", ""WIN"", ""KEY"" arranged horizontally. I need to form ""KEY IS WIN"" to make the key the win condition, then touch the key.
+
+Let me try to understand the layout better:
+- I'm at some position
+- rule `key` is 1 step to the left
+- rule `win` is 2 steps to the left
+- rule `is` is 3 steps to the left
+
+So from left to right we have: IS, WIN, KEY
+
+I need to form KEY IS WIN. The KEY text is to my left by 1 step, IS is 3 steps to the left, WIN is 2 steps to the left.
+
+Current arrangement: IS WIN KEY (from left to right, reading the text blocks)
+
+I need to rearrange this to: KEY IS WIN
+
+I could push KEY to the left to form KEY IS WIN... but wait, if KEY is 1 step to my left, IS is 3 steps, and WIN is 2 steps, then from my position going left, I'd first encounter KEY, then WIN, then IS.
+
+Actually, positions from me: KEY at -1, WIN at -2, IS at -3
+So from left to right: IS (-3), WIN (-2), KEY (-1), ME (0)
+
+
+To get KEY IS WIN, I need to push KEY past both WIN and IS. Moving left would push KEY into WIN first, so I'd need to approach from the right side to push KEY leftward into the correct position.","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left
+rule `win` 2 step to the left
+rule `key` 1 step to the left
+rule `door` 2 step to the left and 2 steps down
+door 1 step to the left and 2 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+key 2 steps to the right and 5 steps down",0,False
+77,down,"Let me analyze the current situation:
+
+Active rules:
+- baba is you
+
+Objects on the map (relative to my position):
+- rule `is` 3 steps to the left
+- rule `win` 2 steps to the left
+- rule `key` 1 step to the left
+- rule `door` 2 steps to the left and 2 steps down
+- door 1 step to the left and 2 steps down
+- rule `baba` 3 steps to the left and 5 steps down
+- rule `is` 2 steps to the left and 5 steps down
+- rule `you` 1 step to the left and 5 steps down
+- key 2 steps to the right and 5 steps down
+
+I see there's a row with ""is"", ""win"", ""key"" text blocks. I need to form ""KEY IS WIN"" to win by touching the key.
+
+Currently, the blocks are arranged as:
+- is (3 left)
+- win (2 left)
+- key (1 left)
+
+So from left to right it reads: IS WIN KEY
+
+I need to rearrange to make KEY IS WIN. I could push the KEY block to the left side to make KEY IS WIN.
+
+Let me go left to be next to the KEY block and push it left.
+
+Actually, I've been trying to go left multiple times but my position doesn't seem to be changing. There might be a wall or something blocking me.
+
+Let me try a different approach. I should go down to get around obstacles, then approach these text blocks from a different direction.","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left and 1 step up
+rule `win` 2 step to the left and 1 step up
+rule `key` 1 step to the left and 1 step up
+rule `door` 2 step to the left and 1 step down
+door 1 step to the left and 1 step down
+rule `baba` 3 step to the left and 4 steps down
+rule `is` 2 step to the left and 4 steps down
+rule `you` 1 step to the left and 4 steps down
+key 2 steps to the right and 4 steps down",0,False
+78,up,"Let me analyze the current state of the game:
+
+Active rules:
+- baba is you
+
+Objects on the map:
+- rule `is` 3 steps to the left and 1 step up
+- rule `win` 2 steps to the left and 1 step up
+- rule `key` 1 step to the left and 1 step up
+- rule `door` 2 steps to the left and 1 step down
+- door 1 step to the left and 1 step down
+- rule `baba` 3 steps to the left and 4 steps down
+- rule `is` 2 steps to the left and 4 steps down
+- rule `you` 1 step to the left and 4 steps down
+- key 2 steps to the right and 4 steps down
+
+So I need to form a rule like ""KEY IS WIN"" to make the key the win condition, and then reach the key.
+
+Looking at the text blocks:
+- `is`, `win`, `key` are all in a row 1 step up from me
+- They seem to be arranged as: `is` (3 left, 1 up), `win` (2 left, 1 up), `key` (1 left, 1 up)
+
+So currently the arrangement is: IS WIN KEY (from left to right)
+
+I need to rearrange this to: KEY IS WIN
+
+To do that, I need to push the KEY text to the left, past IS and WIN.
+
+Let me think about this more carefully. If I go up one step, I'll be next to KEY. If I then push KEY to the left, it will become KEY WIN IS which doesn't make a rule.
+
+Maybe I should push the KEY text down and then rearrange.
+
+Actually, let me try a different approach. I should go up and then left to push KEY so it becomes the first word in a rule.
+
+Let me go up first to be at the same level as the rule text blocks.","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left
+rule `win` 2 step to the left
+rule `key` 1 step to the left
+rule `door` 2 step to the left and 2 steps down
+door 1 step to the left and 2 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+key 2 steps to the right and 5 steps down",0,False
+79,left,"Let me analyze the current situation:
+
+Active rules:
+- baba is you
+
+Objects on the map:
+- rule `is` 3 steps to the left
+- rule `win` 2 steps to the left
+- rule `key` 1 step to the left
+- rule `door` 2 steps to the left and 2 steps down
+- door 1 step to the left and 2 steps down
+- rule `baba` 3 steps to the left and 5 steps down
+- rule `is` 2 steps to the left and 5 steps down
+- rule `you` 1 step to the left and 5 steps down
+- key 2 steps to the right and 5 steps down
+
+So at the top there are: IS, WIN, KEY (from left to right, relative to me)
+And I need to form ""KEY IS WIN"" to win the level.
+
+Currently, ""KEY"" is 1 step to my left, ""IS"" is 3 steps to my left, and ""WIN"" is 2 steps to my left.
+
+So they're arranged as: IS WIN KEY (from left to right)
+
+I need to rearrange them to form ""KEY IS WIN"".
+
+To do this, I could:
+1. Push KEY to the left so it's left of IS
+2. Or push IS and WIN to the right
+
+Let me try pushing KEY to the left. I'm currently next to KEY (1 step to my left). If I go left, I'll push KEY, and it will collide with WIN.
+
+Actually, let me think about the arrangement again:
+- IS is 3 steps to my left
+- WIN is 2 steps to my left
+- KEY is 1 step to my left
+
+So the order from my position going left is: KEY, WIN, IS
+
+If I push KEY left, it will push WIN left, which will push IS left... that won't form KEY IS WIN.
+
+I need to form KEY IS WIN. So I need KEY, then IS, then WIN from left to right.
+
+
+I should move WIN out of the way first to create space. If I can get above WIN and push it down, that clears the path. Then I can rearrange KEY and IS into the right positions. Let me head up and then left to position myself above WIN.","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left
+rule `win` 2 step to the left
+rule `key` 1 step to the left
+rule `door` 2 step to the left and 2 steps down
+door 1 step to the left and 2 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+key 2 steps to the right and 5 steps down",0,False
+80,left,"Let me analyze the current state:
+
+Active rules:
+- baba is you
+
+Objects on the map:
+- rule `is` 3 step to the left
+- rule `win` 2 step to the left
+- rule `key` 1 step to the left
+- rule `door` 2 step to the left and 2 steps down
+- door 1 step to the left and 2 steps down
+- rule `baba` 3 step to the left and 5 steps down
+- rule `is` 2 step to the left and 5 steps down
+- rule `you` 1 step to the left and 5 steps down
+- key 2 steps to the right and 5 steps down
+
+I need to form a WIN rule to win the game. I see:
+- rule `is` and rule `win` are at the top, and rule `key` is 1 step to the left
+- So there's potential to form ""KEY IS WIN""
+
+The layout seems to be:
+- At the top: `is` (3 left), `win` (2 left), `key` (1 left)
+- Middle: `door` (2 left, 2 down), door object (1 left, 2 down)
+- Bottom: `baba` (3 left, 5 down), `is` (2 left, 5 down), `you` (1 left, 5 down), key object (2 right, 5 down)
+
+I need to create ""KEY IS WIN"" by pushing the `key` text to the left to form a horizontal rule with `is` and `win`.
+
+Currently `key` is 1 step to the left, `win` is 2 steps to the left, `is` is 3 steps to the left.
+
+If I can arrange them as KEY IS WIN (left to right), I need to push them.
+
+Actually looking at this, I think I need to push `key` left to connect with `is` and `win`. 
+
+The `key` text is directly adjacent to me on the left. Moving left should let me push it further, aligning it with the other rule words to complete the KEY IS WIN sequence.","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left
+rule `win` 2 step to the left
+rule `key` 1 step to the left
+rule `door` 2 step to the left and 2 steps down
+door 1 step to the left and 2 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+key 2 steps to the right and 5 steps down",0,False
+81,left,"Let me analyze the current situation:
+
+Active rules:
+- baba is you
+
+Objects on the map:
+- rule `is` 3 steps to the left
+- rule `win` 2 steps to the left
+- rule `key` 1 step to the left
+- rule `door` 2 steps to the left and 2 steps down
+- door 1 step to the left and 2 steps down
+- rule `baba` 3 steps to the left and 5 steps down
+- rule `is` 2 steps to the left and 5 steps down
+- rule `you` 1 step to the left and 5 steps down
+- key 2 steps to the right and 5 steps down
+
+So there are text blocks arranged:
+- Top row (same row as me): IS - WIN - KEY (from left to right, at 3, 2, 1 steps to the left)
+- Middle (2 steps down): DOOR (2 left), door object (1 left)
+- Bottom row (5 steps down): BABA - IS - YOU (from left to right, at 3, 2, 1 steps to the left)
+- Key object is 2 steps right and 5 steps down
+
+I need to create a win condition. I see there's IS and WIN at the top. If I can push KEY to be to the left of IS WIN, I could make ""KEY IS WIN"".
+
+Currently KEY is 1 step to the left of me. IS is 3 steps left, WIN is 2 steps left, KEY is 1 step left.
+
+So the arrangement is: IS - WIN - KEY (left to right)
+
+If I go left and push KEY, it would go into WIN. Let me think...
+
+Actually, I need to form ""KEY IS WIN"" which reads left to right as KEY - IS - WIN.
+
+Currently it's IS - WIN - KEY. I need to rearrange this.
+
+
+To get the right order, I should move KEY further left. If I push it left, it'll collide with WIN, so I need a different approach. Let me try repositioning KEY vertically first, then sliding it into place horizontally.","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left
+rule `win` 2 step to the left
+rule `key` 1 step to the left
+rule `door` 2 step to the left and 2 steps down
+door 1 step to the left and 2 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+key 2 steps to the right and 5 steps down",0,False
+82,down,"Let me analyze the current state of the game:
+
+Active rules:
+- baba is you
+
+Objects on the map (relative to my position):
+- rule `is` 3 steps to the left
+- rule `win` 2 steps to the left
+- rule `key` 1 step to the left
+- rule `door` 2 steps to the left and 2 steps down
+- door 1 step to the left and 2 steps down
+- rule `baba` 3 steps to the left and 5 steps down
+- rule `is` 2 steps to the left and 5 steps down
+- rule `you` 1 step to the left and 5 steps down
+- key 2 steps to the right and 5 steps down
+
+So there are text blocks: IS, WIN, KEY arranged horizontally near me.
+There's a DOOR text and a door object further down.
+And BABA IS YOU is formed at the bottom.
+
+I need to create a rule like ""KEY IS WIN"" so I can win by touching the key.
+
+Looking at the layout:
+- IS is 3 left
+- WIN is 2 left
+- KEY is 1 left
+
+So they're arranged as: IS WIN KEY (from left to right)
+
+I need to rearrange them to form KEY IS WIN.
+
+If I move left, I'll push KEY. Let me think about how to form this rule.
+
+Actually, it seems like I'm stuck in a loop. The positions don't seem to be changing when I move left. This suggests there might be a wall or I'm already at the edge.
+
+Let me try a different approach. I should move down first to get to the row where the key is, and then try to push text blocks to form ""KEY IS WIN"".
+
+Let me go down.","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left and 1 step up
+rule `win` 2 step to the left and 1 step up
+rule `key` 1 step to the left and 1 step up
+rule `door` 2 step to the left and 1 step down
+door 1 step to the left and 1 step down
+rule `baba` 3 step to the left and 4 steps down
+rule `is` 2 step to the left and 4 steps down
+rule `you` 1 step to the left and 4 steps down
+key 2 steps to the right and 4 steps down",0,False
+83,up,"Let me analyze the current state of the puzzle:
+
+Active rules:
+- baba is you
+
+Objects on the map relative to my position:
+- rule `is` 3 step to the left and 1 step up
+- rule `win` 2 step to the left and 1 step up
+- rule `key` 1 step to the left and 1 step up
+- rule `door` 2 step to the left and 1 step down
+- door 1 step to the left and 1 step down
+- rule `baba` 3 step to the left and 4 steps down
+- rule `is` 2 step to the left and 4 steps down
+- rule `you` 1 step to the left and 4 steps down
+- key 2 steps to the right and 4 steps down
+
+So there's a row with ""IS WIN KEY"" at the top (1 step up from me).
+There's ""DOOR"" and a door object below me (1 step down).
+There's ""BABA IS YOU"" way below (4 steps down).
+And there's a key object to the lower right (2 steps right, 4 steps down).
+
+I need to form a winning rule. I could form ""KEY IS WIN"" by pushing the KEY text to line up with IS and WIN. 
+
+Looking at the top row:
+- `is` is at (3 left, 1 up)
+- `win` is at (2 left, 1 up)
+- `key` is at (1 left, 1 up)
+
+So the order from left to right is: IS, WIN, KEY
+
+That doesn't form a valid rule. I need to rearrange them to form ""KEY IS WIN"".
+
+To do that, I need to push KEY to the left of IS, or rearrange them differently.
+
+Let me think about this differently. I should go up to interact with these text blocks and arrange them properly.","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left
+rule `win` 2 step to the left
+rule `key` 1 step to the left
+rule `door` 2 step to the left and 2 steps down
+door 1 step to the left and 2 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+key 2 steps to the right and 5 steps down",0,False
+84,left,"Let me analyze the current state of the game:
+
+Active rules:
+- baba is you
+
+Objects on the map:
+- rule `is` 3 steps to the left
+- rule `win` 2 steps to the left
+- rule `key` 1 step to the left
+- rule `door` 2 steps to the left and 2 steps down
+- door 1 step to the left and 2 steps down
+- rule `baba` 3 steps to the left and 5 steps down
+- rule `is` 2 steps to the left and 5 steps down
+- rule `you` 1 step to the left and 5 steps down
+- key 2 steps to the right and 5 steps down
+
+I notice there are text blocks for ""is"", ""win"", and ""key"" in a row to my left (at positions 3, 2, and 1 steps left). I need to form a rule like ""KEY IS WIN"" so I can win by touching the key.
+
+The text blocks at the top seem to be arranged as:
+- is (3 left)
+- win (2 left)
+- key (1 left)
+
+This isn't forming a rule because they're in the wrong order. I need to rearrange them to form ""KEY IS WIN"".
+
+Let me think about how to push these blocks. If I go left to reach ""key"" and push it further left, I could potentially form ""KEY IS WIN"".
+
+Actually, I need to push ""key"" to the left so it lines up with ""is"" and ""win"". Currently:
+- is is at position (3 left)
+- win is at position (2 left)
+- key is at position (1 left)
+
+To make ""KEY IS WIN"", I need key, is, win in a row (left to right or right to left).
+
+If I push ""key"" left, it would go from 1 left to 2 left, pushing ""win"" from 2 left to 3 left, and pushing ""is"" from 3 left to 4 left.
+
+
+That would give us: is (4 left), win (3 left), key (2 left) - still not a valid rule. I need to reconsider my approach. Instead of pushing from the right, I should move left and push the ""key"" block to create the proper sequence for ""KEY IS WIN"".","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left
+rule `win` 2 step to the left
+rule `key` 1 step to the left
+rule `door` 2 step to the left and 2 steps down
+door 1 step to the left and 2 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+key 2 steps to the right and 5 steps down",0,False
+85,left,"Let me analyze the current state of the game:
+
+Active rules:
+- baba is you
+
+Objects on the map:
+- rule `is` 3 step to the left
+- rule `win` 2 step to the left
+- rule `key` 1 step to the left
+- rule `door` 2 step to the left and 2 steps down
+- door 1 step to the left and 2 steps down
+- rule `baba` 3 step to the left and 5 steps down
+- rule `is` 2 step to the left and 5 steps down
+- rule `you` 1 step to the left and 5 steps down
+- key 2 steps to the right and 5 steps down
+
+So I can see text blocks that could form rules:
+- `is`, `win`, `key` are in a row (top)
+- `baba`, `is`, `you` are in a row (bottom)
+- `door` is separate
+
+The goal is to win. I need to form ""KEY IS WIN"" or ""DOOR IS WIN"" and then touch the key or door.
+
+I see `key` is 1 step to the left, and `is` is 3 steps to the left, and `win` is 2 steps to the left. So the arrangement from left to right seems to be: `is`, `win`, `key`
+
+To form ""KEY IS WIN"", I need to rearrange to: `key`, `is`, `win`
+
+Currently, I can't move left (seems stuck at a wall). Let me think about how to approach this differently.
+
+I should try to push the `key` text block to form ""KEY IS WIN"". The `key` text is 1 step to the left. If I move left, I would push it further left.
+
+Actually, looking at the positions:
+- `is` is 3 left
+- `win` is 2 left","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left
+rule `win` 2 step to the left
+rule `key` 1 step to the left
+rule `door` 2 step to the left and 2 steps down
+door 1 step to the left and 2 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+key 2 steps to the right and 5 steps down",0,False
+86,left,"Let me analyze the current situation:
+
+Active rules:
+- baba is you
+
+Objects on the map:
+- rule `is` 3 steps to the left
+- rule `win` 2 steps to the left
+- rule `key` 1 step to the left
+- rule `door` 2 steps to the left and 2 steps down
+- door 1 step to the left and 2 steps down
+- rule `baba` 3 steps to the left and 5 steps down
+- rule `is` 2 steps to the left and 5 steps down
+- rule `you` 1 step to the left and 5 steps down
+- key 2 steps to the right and 5 steps down
+
+I can see there are text blocks that could form ""KEY IS WIN"" at the top row (is, win, key).
+
+The goal seems to be to form ""KEY IS WIN"" and then touch the key, or somehow win.
+
+Let me think about the layout:
+- At the top: `is` (3 left), `win` (2 left), `key` (1 left) - these are already in a row
+- If I push `key` to the left, it would create ""KEY IS WIN"" reading right to left... wait, that's not how rules work. Rules need to read left to right.
+
+Actually looking at the positions:
+- rule `is` is 3 steps to the left
+- rule `win` is 2 steps to the left  
+- rule `key` is 1 step to the left
+
+So reading from left to right, it would be: IS WIN KEY, which doesn't form a valid rule.
+
+I need to rearrange these. To make ""KEY IS WIN"", I need KEY on the left, IS in the middle, WIN on the right.
+
+I'm stuck in some kind of loop. Let me try a different approach - I need to actually move to where I can push text blocks.
+
+Let me try going left to get closer to the text blocks.","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left
+rule `win` 2 step to the left
+rule `key` 1 step to the left
+rule `door` 2 step to the left and 2 steps down
+door 1 step to the left and 2 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+key 2 steps to the right and 5 steps down",0,False
+87,down,"Let me analyze the current state of the game:
+
+Active rules:
+- baba is you
+
+Objects on the map (relative to my position):
+- rule `is` 3 steps to the left
+- rule `win` 2 steps to the left
+- rule `key` 1 step to the left
+- rule `door` 2 steps to the left and 2 steps down
+- door 1 step to the left and 2 steps down
+- rule `baba` 3 steps to the left and 5 steps down
+- rule `is` 2 steps to the left and 5 steps down
+- rule `you` 1 step to the left and 5 steps down
+- key 2 steps to the right and 5 steps down
+
+I see there are text blocks for ""IS"", ""WIN"", and ""KEY"" arranged horizontally near me. If I can form ""KEY IS WIN"", I can then touch the key to win.
+
+Currently the text blocks are:
+- `is` at (-3, 0)
+- `win` at (-2, 0)
+- `key` at (-1, 0)
+
+That's ""IS WIN KEY"" from left to right which doesn't form a valid rule. I need to rearrange them to ""KEY IS WIN"".
+
+I need to push `key` to the left of `is`, so the order becomes KEY IS WIN.
+
+Let me think about this. I'm at position (0, 0). I should go left to push the `key` text block. But if I keep going left, I'll push it into `win` and `is`.
+
+Actually, I think I need to approach this differently. I should try to form ""KEY IS WIN"" horizontally. The current arrangement is IS WIN KEY from left to right. I need KEY IS WIN.
+
+Maybe I should push the KEY block to the left. To do that, I could approach from the right side and push it. But that would push it into WIN, then IS.
+
+
+Let me reconsider the approach. Perhaps I should move down first to access the text blocks from a different direction, or check if the actual key object can be reached once the rule is properly formed. I'm at (0, 0), so moving left would place me adjacent to KEY, but pushing it further left would compress it against WIN and IS. I need to find a way to rearrange these blocks into the correct sequence.
+
+Going down first seems like the better path—this way I can circle around and push KEY from the right side, sliding it leftward until it aligns properly with IS and WIN to complete the rule.","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left and 1 step up
+rule `win` 2 step to the left and 1 step up
+rule `key` 1 step to the left and 1 step up
+rule `door` 2 step to the left and 1 step down
+door 1 step to the left and 1 step down
+rule `baba` 3 step to the left and 4 steps down
+rule `is` 2 step to the left and 4 steps down
+rule `you` 1 step to the left and 4 steps down
+key 2 steps to the right and 4 steps down",0,False
+88,up,"Let me analyze the current state of the game:
+
+Active rules:
+- baba is you
+
+Objects on the map relative to my position:
+- rule `is` 3 steps to the left and 1 step up
+- rule `win` 2 steps to the left and 1 step up
+- rule `key` 1 step to the left and 1 step up
+- rule `door` 2 steps to the left and 1 step down
+- door 1 step to the left and 1 step down
+- rule `baba` 3 steps to the left and 4 steps down
+- rule `is` 2 steps to the left and 4 steps down
+- rule `you` 1 step to the left and 4 steps down
+- key 2 steps to the right and 4 steps down
+
+So I need to create a win condition. I see there's ""KEY IS WIN"" text blocks arranged at 1 step up from me. Let me check if I can form ""KEY IS WIN"":
+- rule `key` is 1 step to the left and 1 step up
+- rule `is` is 3 steps to the left and 1 step up
+- rule `win` is 2 steps to the left and 1 step up
+
+So the order from left to right at 1 step up is: IS, WIN, KEY
+
+That doesn't form a valid rule. I need to rearrange them to form ""KEY IS WIN"".
+
+Let me go up and try to push the KEY text to the left to form ""KEY IS WIN"".
+
+Actually, let me think more carefully. If I go up, I'll be at the same row as the text blocks. Then I could push text blocks around.
+
+Let me go up first.","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left
+rule `win` 2 step to the left
+rule `key` 1 step to the left
+rule `door` 2 step to the left and 2 steps down
+door 1 step to the left and 2 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+key 2 steps to the right and 5 steps down",0,False
+89,left,"Let me analyze the current state of the puzzle:
+
+Active rules: baba is you
+
+Objects on the map:
+- rule `is` 3 steps to the left
+- rule `win` 2 steps to the left
+- rule `key` 1 step to the left
+- rule `door` 2 steps to the left and 2 steps down
+- door 1 step to the left and 2 steps down
+- rule `baba` 3 steps to the left and 5 steps down
+- rule `is` 2 steps to the left and 5 steps down
+- rule `you` 1 step to the left and 5 steps down
+- key 2 steps to the right and 5 steps down
+
+So I see there's a row at the top with ""IS WIN KEY"" (from left to right it's: is, win, key)
+And there's ""BABA IS YOU"" at the bottom.
+There's also DOOR text and a door object.
+
+I need to form a rule like ""KEY IS WIN"" to win by touching the key. The text blocks I can see are:
+- IS, WIN, KEY at the top
+- DOOR near the door
+- BABA IS YOU at the bottom
+
+I should try to push the KEY text to form ""KEY IS WIN"". Currently the row seems to be ""IS WIN KEY"" reading from left to right. I need to rearrange this.
+
+Wait, I'm at some position and the blocks are to my left. Let me think about their positions more carefully:
+- `is` is 3 steps left
+- `win` is 2 steps left
+- `key` is 1 step left
+
+So going left from me: key, win, is (right to left)
+Or reading the row left to right: is, win, key
+
+To form ""KEY IS WIN"", I need to move the KEY text to the left side. I should push it to the left.
+
+Let me go left and push the KEY text to form ""KEY IS WIN"".","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left
+rule `win` 2 step to the left
+rule `key` 1 step to the left
+rule `door` 2 step to the left and 2 steps down
+door 1 step to the left and 2 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+key 2 steps to the right and 5 steps down",0,False
+90,left,"Let me analyze the current state of the level:
+
+Active rules:
+- baba is you
+
+Objects on the map:
+- rule `is` 3 steps to the left
+- rule `win` 2 steps to the left
+- rule `key` 1 step to the left
+- rule `door` 2 steps to the left and 2 steps down
+- door 1 step to the left and 2 steps down
+- rule `baba` 3 steps to the left and 5 steps down
+- rule `is` 2 steps to the left and 5 steps down
+- rule `you` 1 step to the left and 5 steps down
+- key 2 steps to the right and 5 steps down
+
+I see that I have the text blocks ""IS"" and ""WIN"" and ""KEY"" arranged horizontally to my left. If I could form ""KEY IS WIN"", then I could win by touching the key.
+
+Currently, I'm near the top row with ""IS"", ""WIN"", ""KEY"" text blocks. I need to form ""KEY IS WIN"" rule.
+
+The text blocks at the top are:
+- `is` 3 steps to the left
+- `win` 2 steps to the left
+- `key` 1 step to the left
+
+So from left to right: IS, WIN, KEY
+
+I need to rearrange them to form KEY IS WIN.
+
+If I push the KEY text to the left, it would become KEY WIN IS, which isn't right.
+
+I need to think about how to form KEY IS WIN. Maybe I should push KEY further left and then arrange them.
+
+Let me go left to push the KEY text block.","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left
+rule `win` 2 step to the left
+rule `key` 1 step to the left
+rule `door` 2 step to the left and 2 steps down
+door 1 step to the left and 2 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+key 2 steps to the right and 5 steps down",0,False
+91,left,"Let me analyze the current state of the puzzle:
+
+Active rules:
+- baba is you
+
+Objects on the map:
+- rule `is` 3 steps to the left
+- rule `win` 2 steps to the left
+- rule `key` 1 step to the left
+- rule `door` 2 steps to the left and 2 steps down
+- door 1 step to the left and 2 steps down
+- rule `baba` 3 steps to the left and 5 steps down
+- rule `is` 2 steps to the left and 5 steps down
+- rule `you` 1 step to the left and 5 steps down
+- key 2 steps to the right and 5 steps down
+
+I see there are text blocks at the top: IS, WIN, KEY (from left to right relative to me)
+And there's DOOR text and a door object below.
+At the bottom there's BABA IS YOU rule.
+
+I need to form a win condition. I can see KEY and WIN text blocks near the top. If I can push KEY to form ""KEY IS WIN"", then I can win by touching the key.
+
+Let me think about positions:
+- rule `is` is 3 left
+- rule `win` is 2 left  
+- rule `key` is 1 left
+
+So from my position, if I go left once, I'll be next to KEY. The arrangement is: IS - WIN - KEY from left to right.
+
+Wait, I need to form KEY IS WIN. The current arrangement seems to be IS, WIN, KEY from left to right. I need to rearrange them.
+
+Actually, I should try to push KEY to the left to form KEY IS WIN. But looking at the positions:
+- IS is 3 left
+- WIN is 2 left
+- KEY is 1 left
+
+So the arrangement from left to right is: IS - WIN - KEY
+
+I need to somehow form KEY IS WIN. Maybe I need to push KEY around to form this rule.
+
+
+My best approach is to move left toward the KEY block and attempt to manipulate it into the correct sequence to create the winning rule.","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left
+rule `win` 2 step to the left
+rule `key` 1 step to the left
+rule `door` 2 step to the left and 2 steps down
+door 1 step to the left and 2 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+key 2 steps to the right and 5 steps down",0,False
+92,left,"Let me analyze the current state:
+
+Active rules:
+- baba is you
+
+Objects:
+- rule `is` 3 steps left
+- rule `win` 2 steps left
+- rule `key` 1 step left
+- rule `door` 2 steps left and 2 steps down
+- door 1 step left and 2 steps down
+- rule `baba` 3 steps left and 5 steps down
+- rule `is` 2 steps left and 5 steps down
+- rule `you` 1 step left and 5 steps down
+- key 2 steps right and 5 steps down
+
+I notice there are text blocks for creating ""KEY IS WIN"" at the top row (is, win, key). If I can push the `key` text to the left to form ""KEY IS WIN"", then I can reach the key to win.
+
+Current position appears to be somewhere, and I need to form the rule ""KEY IS WIN"".
+
+The blocks at the top are:
+- `is` 3 steps left
+- `win` 2 steps left
+- `key` 1 step left
+
+So if I go left and push `key` further left, I could form ""KEY IS WIN"" (reading left to right would be KEY IS WIN if key goes to position 4 left, is at 3 left, win at 2 left... wait, that doesn't work).
+
+Actually let me reconsider. The positions are:
+- `is` at position (-3, 0)
+- `win` at position (-2, 0)
+- `key` at position (-1, 0)
+
+So reading left to right: IS WIN KEY - that's not a valid rule.
+
+I need to rearrange to get KEY IS WIN. I could push the `key` text block to the left to be at position (-4, 0), then it would read: KEY IS WIN.
+
+So I should go left and push `key` to form this rule. Let me go left.","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left
+rule `win` 2 step to the left
+rule `key` 1 step to the left
+rule `door` 2 step to the left and 2 steps down
+door 1 step to the left and 2 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+key 2 steps to the right and 5 steps down",0,False
+93,up,"Looking at this puzzle, I see:
+- Active rules: ""baba is you""
+- There are text blocks: IS, WIN, KEY at the top row (to my left)
+- DOOR text and a door object below
+- BABA IS YOU rule at the bottom
+- A key object to the right
+
+The text blocks seem to be arranged like:
+- Top row: IS WIN KEY (reading left to right from my perspective)
+- There's also a DOOR text and door object
+
+I need to create a WIN condition. I could form ""KEY IS WIN"" by pushing the KEY text to align with IS and WIN.
+
+Let me think about positions:
+- rule `is` is 3 steps to the left
+- rule `win` is 2 steps to the left  
+- rule `key` is 1 step to the left
+
+So they're arranged horizontally as: IS WIN KEY (from left to right)
+
+If I push KEY to the left, I'd get: IS WIN KEY becoming something else... wait, that doesn't form a valid rule.
+
+I need to form ""[Subject] IS [Property]"". So I need ""KEY IS WIN"".
+
+The current arrangement is: IS WIN KEY
+I need: KEY IS WIN
+
+I should push KEY to the left of IS, but that would require repositioning.
+
+Actually, looking more carefully - maybe I can form ""KEY IS WIN"" by pushing. Let me think about this differently.
+
+I'm at some position. The text blocks are:
+- IS: 3 left
+- WIN: 2 left
+- KEY: 1 left
+
+So from my position, going left: KEY, WIN, IS
+
+To form ""KEY IS WIN"", I need them arranged as KEY IS WIN from left to right.
+
+Currently they are: IS WIN KEY (3 left, 2 left, 1 left means IS is furthest left)
+
+I need to rearrange to: KEY IS WIN
+
+Maybe I should push KEY to the left? But I'm stuck - my left movement isn't working.
+
+
+Let me try moving up to get above this row and approach from a different angle.","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left
+rule `win` 2 step to the left
+rule `key` 1 step to the left
+rule `door` 2 step to the left and 2 steps down
+door 1 step to the left and 2 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+key 2 steps to the right and 5 steps down",0,False
+94,down,"Let me analyze the current situation:
+
+Active rules:
+- baba is you
+
+Objects on the map:
+- rule `is` 3 steps to the left
+- rule `win` 2 steps to the left
+- rule `key` 1 step to the left
+- rule `door` 2 steps to the left and 2 steps down
+- door 1 step to the left and 2 steps down
+- rule `baba` 3 steps to the left and 5 steps down
+- rule `is` 2 steps to the left and 5 steps down
+- rule `you` 1 step to the left and 5 steps down
+- key 2 steps to the right and 5 steps down
+
+I need to form ""KEY IS WIN"" to make the key the win condition, then touch the key.
+
+The rule blocks `is`, `win`, and `key` are in a row to my left. They're positioned as:
+- `is` 3 steps left
+- `win` 2 steps left
+- `key` 1 step left
+
+So the order from left to right is: IS, WIN, KEY
+
+To form ""KEY IS WIN"", I need to arrange them as KEY, IS, WIN from left to right.
+
+I need to push `key` to the left so it's before `is`. Let me go left to push `key`.
+
+Wait, I keep going left but the observation doesn't change. I think I might be hitting a wall or something. Let me try a different approach.
+
+Let me go down instead to explore or find another path.","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left and 1 step up
+rule `win` 2 step to the left and 1 step up
+rule `key` 1 step to the left and 1 step up
+rule `door` 2 step to the left and 1 step down
+door 1 step to the left and 1 step down
+rule `baba` 3 step to the left and 4 steps down
+rule `is` 2 step to the left and 4 steps down
+rule `you` 1 step to the left and 4 steps down
+key 2 steps to the right and 4 steps down",0,False
+95,up,"Let me analyze the current state:
+
+Active rules:
+- baba is you
+
+Objects on the map:
+- rule `is` 3 step to the left and 1 step up
+- rule `win` 2 step to the left and 1 step up
+- rule `key` 1 step to the left and 1 step up
+- rule `door` 2 step to the left and 1 step down
+- door 1 step to the left and 1 step down
+- rule `baba` 3 step to the left and 4 steps down
+- rule `is` 2 step to the left and 4 steps down
+- rule `you` 1 step to the left and 4 steps down
+- key 2 steps to the right and 4 steps down
+
+So we have text blocks for ""IS WIN"" and ""KEY"" at the top. We need to form ""KEY IS WIN"" to make the key the winning object.
+
+Currently:
+- `is` is 3 left, 1 up
+- `win` is 2 left, 1 up
+- `key` is 1 left, 1 up
+
+So we have IS WIN KEY from left to right. We need to rearrange to get KEY IS WIN.
+
+If I go up and left, I could push the KEY text to the left. Let me think about the positions.
+
+I'm at some position. Let me figure out where I need to go.
+
+The key text is 1 step to the left and 1 step up. If I go up and then left, I can push the key text further left.
+
+Actually, I need to form KEY IS WIN. Currently we have IS WIN KEY from left to right (reading the positions: IS at -3, WIN at -2, KEY at -1).
+
+So I need to push KEY to the left to form KEY IS WIN. I should go up first, then push KEY to the left.
+
+Let me go up first.","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left
+rule `win` 2 step to the left
+rule `key` 1 step to the left
+rule `door` 2 step to the left and 2 steps down
+door 1 step to the left and 2 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+key 2 steps to the right and 5 steps down",0,False
+96,left,"Let me analyze the current situation:
+
+Active rules: ""baba is you""
+
+Objects on the map:
+- rule `is` 3 steps to the left
+- rule `win` 2 steps to the left
+- rule `key` 1 step to the left
+- rule `door` 2 steps to the left and 2 steps down
+- door 1 step to the left and 2 steps down
+- rule `baba` 3 steps to the left and 5 steps down
+- rule `is` 2 steps to the left and 5 steps down
+- rule `you` 1 step to the left and 5 steps down
+- key 2 steps to the right and 5 steps down
+
+I need to create a rule like ""KEY IS WIN"" or ""DOOR IS WIN"" to win. 
+
+At the top, there are text blocks: `is`, `win`, `key` that could form ""KEY IS WIN"" if arranged properly.
+
+Currently they are arranged as:
+- `is` at 3 left
+- `win` at 2 left
+- `key` at 1 left
+
+So from left to right: IS, WIN, KEY
+
+I need to rearrange them to: KEY IS WIN
+
+I need to push `key` to the left of `is`. 
+
+Let me think about this more carefully. If I go left, I'll reach the `key` text block. Then I could push it left to create ""KEY IS WIN"".
+
+Current position of Baba: at origin (0,0)
+- `key` is at (-1, 0)
+- `win` is at (-2, 0)
+- `is` is at (-3, 0)
+
+If I push `key` left, I'll be pushing it into `win`, making: IS, KEY, WIN from left to right. That's not right either.
+
+Actually, I need to think about this differently. Let me go left and push `key` to form the rule ""KEY IS WIN"".","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left
+rule `win` 2 step to the left
+rule `key` 1 step to the left
+rule `door` 2 step to the left and 2 steps down
+door 1 step to the left and 2 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+key 2 steps to the right and 5 steps down",0,False
+97,left,"Let me analyze the current state:
+
+Active rules:
+- baba is you
+
+Objects on the map:
+- rule `is` 3 steps to the left
+- rule `win` 2 steps to the left
+- rule `key` 1 step to the left
+- rule `door` 2 steps to the left and 2 steps down
+- door 1 step to the left and 2 steps down
+- rule `baba` 3 steps to the left and 5 steps down
+- rule `is` 2 steps to the left and 5 steps down
+- rule `you` 1 step to the left and 5 steps down
+- key 2 steps to the right and 5 steps down
+
+So there's a row at the top with: IS, WIN, KEY (from left to right, with IS being 3 left, WIN being 2 left, KEY being 1 left from me)
+
+I need to form ""KEY IS WIN"" to win by touching the key.
+
+The top row has: IS - WIN - KEY
+If I push KEY to the left, I'd get: IS - KEY - WIN (not a valid rule)
+If I push WIN to the left, I'd get: WIN - IS - KEY (not a valid rule)
+
+Wait, I need to think about this more carefully. The text blocks are:
+- `is` at 3 left
+- `win` at 2 left
+- `key` at 1 left
+
+So they're arranged as: IS - WIN - KEY (from left to right)
+
+To make ""KEY IS WIN"", I need to rearrange them as: KEY - IS - WIN
+
+Actually, I should try to push the KEY text to form KEY IS WIN. Let me go left and push the KEY text further left to get in line.
+
+Wait, the positions are relative to me. If `key` is 1 step to my left, and I go left, I'll push it. Where will it go?
+
+
+I'll move left and push the KEY block to see what happens.","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left
+rule `win` 2 step to the left
+rule `key` 1 step to the left
+rule `door` 2 step to the left and 2 steps down
+door 1 step to the left and 2 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+key 2 steps to the right and 5 steps down",0,False
+98,left,"Let me analyze the current state:
+
+Active rules:
+- baba is you
+
+Objects on the map (relative to my position):
+- rule `is` 3 steps to the left
+- rule `win` 2 steps to the left
+- rule `key` 1 step to the left
+- rule `door` 2 steps to the left and 2 steps down
+- door 1 step to the left and 2 steps down
+- rule `baba` 3 steps to the left and 5 steps down
+- rule `is` 2 steps to the left and 5 steps down
+- rule `you` 1 step to the left and 5 steps down
+- key 2 steps to the right and 5 steps down
+
+There are text blocks arranged as:
+- `is` `win` `key` in a row (seems like I'm to the right of these)
+- `door` and door below (2 steps down from me)
+- `baba` `is` `you` in a row (5 steps down)
+- key object (2 steps right and 5 steps down)
+
+To win, I need to create a rule like ""KEY IS WIN"" or ""DOOR IS WIN"" so I can reach something that gives me victory.
+
+I see that `is`, `win`, and `key` are in a row to my left. If they're arranged as `is` `win` `key` (from left to right), that doesn't form a valid rule.
+
+I need to push `key` to form ""KEY IS WIN"". Currently they seem to be arranged as `is` (3 left), `win` (2 left), `key` (1 left). So I need to push `key` to the left to form ""KEY IS WIN"".
+
+Let me go left and push `key` to create ""KEY IS WIN"".","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 3 step to the left
+rule `win` 2 step to the left
+rule `key` 1 step to the left
+rule `door` 2 step to the left and 2 steps down
+door 1 step to the left and 2 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+key 2 steps to the right and 5 steps down",0,False
+99,right,"Let me analyze the current situation:
+
+Active rules:
+- baba is you
+
+Objects on the map (relative to my position):
+- rule `is` 3 steps to the left
+- rule `win` 2 steps to the left
+- rule `key` 1 step to the left
+- rule `door` 2 steps to the left and 2 steps down
+- door 1 step to the left and 2 steps down
+- rule `baba` 3 steps to the left and 5 steps down
+- rule `is` 2 steps to the left and 5 steps down
+- rule `you` 1 step to the left and 5 steps down
+- key 2 steps to the right and 5 steps down
+
+There are text blocks that could form:
+- ""IS WIN"" (if combined with something)
+- ""KEY"" is there
+- We could potentially make ""KEY IS WIN""
+
+Let me think about the layout:
+- At row 0 (same row as me): `is`, `win`, `key` are to my left
+- At row -2 (2 down from me): `door` rule and the door object
+- At row -5 (5 down from me): `baba`, `is`, `you` rules and the key object
+
+So I need to form ""KEY IS WIN"" to make the key the win condition, then reach the key.
+
+The text blocks `is` and `win` are at the same row as me to the left. And `key` is also at the same row. So I could potentially push `key` to connect with `is` and `win`.
+
+Currently:
+- `is` is 3 left
+- `win` is 2 left
+- `key` is 1 left
+
+If I go left to where `key` is and push it further left, it would become `key is win` (reading left to right).
+
+Wait, let me reconsider. If `key` is 1 step to my left, `win` is 2 steps to my left, and `is` is 3 steps to my left, then from left to right it would be: `is`, `win`, `key`. 
+
+That arrangement won't work as a valid rule. I need to rearrange them so `key` comes first, followed by `is`, then `win`. Maybe I should try a different approach—either work with the key object directly or explore repositioning the text blocks from another direction.","Active rules:
+baba is you
+
+Objects on the map:
+rule `is` 4 step to the left
+rule `win` 3 step to the left
+rule `key` 2 step to the left
+rule `door` 3 step to the left and 2 steps down
+door 2 step to the left and 2 steps down
+rule `baba` 4 step to the left and 5 steps down
+rule `is` 3 step to the left and 5 steps down
+rule `you` 2 step to the left and 5 steps down
+key 1 step to the right and 5 steps down",0,True

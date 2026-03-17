@@ -1,0 +1,652 @@
+Step,Action,Reasoning,Observation,Reward,Done
+0,up,"Let me analyze the current state of the game:
+
+Active rules:
+- door is win
+- wall is stop
+- baba is you
+
+Objects on the map (relative to my position as Baba):
+- wall: 1 step right and 4 up, 1 right and 3 up, 1 right and 2 up, 1 right and 1 up, 1 right, 1 right and 1 down, 1 right and 2 down
+- door: 2 right and 3 up
+- rule `door`: 4 right and 4 up
+- rule `is`: 5 right and 4 up
+- rule `win`: 6 right and 4 up
+- rule `wall`: 4 left and 3 up
+- rule `is`: 3 left and 3 up
+- rule `stop`: 2 left and 3 up
+- rule `key`: 3 right and 1 up
+- rule `baba`: 4 left and 2 down
+- rule `is`: 3 left and 2 down
+- rule `you`: 2 left and 2 down
+
+So I'm Baba, and I need to reach the door (which is WIN). The door is 2 steps to the right and 3 steps up.
+
+But there's a wall at 1 right and 3 up, which is STOP. Let me see if I can get around it.
+
+Looking at the walls:
+- 1 right, 4 up
+- 1 right, 3 up
+- 1 right, 2 up
+- 1 right, 1 up
+- 1 right, 0
+- 1 right, 1 down
+- 1 right, 2 down
+
+So there's a column of walls blocking my path to the right. I can't go through them because WALL IS STOP.
+
+
+I need to disable the ""WALL IS STOP"" rule by moving one of its text blocks. The rule components are positioned at 4 left and 3 up for `wall`, 3 left and 3 up for `is`, and 2 left and 3 up for `stop`. If I can push one of these away, the rule breaks and walls become passable. I'll head up and left to reach the rule texts, then manipulate them to break the constraint.","Active rules:
+door is win
+wall is stop
+baba is you
+
+Objects on the map:
+wall 1 step to the right and 3 step up
+rule `door` 4 steps to the right and 3 step up
+rule `is` 5 steps to the right and 3 step up
+rule `win` 6 steps to the right and 3 step up
+rule `wall` 4 step to the left and 2 step up
+rule `is` 3 step to the left and 2 step up
+rule `stop` 2 step to the left and 2 step up
+wall 1 step to the right and 2 step up
+door 2 steps to the right and 2 step up
+wall 1 step to the right and 1 step up
+wall 1 step to the right
+rule `key` 3 steps to the right
+wall 1 step to the right and 1 step down
+wall 1 step to the right and 2 steps down
+rule `baba` 4 step to the left and 3 steps down
+rule `is` 3 step to the left and 3 steps down
+rule `you` 2 step to the left and 3 steps down
+wall 1 step to the right and 3 steps down",0,False
+1,up,"Let me analyze the current state of the game:
+
+Active rules:
+- door is win
+- wall is stop
+- baba is you
+
+So I control baba, and I need to reach the door to win.
+
+Looking at the map:
+- There's a wall 1 step to the right and 3 steps up
+- The door is 2 steps to the right and 2 steps up
+- There are walls blocking the path
+
+Let me think about what I can do:
+1. I need to reach the door (which is WIN)
+2. The wall is STOP, so I can't pass through walls
+
+Looking at the positions:
+- Wall at (1, 3)
+- Door at (2, 2)
+- Wall at (1, 2)
+- Wall at (1, 1)
+- Wall at (1, 0)
+- Wall at (1, -1)
+- Wall at (1, -2)
+- Wall at (1, -3)
+
+So there's a wall column blocking my path to the door. The door is behind the walls.
+
+I could try to:
+1. Break the ""wall is stop"" rule by moving the text blocks
+2. Find another way around
+
+The ""wall is stop"" rule is at:
+- rule `wall` 4 steps to the left and 2 steps up
+- rule `is` 3 steps to the left and 2 steps up
+- rule `stop` 2 steps to the left and 2 steps up
+
+If I can break this rule, walls won't be STOP anymore and I can pass through them.
+
+Let me think about how to get there. I'm at position (0, 0). The `stop` text is at (-2, 2), meaning 2 steps to the left and 2 steps up from me.
+
+If I go up again, then I can move left to reach the STOP text and push it away to break the rule.
+
+Let me plan:
+- Go up one more step
+
+
+- Then go left to push the STOP text
+
+The wall column at x=1 is blocking direct access to the door at (2, 2). My best approach is to disable the ""wall is stop"" rule by repositioning the STOP text, which would let me pass through the walls to reach the goal.","Active rules:
+door is win
+wall is stop
+baba is you
+
+Objects on the map:
+wall 1 step to the right and 2 step up
+rule `door` 4 steps to the right and 2 step up
+rule `is` 5 steps to the right and 2 step up
+rule `win` 6 steps to the right and 2 step up
+rule `wall` 4 step to the left and 1 step up
+rule `is` 3 step to the left and 1 step up
+rule `stop` 2 step to the left and 1 step up
+wall 1 step to the right and 1 step up
+door 2 steps to the right and 1 step up
+wall 1 step to the right
+wall 1 step to the right and 1 step down
+rule `key` 3 steps to the right and 1 step down
+wall 1 step to the right and 2 steps down
+wall 1 step to the right and 3 steps down
+rule `baba` 4 step to the left and 4 steps down
+rule `is` 3 step to the left and 4 steps down
+rule `you` 2 step to the left and 4 steps down
+wall 1 step to the right and 4 steps down",0,False
+2,up,"Let me analyze the current situation:
+
+Active rules:
+- door is win
+- wall is stop
+- baba is you
+
+I need to reach the door to win. The door is 2 steps to the right and 1 step up from my current position. However, there's a wall 1 step to the right and 1 step up, and another wall 1 step to the right.
+
+So if I go up, I'll be at the same level as the door, but there's a wall blocking the path to the right.
+
+Let me think about the layout:
+- Wall at (1, 2) - 1 right, 2 up
+- Wall at (1, 1) - 1 right, 1 up
+- Wall at (1, 0) - 1 right
+- Wall at (1, -1) - 1 right, 1 down
+- Wall at (1, -2) - 1 right, 2 down
+- Wall at (1, -3) - 1 right, 3 down
+- Wall at (1, -4) - 1 right, 4 down
+
+So there's a vertical wall blocking my path to the right. The door is at (2, 1).
+
+I could try to break the ""wall is stop"" rule by moving one of the text blocks. The ""wall is stop"" rule is at:
+- rule `wall` 4 step to the left and 1 step up
+- rule `is` 3 step to the left and 1 step up
+- rule `stop` 2 step to the left and 1 step up
+
+If I go up one more step, I'll be at the same level as the ""wall is stop"" rule. Then if I go left and push the `stop` text, I could break the rule.
+
+Let me go up first.","Active rules:
+door is win
+wall is stop
+baba is you
+
+Objects on the map:
+wall 1 step to the right and 1 step up
+rule `door` 4 steps to the right and 1 step up
+rule `is` 5 steps to the right and 1 step up
+rule `win` 6 steps to the right and 1 step up
+rule `wall` 4 step to the left
+rule `is` 3 step to the left
+rule `stop` 2 step to the left
+wall 1 step to the right
+door 2 steps to the right
+wall 1 step to the right and 1 step down
+wall 1 step to the right and 2 steps down
+rule `key` 3 steps to the right and 2 steps down
+wall 1 step to the right and 3 steps down
+wall 1 step to the right and 4 steps down
+rule `baba` 4 step to the left and 5 steps down
+rule `is` 3 step to the left and 5 steps down
+rule `you` 2 step to the left and 5 steps down
+wall 1 step to the right and 5 steps down",0,False
+3,left,"Let me analyze the current state:
+
+Active rules:
+- door is win
+- wall is stop
+- baba is you
+
+The door is 2 steps to the right. There's a wall 1 step to the right blocking the path to the door.
+
+Since ""wall is stop"", I can't walk through the wall to reach the door.
+
+I need to break the ""wall is stop"" rule. The rule components are:
+- rule `wall` 4 step to the left
+- rule `is` 3 step to the left
+- rule `stop` 2 step to the left
+
+If I go left and push one of these text blocks, I can break the ""wall is stop"" rule.
+
+Let me go left to push the `stop` text block, which would break the rule.
+
+If I go left twice, I'll hit the `stop` block and push it left, breaking the rule.
+
+Actually, let me think about this more carefully. The `stop` text is 2 steps to the left. If I go left twice, I'll push it, breaking the ""wall is stop"" rule.
+
+Then the walls won't be stop anymore, and I can walk through them to reach the door (which is win).
+
+So my plan:
+1. Go left to push `stop` (or to position myself to push it)
+2. Break the ""wall is stop"" rule
+3. Go right to reach the door
+
+Let me go left first.","Active rules:
+door is win
+wall is stop
+baba is you
+
+Objects on the map:
+wall 2 steps to the right and 1 step up
+rule `door` 5 steps to the right and 1 step up
+rule `is` 6 steps to the right and 1 step up
+rule `win` 7 steps to the right and 1 step up
+rule `wall` 3 step to the left
+rule `is` 2 step to the left
+rule `stop` 1 step to the left
+wall 2 steps to the right
+door 3 steps to the right
+wall 2 steps to the right and 1 step down
+wall 2 steps to the right and 2 steps down
+rule `key` 4 steps to the right and 2 steps down
+wall 2 steps to the right and 3 steps down
+wall 2 steps to the right and 4 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+wall 2 steps to the right and 5 steps down",0,False
+4,left,"Let me analyze the current situation:
+
+Active rules:
+- door is win
+- wall is stop
+- baba is you
+
+I need to reach the door which is 3 steps to the right to win. However, there's a wall 2 steps to the right blocking my path.
+
+The wall is defined as STOP, so I can't pass through it. I need to break the ""wall is stop"" rule to be able to pass through the wall and reach the door.
+
+The rule ""WALL IS STOP"" is formed by:
+- rule `wall` 3 steps to the left
+- rule `is` 2 steps to the left
+- rule `stop` 1 step to the left
+
+If I move left, I'll push the `stop` text, which will break the ""wall is stop"" rule. Then walls will no longer be STOP and I can pass through them.
+
+Let me push left to break the rule.","Active rules:
+door is win
+wall is stop
+baba is you
+
+Objects on the map:
+wall 2 steps to the right and 1 step up
+rule `door` 5 steps to the right and 1 step up
+rule `is` 6 steps to the right and 1 step up
+rule `win` 7 steps to the right and 1 step up
+rule `wall` 3 step to the left
+rule `is` 2 step to the left
+rule `stop` 1 step to the left
+wall 2 steps to the right
+door 3 steps to the right
+wall 2 steps to the right and 1 step down
+wall 2 steps to the right and 2 steps down
+rule `key` 4 steps to the right and 2 steps down
+wall 2 steps to the right and 3 steps down
+wall 2 steps to the right and 4 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+wall 2 steps to the right and 5 steps down",0,False
+5,left,"Let me analyze the current situation:
+
+Active rules:
+- door is win
+- wall is stop
+- baba is you
+
+The door is 3 steps to the right, but there's a wall blocking my path at 2 steps to the right. Since wall is stop, I can't pass through it.
+
+I need to either:
+1. Break the ""wall is stop"" rule so I can pass through walls
+2. Find another way to reach the door
+
+Looking at the map, the ""wall is stop"" rule is formed by:
+- rule `wall` 3 steps to the left
+- rule `is` 2 steps to the left
+- rule `stop` 1 step to the left
+
+If I move left, I might be able to push the `stop` text and break the rule. But wait, I already moved left twice and the observation shows the same layout. Let me check again...
+
+Actually, looking at the observation, it seems like I'm still in the same position. The `stop` is 1 step to my left. If I push it further left, it might break the ""wall is stop"" rule.
+
+Let me try going left again to push the `stop` text.","Active rules:
+door is win
+wall is stop
+baba is you
+
+Objects on the map:
+wall 2 steps to the right and 1 step up
+rule `door` 5 steps to the right and 1 step up
+rule `is` 6 steps to the right and 1 step up
+rule `win` 7 steps to the right and 1 step up
+rule `wall` 3 step to the left
+rule `is` 2 step to the left
+rule `stop` 1 step to the left
+wall 2 steps to the right
+door 3 steps to the right
+wall 2 steps to the right and 1 step down
+wall 2 steps to the right and 2 steps down
+rule `key` 4 steps to the right and 2 steps down
+wall 2 steps to the right and 3 steps down
+wall 2 steps to the right and 4 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+wall 2 steps to the right and 5 steps down",0,False
+6,up,"Let me analyze the current situation:
+
+Active rules:
+- door is win
+- wall is stop
+- baba is you
+
+So I need to reach the door to win. The door is 3 steps to the right from my current position.
+
+But there's a wall at 2 steps to the right, and wall is stop, so I can't pass through the wall.
+
+Let me look at what I can do. I see:
+- rule `stop` is 1 step to the left
+- rule `is` is 2 steps to the left  
+- rule `wall` is 3 steps to the left
+
+The rule ""wall is stop"" is formed horizontally to my left. If I push the `stop` text, I can break the rule and walls won't be stopping anymore.
+
+But wait, the observation says the current position hasn't changed from last move. Let me check - the observation is the same as before. So my last ""left"" action didn't actually move me, probably because I hit some boundary or obstacle.
+
+Looking at the layout:
+- rule `stop` is 1 step to the left
+- If I go left, I should push `stop` to the left, which would break the ""wall is stop"" rule
+
+But it seems like I tried going left and nothing happened. Maybe there's something blocking me from pushing `stop` further?
+
+Actually, looking at the positions more carefully:
+- rule `wall` 3 steps to the left
+- rule `is` 2 steps to the left
+- rule `stop` 1 step to the left
+
+If I go left, I push `stop` to the left. But `is` is already at 2 steps left, so `stop` would push `is`, which would push `wall`. This chain push might be blocked by something.
+
+Let me try a different approach. Maybe I should go right and push through, but that's blocked by walls.
+
+Let me try going up first, then approach from a different angle.","Active rules:
+door is win
+wall is stop
+baba is you
+
+Objects on the map:
+wall 2 steps to the right
+rule `door` 5 steps to the right
+rule `is` 6 steps to the right
+rule `win` 7 steps to the right
+rule `wall` 3 step to the left and 1 step down
+rule `is` 2 step to the left and 1 step down
+rule `stop` 1 step to the left and 1 step down
+wall 2 steps to the right and 1 step down
+door 3 steps to the right and 1 step down
+wall 2 steps to the right and 2 steps down
+wall 2 steps to the right and 3 steps down
+rule `key` 4 steps to the right and 3 steps down
+wall 2 steps to the right and 4 steps down
+wall 2 steps to the right and 5 steps down
+rule `baba` 3 step to the left and 6 steps down
+rule `is` 2 step to the left and 6 steps down
+rule `you` 1 step to the left and 6 steps down
+wall 2 steps to the right and 6 steps down",0,False
+7,left,"Let me analyze the current state:
+
+Active rules:
+- door is win
+- wall is stop
+- baba is you
+
+The door is 3 steps to the right and 1 step down from me. The walls are blocking a direct path since ""wall is stop"".
+
+I need to reach the door to win since ""door is win"".
+
+Looking at my position relative to objects:
+- I'm currently at some position
+- Wall is 2 steps to the right (blocking)
+- Door is 3 steps to the right and 1 step down
+- The ""WALL IS STOP"" rule is at 3 left and 1 down, 2 left and 1 down, 1 left and 1 down
+
+If I break the ""WALL IS STOP"" rule, then walls won't be obstacles anymore!
+
+Let me think about what I can do. If I go left, I could potentially push the STOP text and break the rule.
+
+Actually, looking at my position:
+- rule `stop` is 1 step to the left and 1 step down
+
+If I go down, I'll be next to the rule blocks. Then I could push ""stop"" to break the ""wall is stop"" rule.
+
+Let me go down first.","Active rules:
+door is win
+wall is stop
+baba is you
+
+Objects on the map:
+wall 3 steps to the right
+rule `door` 6 steps to the right
+rule `is` 7 steps to the right
+rule `win` 8 steps to the right
+rule `wall` 2 step to the left and 1 step down
+rule `is` 1 step to the left and 1 step down
+rule `stop` 1 step down
+wall 3 steps to the right and 1 step down
+door 4 steps to the right and 1 step down
+wall 3 steps to the right and 2 steps down
+wall 3 steps to the right and 3 steps down
+rule `key` 5 steps to the right and 3 steps down
+wall 3 steps to the right and 4 steps down
+wall 3 steps to the right and 5 steps down
+rule `baba` 2 step to the left and 6 steps down
+rule `is` 1 step to the left and 6 steps down
+rule `you` 6 steps down
+wall 3 steps to the right and 6 steps down",0,False
+8,down,"Let me analyze the current state:
+
+Active rules:
+- door is win
+- wall is stop
+- baba is you
+
+I am Baba. The door is 4 steps to the right and 1 step down from me, and it's the win condition. But there's a wall at 3 steps to the right and 1 step down, blocking my path to the door.
+
+The rule ""WALL IS STOP"" is formed by:
+- rule `wall` 2 steps to the left and 1 step down
+- rule `is` 1 step to the left and 1 step down
+- rule `stop` 1 step down
+
+If I push the `stop` text block, I can break the ""WALL IS STOP"" rule, which would allow me to walk through walls.
+
+Let me try going down to push the `stop` block and break the rule.
+
+Actually, looking at the positions:
+- rule `stop` is 1 step down from me
+- If I go down, I'll push `stop` further down
+
+Let me go down to push `stop` away and break the ""WALL IS STOP"" rule.","Active rules:
+door is win
+baba is you
+
+Objects on the map:
+wall 3 steps to the right and 1 step up
+rule `door` 6 steps to the right and 1 step up
+rule `is` 7 steps to the right and 1 step up
+rule `win` 8 steps to the right and 1 step up
+rule `wall` 2 step to the left
+rule `is` 1 step to the left
+wall 3 steps to the right
+door 4 steps to the right
+rule `stop` 1 step down
+wall 3 steps to the right and 1 step down
+wall 3 steps to the right and 2 steps down
+rule `key` 5 steps to the right and 2 steps down
+wall 3 steps to the right and 3 steps down
+wall 3 steps to the right and 4 steps down
+rule `baba` 2 step to the left and 5 steps down
+rule `is` 1 step to the left and 5 steps down
+rule `you` 5 steps down
+wall 3 steps to the right and 5 steps down",0,False
+9,right,"Let me analyze the current state:
+
+Active rules:
+- door is win
+- baba is you
+
+I successfully broke the ""wall is stop"" rule by pushing the `stop` text away. Now walls are no longer stopping me.
+
+The door is 4 steps to the right, and it's still ""win"". So I need to reach the door to win.
+
+Let me trace a path:
+- I'm at position (0, 0)
+- Wall is at 3 steps to the right (at same level)
+- Door is at 4 steps to the right (at same level)
+
+Since ""wall is stop"" is no longer active, I can walk through walls now!
+
+So I should go right to reach the door.
+
+Let me go: right, right, right, right to reach the door (which is win).
+
+Actually, wait. Let me check the positions again:
+- wall 3 steps to the right (same row as me)
+- door 4 steps to the right (same row as me)
+
+So I need to go right 4 times to reach the door. Since wall is no longer stop, I can pass through it.
+
+Let me go right.","Active rules:
+door is win
+baba is you
+
+Objects on the map:
+wall 2 steps to the right and 1 step up
+rule `door` 5 steps to the right and 1 step up
+rule `is` 6 steps to the right and 1 step up
+rule `win` 7 steps to the right and 1 step up
+rule `wall` 3 step to the left
+rule `is` 2 step to the left
+wall 2 steps to the right
+door 3 steps to the right
+rule `stop` 1 step to the left and 1 step down
+wall 2 steps to the right and 1 step down
+wall 2 steps to the right and 2 steps down
+rule `key` 4 steps to the right and 2 steps down
+wall 2 steps to the right and 3 steps down
+wall 2 steps to the right and 4 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+wall 2 steps to the right and 5 steps down",0,False
+10,right,"Let me analyze the current situation:
+
+Active rules:
+- door is win
+- baba is you
+
+The ""wall is stop"" rule has been broken! This means I can now walk through walls.
+
+The door is 3 steps to the right from my current position, and since ""door is win"", I need to reach the door to win the level.
+
+Let me trace the path:
+- Door is 3 steps to the right
+- There's a wall 2 steps to the right (but walls are no longer STOP, so I can pass through them)
+
+So I should be able to go right and reach the door. Let me go right to reach the door.
+
+Current position: I'm at the origin (0,0)
+Door: 3 steps to the right (3,0)
+Wall: 2 steps to the right (2,0)
+
+Since wall is no longer stop, I can walk through it. Let me go right 3 times to reach the door.","Active rules:
+door is win
+baba is you
+
+Objects on the map:
+wall 1 step to the right and 1 step up
+rule `door` 4 steps to the right and 1 step up
+rule `is` 5 steps to the right and 1 step up
+rule `win` 6 steps to the right and 1 step up
+rule `wall` 4 step to the left
+rule `is` 3 step to the left
+wall 1 step to the right
+door 2 steps to the right
+rule `stop` 2 step to the left and 1 step down
+wall 1 step to the right and 1 step down
+wall 1 step to the right and 2 steps down
+rule `key` 3 steps to the right and 2 steps down
+wall 1 step to the right and 3 steps down
+wall 1 step to the right and 4 steps down
+rule `baba` 4 step to the left and 5 steps down
+rule `is` 3 step to the left and 5 steps down
+rule `you` 2 step to the left and 5 steps down
+wall 1 step to the right and 5 steps down",0,False
+11,right,"Let me analyze the current state:
+
+Active rules:
+- door is win
+- baba is you
+
+The door is 2 steps to the right. Since ""wall is stop"" rule was broken (I pushed the STOP text away), the walls are no longer stopping me.
+
+But wait, there's still a wall 1 step to the right. Let me check if I can pass through it now that ""wall is stop"" is broken.
+
+Since ""wall is stop"" is no longer active (I can see ""rule `wall`"" is 4 steps to the left and ""rule `is`"" is 3 steps to the left, but ""rule `stop`"" is 2 steps to the left and 1 step down - they're not aligned), walls should no longer stop me.
+
+So I should be able to go right through the wall to reach the door which is ""win"".
+
+Let me go right to reach the door.","Active rules:
+door is win
+baba is you
+
+Objects on the map:
+wall 1 step up
+rule `door` 3 steps to the right and 1 step up
+rule `is` 4 steps to the right and 1 step up
+rule `win` 5 steps to the right and 1 step up
+rule `wall` 5 step to the left
+rule `is` 4 step to the left
+door 1 step to the right
+rule `stop` 3 step to the left and 1 step down
+wall 1 step down
+wall 2 steps down
+rule `key` 2 steps to the right and 2 steps down
+wall 3 steps down
+wall 4 steps down
+rule `baba` 5 step to the left and 5 steps down
+rule `is` 4 step to the left and 5 steps down
+rule `you` 3 step to the left and 5 steps down
+wall 5 steps down",0,False
+12,right,"Let me analyze the current situation:
+
+Active rules:
+- door is win
+- baba is you
+
+The door is 1 step to the right of me. Since ""door is win"" is active, I just need to reach the door to win the game.
+
+The wall is 1 step up from me, but ""wall is stop"" is no longer active (I broke that rule earlier), so the wall shouldn't stop me.
+
+Actually, looking at the objects:
+- wall 1 step up
+- door 1 step to the right
+
+So I can go right to reach the door and win!","Active rules:
+door is win
+baba is you
+
+Objects on the map:
+wall 1 step to the left and 1 step up
+rule `door` 2 steps to the right and 1 step up
+rule `is` 3 steps to the right and 1 step up
+rule `win` 4 steps to the right and 1 step up
+rule `wall` 6 step to the left
+rule `is` 5 step to the left
+wall 1 step to the left
+rule `stop` 4 step to the left and 1 step down
+wall 1 step to the left and 1 step down
+wall 1 step to the left and 2 steps down
+rule `key` 1 step to the right and 2 steps down
+wall 1 step to the left and 3 steps down
+wall 1 step to the left and 4 steps down
+rule `baba` 6 step to the left and 5 steps down
+rule `is` 5 step to the left and 5 steps down
+rule `you` 4 step to the left and 5 steps down
+wall 1 step to the left and 5 steps down",0.883,True

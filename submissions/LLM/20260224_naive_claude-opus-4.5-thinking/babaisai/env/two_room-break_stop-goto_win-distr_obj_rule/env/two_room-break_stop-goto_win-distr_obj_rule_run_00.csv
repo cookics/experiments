@@ -1,0 +1,670 @@
+Step,Action,Reasoning,Observation,Reward,Done
+0,up,"Let me analyze this Baba Is You puzzle.
+
+Current rules:
+- ball is win
+- wall is stop
+- baba is you
+
+Objects and their positions relative to me (Baba):
+- wall: 3 right, 3 up
+- rule `ball`: 6 right, 3 up
+- rule `is`: 7 right, 3 up
+- rule `win`: 8 right, 3 up
+- rule `wall`: 2 left, 2 up
+- rule `is`: 1 left, 2 up
+- rule `stop`: 2 up
+- wall: 3 right, 2 up
+- door: 6 right, 2 up
+- wall: 3 right, 1 up
+- rule `door`: 8 right, 1 up
+- wall: 3 right
+- wall: 3 right, 1 down
+- wall: 3 right, 2 down
+- rule `baba`: 2 left, 3 down
+- rule `is`: 1 left, 3 down
+- rule `you`: 3 down
+- wall: 3 right, 3 down
+- ball: 6 right, 3 down
+
+So the goal is to reach the ball (since ball is win). But there's a wall column at 3 steps to the right, blocking the path.
+
+There's also a door at 6 right, 2 up. 
+
+The ball is at 6 right, 3 down.
+
+There's a vertical wall blocking access. I need to either:
+1. Go around the wall
+2. Break the ""wall is stop"" rule
+3. Find another way
+
+Let me think about how to reach the ball. The walls form a vertical barrier at x+3. 
+
+I could try to break the ""wall is stop"" rule by moving one of the text blocks. The rule ""WALL IS STOP"" is at positions: wall (2 left, 2 up), is (1 left, 2 up), stop (2 up).
+
+
+If I move up twice, I'll reach the same row as the ""stop"" text. Then pushing it right would disable the wall is stop rule. Let me try: up, up, right to push stop and break the rule.","Active rules:
+ball is win
+wall is stop
+baba is you
+
+Objects on the map:
+wall 3 steps to the right and 2 step up
+rule `ball` 6 steps to the right and 2 step up
+rule `is` 7 steps to the right and 2 step up
+rule `win` 8 steps to the right and 2 step up
+rule `wall` 2 step to the left and 1 step up
+rule `is` 1 step to the left and 1 step up
+rule `stop` 1 step up
+wall 3 steps to the right and 1 step up
+door 6 steps to the right and 1 step up
+wall 3 steps to the right
+rule `door` 8 steps to the right
+wall 3 steps to the right and 1 step down
+wall 3 steps to the right and 2 steps down
+wall 3 steps to the right and 3 steps down
+rule `baba` 2 step to the left and 4 steps down
+rule `is` 1 step to the left and 4 steps down
+rule `you` 4 steps down
+wall 3 steps to the right and 4 steps down
+ball 6 steps to the right and 4 steps down",0,False
+1,up,"Let me analyze the current state:
+
+Active rules:
+- ball is win
+- wall is stop
+- baba is you
+
+I need to reach the ball to win. The ball is 6 steps to the right and 4 steps down.
+
+There's a wall blocking the path at 3 steps to the right (and various heights).
+
+Looking at the layout:
+- I'm at (0, 0)
+- Wall column at x=3 from y=-4 to y=2
+- Door at (6, 1)
+- Ball at (6, -4)
+
+The wall is STOP, so I can't pass through it. I need to either:
+1. Break the ""wall is stop"" rule
+2. Find another way around
+
+The ""wall is stop"" rule is at:
+- rule `wall` 2 steps to the left and 1 step up
+- rule `is` 1 step to the left and 1 step up
+- rule `stop` 1 step up
+
+If I move up one step, I'll be aligned with this rule. I can try to push the `stop` text to break the rule.
+
+Let me go up and then push the `stop` text away to break ""wall is stop"".
+
+Actually, I already moved up once. Let me check my position relative to the rule.
+
+The `stop` is 1 step up from me. If I go up, I'll push it further up... but let me think about if this breaks the rule.
+
+If I push `stop` up, then ""wall is stop"" would be broken because the words wouldn't be aligned anymore.
+
+Let me try going up to push the `stop` word.","Active rules:
+ball is win
+baba is you
+
+Objects on the map:
+rule `stop` 1 step up
+wall 3 steps to the right and 1 step up
+rule `ball` 6 steps to the right and 1 step up
+rule `is` 7 steps to the right and 1 step up
+rule `win` 8 steps to the right and 1 step up
+rule `wall` 2 step to the left
+rule `is` 1 step to the left
+wall 3 steps to the right
+door 6 steps to the right
+wall 3 steps to the right and 1 step down
+rule `door` 8 steps to the right and 1 step down
+wall 3 steps to the right and 2 steps down
+wall 3 steps to the right and 3 steps down
+wall 3 steps to the right and 4 steps down
+rule `baba` 2 step to the left and 5 steps down
+rule `is` 1 step to the left and 5 steps down
+rule `you` 5 steps down
+wall 3 steps to the right and 5 steps down
+ball 6 steps to the right and 5 steps down",0,False
+2,right,"Let me analyze the current situation:
+
+Active rules:
+- ball is win
+- baba is you
+
+The ""wall is stop"" rule has been broken! Now walls are no longer stopping me.
+
+Objects on the map:
+- rule `stop` 1 step up
+- wall 3 steps to the right and 1 step up
+- rule `ball` 6 steps to the right and 1 step up
+- rule `is` 7 steps to the right and 1 step up
+- rule `win` 8 steps to the right and 1 step up
+- rule `wall` 2 step to the left
+- rule `is` 1 step to the left
+- wall 3 steps to the right
+- door 6 steps to the right
+- wall 3 steps to the right and 1 step down
+- rule `door` 8 steps to the right and 1 step down
+- wall 3 steps to the right and 2 steps down
+- wall 3 steps to the right and 3 steps down
+- wall 3 steps to the right and 4 steps down
+- rule `baba` 2 step to the left and 5 steps down
+- rule `is` 1 step to the left and 5 steps down
+- rule `you` 5 steps down
+- wall 3 steps to the right and 5 steps down
+- ball 6 steps to the right and 5 steps down
+
+Since ""wall is stop"" is no longer active, I can pass through walls now. The ball is 6 steps to the right and 5 steps down, and ""ball is win"" is still active.
+
+So I need to reach the ball. I should go right and then down, or down and then right. Let me go right through the walls to reach the ball.
+
+I'll go right to pass through the walls, then down to reach the ball.","Active rules:
+ball is win
+baba is you
+
+Objects on the map:
+rule `stop` 1 step to the left and 1 step up
+wall 2 steps to the right and 1 step up
+rule `ball` 5 steps to the right and 1 step up
+rule `is` 6 steps to the right and 1 step up
+rule `win` 7 steps to the right and 1 step up
+rule `wall` 3 step to the left
+rule `is` 2 step to the left
+wall 2 steps to the right
+door 5 steps to the right
+wall 2 steps to the right and 1 step down
+rule `door` 7 steps to the right and 1 step down
+wall 2 steps to the right and 2 steps down
+wall 2 steps to the right and 3 steps down
+wall 2 steps to the right and 4 steps down
+rule `baba` 3 step to the left and 5 steps down
+rule `is` 2 step to the left and 5 steps down
+rule `you` 1 step to the left and 5 steps down
+wall 2 steps to the right and 5 steps down
+ball 5 steps to the right and 5 steps down",0,False
+3,right,"Let me analyze the current state:
+
+Active rules:
+- ball is win
+- baba is you
+
+I need to reach the ball to win. The ball is 5 steps to the right and 5 steps down.
+
+There's a wall blocking my path at 2 steps to the right. The wall is no longer STOP (the WALL IS STOP rule was broken when I moved).
+
+Wait, let me check the rules again. The active rules are:
+- ball is win
+- baba is you
+
+So ""wall is stop"" is no longer active! This means I can pass through walls now.
+
+Let me trace a path to the ball:
+- Ball is at 5 steps to the right and 5 steps down
+- There's a door at 5 steps to the right (same column as ball)
+- Walls are at 2 steps to the right (forming a vertical line)
+
+Since wall is not stop anymore, I should be able to walk through the walls to reach the ball.
+
+Let me go right to get closer to the ball.","Active rules:
+ball is win
+baba is you
+
+Objects on the map:
+rule `stop` 2 step to the left and 1 step up
+wall 1 step to the right and 1 step up
+rule `ball` 4 steps to the right and 1 step up
+rule `is` 5 steps to the right and 1 step up
+rule `win` 6 steps to the right and 1 step up
+rule `wall` 4 step to the left
+rule `is` 3 step to the left
+wall 1 step to the right
+door 4 steps to the right
+wall 1 step to the right and 1 step down
+rule `door` 6 steps to the right and 1 step down
+wall 1 step to the right and 2 steps down
+wall 1 step to the right and 3 steps down
+wall 1 step to the right and 4 steps down
+rule `baba` 4 step to the left and 5 steps down
+rule `is` 3 step to the left and 5 steps down
+rule `you` 2 step to the left and 5 steps down
+wall 1 step to the right and 5 steps down
+ball 4 steps to the right and 5 steps down",0,False
+4,right,"Let me analyze the current state:
+
+Active rules:
+- ball is win
+- baba is you
+
+I need to reach the ball to win, but there's a wall blocking my path. The wall is 1 step to the right, and the ball is 4 steps to the right and 5 steps down.
+
+There's a door at 4 steps to the right, which might be blocking access too.
+
+The ""wall is stop"" rule was broken when I moved, so now walls shouldn't stop me anymore! Let me check - the rule `wall` is at 4 steps to the left, `is` is at 3 steps to the left, and `stop` is at 2 steps to the left and 1 step up. So they're not aligned anymore, which means ""wall is stop"" is no longer active.
+
+So I should be able to pass through walls now. Let me try to reach the ball.
+
+The ball is at 4 steps to the right and 5 steps down.
+
+Current position: I'm at (0,0).
+Wall is at 1 step to the right (1,0).
+Ball is at 4 steps to the right and 5 steps down (4,-5).
+
+Since walls are no longer STOP, I can walk through them. Let me go right to get closer to the ball, then down.
+
+Actually, let me check if there's a door in my way. The door is at 4 steps to the right (4,0). There's no ""door is stop"" rule, so I should be able to pass through it too.
+
+Let me go right to reach the ball's column, then go down.","Active rules:
+ball is win
+baba is you
+
+Objects on the map:
+rule `stop` 3 step to the left and 1 step up
+wall 1 step up
+rule `ball` 3 steps to the right and 1 step up
+rule `is` 4 steps to the right and 1 step up
+rule `win` 5 steps to the right and 1 step up
+rule `wall` 5 step to the left
+rule `is` 4 step to the left
+door 3 steps to the right
+wall 1 step down
+rule `door` 5 steps to the right and 1 step down
+wall 2 steps down
+wall 3 steps down
+wall 4 steps down
+rule `baba` 5 step to the left and 5 steps down
+rule `is` 4 step to the left and 5 steps down
+rule `you` 3 step to the left and 5 steps down
+wall 5 steps down
+ball 3 steps to the right and 5 steps down",0,False
+5,right,"Let me analyze the current situation:
+
+Active rules:
+- ball is win
+- baba is you
+
+I need to reach the ball to win. The ball is 3 steps to the right and 5 steps down.
+
+There's a wall directly in front of me (1 step up), and walls going down from 1 step down to 5 steps down. There's also a door 3 steps to the right.
+
+The wall is no longer ""stop"" since I broke that rule by moving. So I should be able to pass through walls now!
+
+Let me trace a path to the ball:
+- The ball is at 3 steps to the right and 5 steps down
+- There are walls at: 1 step up, 1 step down, 2 steps down, 3 steps down, 4 steps down, 5 steps down
+
+Since ""wall is stop"" is no longer active, I can go through the walls!
+
+Let me go down to reach the ball's row (5 steps down), then go right to reach the ball (3 steps to the right).
+
+Actually, wait - the walls are all at the same column (directly in front/behind me). Let me go right first to avoid them, then go down.
+
+Current position: I am at (0,0) relatively.
+Ball is at (3, -5) - 3 right, 5 down.
+
+I should go right 3 steps, then down 5 steps to reach the ball.
+
+Let me go right.","Active rules:
+ball is win
+baba is you
+
+Objects on the map:
+rule `stop` 4 step to the left and 1 step up
+wall 1 step to the left and 1 step up
+rule `ball` 2 steps to the right and 1 step up
+rule `is` 3 steps to the right and 1 step up
+rule `win` 4 steps to the right and 1 step up
+rule `wall` 6 step to the left
+rule `is` 5 step to the left
+wall 1 step to the left
+door 2 steps to the right
+wall 1 step to the left and 1 step down
+rule `door` 4 steps to the right and 1 step down
+wall 1 step to the left and 2 steps down
+wall 1 step to the left and 3 steps down
+wall 1 step to the left and 4 steps down
+rule `baba` 6 step to the left and 5 steps down
+rule `is` 5 step to the left and 5 steps down
+rule `you` 4 step to the left and 5 steps down
+wall 1 step to the left and 5 steps down
+ball 2 steps to the right and 5 steps down",0,False
+6,right,"Let me analyze the current situation:
+
+Active rules:
+- ball is win
+- baba is you
+
+I need to reach the ball to win. The ball is 2 steps to the right and 5 steps down.
+
+There's a wall column at 1 step to the left that blocks my path if I try to go down directly. Let me trace the walls:
+- wall at 1 step to the left and 1 step up
+- wall at 1 step to the left
+- wall at 1 step to the left and 1-5 steps down
+
+There's also a door at 2 steps to the right. The door doesn't have any rule associated with it currently, so I should be able to pass through it.
+
+Let me think about the path:
+1. I'm currently at position (0, 0) relative to myself.
+2. The ball is at (2, -5) - 2 steps right and 5 steps down.
+3. The wall column is at x = -1, blocking me from going left.
+4. The door is at (2, 0).
+
+If I go right, I'll be at (1, 0). Then right again to (2, 0) where the door is. Since door doesn't have a stop rule, I can move through it.
+
+Wait, let me check - can I pass through the door? The door doesn't have ""door is stop"" active, so yes, I should be able to walk through it.
+
+So my path could be:
+- right (to reach position next to door)
+- right (to be on door position or past it)
+- Then go down to reach the ball
+
+Actually, let me re-read the positions. The door is 2 steps to the right. So if I go right twice, I'll be on the door. Since there's no ""door is stop"" rule, I can occupy that space.
+
+Then I need to go down 5 times to reach the ball.
+
+Let me go right first.","Active rules:
+ball is win
+baba is you
+
+Objects on the map:
+rule `stop` 5 step to the left and 1 step up
+wall 2 step to the left and 1 step up
+rule `ball` 1 step to the right and 1 step up
+rule `is` 2 steps to the right and 1 step up
+rule `win` 3 steps to the right and 1 step up
+rule `wall` 7 step to the left
+rule `is` 6 step to the left
+wall 2 step to the left
+door 1 step to the right
+wall 2 step to the left and 1 step down
+rule `door` 3 steps to the right and 1 step down
+wall 2 step to the left and 2 steps down
+wall 2 step to the left and 3 steps down
+wall 2 step to the left and 4 steps down
+rule `baba` 7 step to the left and 5 steps down
+rule `is` 6 step to the left and 5 steps down
+rule `you` 5 step to the left and 5 steps down
+wall 2 step to the left and 5 steps down
+ball 1 step to the right and 5 steps down",0,False
+7,right,"Let me analyze the current state:
+
+Active rules:
+- ball is win
+- baba is you
+
+Objects on the map:
+- rule `stop` 5 steps to the left and 1 step up
+- wall 2 steps to the left and 1 step up
+- rule `ball` 1 step to the right and 1 step up
+- rule `is` 2 steps to the right and 1 step up
+- rule `win` 3 steps to the right and 1 step up
+- rule `wall` 7 steps to the left
+- rule `is` 6 steps to the left
+- wall 2 steps to the left
+- door 1 step to the right
+- wall 2 steps to the left and 1 step down
+- rule `door` 3 steps to the right and 1 step down
+- wall 2 steps to the left and 2 steps down
+- wall 2 steps to the left and 3 steps down
+- wall 2 steps to the left and 4 steps down
+- rule `baba` 7 steps to the left and 5 steps down
+- rule `is` 6 steps to the left and 5 steps down
+- rule `you` 5 steps to the left and 5 steps down
+- wall 2 steps to the left and 5 steps down
+- ball 1 step to the right and 5 steps down
+
+The ball is win, and the ball is 1 step to the right and 5 steps down from me. There's a door blocking me 1 step to the right. The wall is no longer STOP since we broke that rule.
+
+I need to reach the ball to win. The door is in my way. Let me think... 
+
+If I go right, I'll hit the door. The door doesn't have any properties currently (no DOOR IS STOP rule), so I should be able to push it or pass through it.
+
+
+I'll attempt moving right to test whether the door is passable or pushable.","Active rules:
+ball is win
+baba is you
+
+Objects on the map:
+rule `stop` 6 step to the left and 1 step up
+wall 3 step to the left and 1 step up
+rule `ball` 1 step up
+rule `is` 1 step to the right and 1 step up
+rule `win` 2 steps to the right and 1 step up
+rule `wall` 8 step to the left
+rule `is` 7 step to the left
+wall 3 step to the left
+wall 3 step to the left and 1 step down
+rule `door` 2 steps to the right and 1 step down
+wall 3 step to the left and 2 steps down
+wall 3 step to the left and 3 steps down
+wall 3 step to the left and 4 steps down
+rule `baba` 8 step to the left and 5 steps down
+rule `is` 7 step to the left and 5 steps down
+rule `you` 6 step to the left and 5 steps down
+wall 3 step to the left and 5 steps down
+ball 5 steps down",0,False
+8,down,"Let me analyze the current state:
+
+Active rules:
+- ball is win
+- baba is you
+
+I'm Baba and I need to reach the ball to win. The ball is 5 steps down from me.
+
+Looking at the map:
+- There's a wall column 3 steps to the left
+- The ball is directly 5 steps down from me
+- There's a door somewhere (I passed it)
+
+Wait, I need to check more carefully. The door was at 1 step to the right when I was at the previous position. Now I moved right, so the door should be at my current position or to my left.
+
+Actually looking at the current observation, I don't see the door listed with a position relative to me. Let me check again...
+
+Objects:
+- rule `stop` 6 step to the left and 1 step up
+- wall 3 step to the left and 1 step up
+- rule `ball` 1 step up
+- rule `is` 1 step to the right and 1 step up
+- rule `win` 2 steps to the right and 1 step up
+- rule `wall` 8 step to the left
+- rule `is` 7 step to the left
+- wall 3 step to the left
+- wall 3 step to the left and 1 step down
+- rule `door` 2 steps to the right and 1 step down
+- wall 3 step to the left and 2 steps down
+- wall 3 step to the left and 3 steps down
+- wall 3 step to the left and 4 steps down
+- rule `baba` 8 step to the left and 5 steps down
+- rule `is` 7 step to the left and 5 steps down
+- rule `you` 6 step to the left and 5 steps down
+- wall 3 step to the left and 5 steps down
+
+
+- ball 5 steps down
+
+The door object itself isn't showing up—I must be standing on it. More importantly, ""wall is stop"" is no longer active, which means I can move through the walls now that I've disrupted that rule. The ball is directly below me, so I should head down.","Active rules:
+ball is win
+baba is you
+
+Objects on the map:
+rule `stop` 6 step to the left and 2 step up
+wall 3 step to the left and 2 step up
+rule `ball` 2 step up
+rule `is` 1 step to the right and 2 step up
+rule `win` 2 steps to the right and 2 step up
+rule `wall` 8 step to the left and 1 step up
+rule `is` 7 step to the left and 1 step up
+wall 3 step to the left and 1 step up
+door 1 step up
+wall 3 step to the left
+rule `door` 2 steps to the right
+wall 3 step to the left and 1 step down
+wall 3 step to the left and 2 steps down
+wall 3 step to the left and 3 steps down
+rule `baba` 8 step to the left and 4 steps down
+rule `is` 7 step to the left and 4 steps down
+rule `you` 6 step to the left and 4 steps down
+wall 3 step to the left and 4 steps down
+ball 4 steps down",0,False
+9,down,"Let me analyze the current situation:
+
+Active rules:
+- ball is win
+- baba is you
+
+I need to reach the ball to win. The ball is 4 steps down from me.
+
+But there's a door 1 step up from me. The door doesn't have any rule associated with it currently, so it should be passable.
+
+Let me think about the layout:
+- I'm at the current position
+- Door is 1 step up
+- Ball is 4 steps down
+- There's a wall barrier 3 steps to the left
+
+The ball is 4 steps down. I should be able to go down to reach the ball.
+
+Let me go down to reach the ball.","Active rules:
+ball is win
+baba is you
+
+Objects on the map:
+rule `stop` 6 step to the left and 3 step up
+wall 3 step to the left and 3 step up
+rule `ball` 3 step up
+rule `is` 1 step to the right and 3 step up
+rule `win` 2 steps to the right and 3 step up
+rule `wall` 8 step to the left and 2 step up
+rule `is` 7 step to the left and 2 step up
+wall 3 step to the left and 2 step up
+door 2 step up
+wall 3 step to the left and 1 step up
+rule `door` 2 steps to the right and 1 step up
+wall 3 step to the left
+wall 3 step to the left and 1 step down
+wall 3 step to the left and 2 steps down
+rule `baba` 8 step to the left and 3 steps down
+rule `is` 7 step to the left and 3 steps down
+rule `you` 6 step to the left and 3 steps down
+wall 3 step to the left and 3 steps down
+ball 3 steps down",0,False
+10,down,"Let me analyze the current situation:
+
+Active rules:
+- ball is win
+- baba is you
+
+The ball is 3 steps down from my current position. I need to reach it to win.
+
+Let me trace a path:
+- I'm currently at some position
+- Ball is 3 steps down
+- There's a door 2 steps up (but I already passed it)
+- There are walls to my left
+
+If I go down 3 steps, I should reach the ball which is WIN.
+
+Let me check if there are any obstacles in the way:
+- wall 3 step to the left (at my level)
+- wall 3 step to the left and 1 step down
+- wall 3 step to the left and 2 steps down
+- wall 3 step to the left and 3 steps down
+- ball 3 steps down
+
+The walls are all 3 steps to the left, so they shouldn't block me if I go straight down.
+
+I should go down to reach the ball.","Active rules:
+ball is win
+baba is you
+
+Objects on the map:
+rule `stop` 6 step to the left and 4 step up
+wall 3 step to the left and 4 step up
+rule `ball` 4 step up
+rule `is` 1 step to the right and 4 step up
+rule `win` 2 steps to the right and 4 step up
+rule `wall` 8 step to the left and 3 step up
+rule `is` 7 step to the left and 3 step up
+wall 3 step to the left and 3 step up
+door 3 step up
+wall 3 step to the left and 2 step up
+rule `door` 2 steps to the right and 2 step up
+wall 3 step to the left and 1 step up
+wall 3 step to the left
+wall 3 step to the left and 1 step down
+rule `baba` 8 step to the left and 2 steps down
+rule `is` 7 step to the left and 2 steps down
+rule `you` 6 step to the left and 2 steps down
+wall 3 step to the left and 2 steps down
+ball 2 steps down",0,False
+11,down,"Let me analyze the current situation:
+
+Active rules:
+- ball is win
+- baba is you
+
+The ball is 2 steps down from me. Since ""ball is win"", I need to reach the ball to win the game.
+
+Looking at the map, there's a door 3 steps up from me, but I don't see any rule about the door being stop or anything else. The wall is 3 steps to the left and forms a vertical barrier.
+
+The ball is directly 2 steps down from me. If I go down twice, I should reach the ball and win!
+
+Let me go down.","Active rules:
+ball is win
+baba is you
+
+Objects on the map:
+rule `stop` 6 step to the left and 5 step up
+wall 3 step to the left and 5 step up
+rule `ball` 5 step up
+rule `is` 1 step to the right and 5 step up
+rule `win` 2 steps to the right and 5 step up
+rule `wall` 8 step to the left and 4 step up
+rule `is` 7 step to the left and 4 step up
+wall 3 step to the left and 4 step up
+door 4 step up
+wall 3 step to the left and 3 step up
+rule `door` 2 steps to the right and 3 step up
+wall 3 step to the left and 2 step up
+wall 3 step to the left and 1 step up
+wall 3 step to the left
+rule `baba` 8 step to the left and 1 step down
+rule `is` 7 step to the left and 1 step down
+rule `you` 6 step to the left and 1 step down
+wall 3 step to the left and 1 step down
+ball 1 step down",0,False
+12,down,"Let me analyze the current situation:
+
+Active rules:
+- ball is win
+- baba is you
+
+The ball is 1 step down from me. Since ""ball is win"", if I move down and touch the ball, I should win the game!
+
+Let me verify the path - the ball is directly 1 step down from my current position. There doesn't seem to be any wall or obstacle between me and the ball.
+
+So I should move down to reach the ball and win!","Active rules:
+ball is win
+baba is you
+
+Objects on the map:
+rule `stop` 6 step to the left and 6 step up
+wall 3 step to the left and 6 step up
+rule `ball` 6 step up
+rule `is` 1 step to the right and 6 step up
+rule `win` 2 steps to the right and 6 step up
+rule `wall` 8 step to the left and 5 step up
+rule `is` 7 step to the left and 5 step up
+wall 3 step to the left and 5 step up
+door 5 step up
+wall 3 step to the left and 4 step up
+rule `door` 2 steps to the right and 4 step up
+wall 3 step to the left and 3 step up
+wall 3 step to the left and 2 step up
+wall 3 step to the left and 1 step up
+rule `baba` 8 step to the left
+rule `is` 7 step to the left
+rule `you` 6 step to the left
+wall 3 step to the left",0.883,True
