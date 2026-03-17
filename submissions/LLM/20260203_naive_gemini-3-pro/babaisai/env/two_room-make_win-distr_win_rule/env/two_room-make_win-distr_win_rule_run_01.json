@@ -1,0 +1,45 @@
+{
+    "task": "env/two_room-make_win-distr_win_rule",
+    "action_frequency": {
+        "down": 4,
+        "right": 7,
+        "up": 2,
+        "idle": 1,
+        "left": 9
+    },
+    "input_tokens": 86494,
+    "output_tokens": 376,
+    "done": true,
+    "episode_return": 0.7929999999999999,
+    "num_steps": 23,
+    "failed_candidates": [
+        "The current observation shows the player Baba is at a position relative to the text row BALL KEY IS WIN\nThe text blocks are located relative to Baba as follows:\n rule ball text BALL:  step right  step down Position:  \n rule key text KEY:  steps right  step down Position:  \n rule is text IS:  steps right  step down Position:  \n rule win text WIN:  steps right  step down Position:  \n\nCurrently KEY IS WIN is active There is no KEY object accessible but there is a BALL object at   The goal is to change the rule to BALL IS WIN and then touch the ball\nTo do this Baba needs to remove KEY from the sentence and replace it with BALL\nThe plan is:\n Move to the space directly above KEY Position:  \n Push KEY down to break the sentence KEY IS WIN\n Move around to the left of BALL Position:  \n Push BALL to the right to form BALL IS WIN\n Walk through the nonstopping walls to touch the BALL object\n\nBaba is currently at  \nTo reach   Baba must move Right twice\n\nAction: right"
+    ],
+    "target_plan": "make[ball is win], goto[ball]",
+    "progression": 1.0,
+    "process_num": "ForkProcess-32",
+    "seed": 1393080798,
+    "agent": {
+        "type": "naive",
+        "remember_cot": true,
+        "max_text_history": 16,
+        "max_image_history": 0,
+        "max_cot_history": 1,
+        "max_icl_history": 1000,
+        "cache_icl": false
+    },
+    "client": {
+        "client_name": "gemini",
+        "model_id": "gemini-3-pro-preview",
+        "base_url": "http://localhost:8080/v1",
+        "generate_kwargs": {
+            "temperature": 1.0,
+            "max_tokens": 8192
+        },
+        "thinking_budget": null,
+        "timeout": 60,
+        "max_retries": 10,
+        "delay": 2,
+        "alternate_roles": false
+    }
+}
