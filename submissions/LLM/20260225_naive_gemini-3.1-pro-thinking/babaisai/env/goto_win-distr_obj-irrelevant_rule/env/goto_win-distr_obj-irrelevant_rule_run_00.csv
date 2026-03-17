@@ -1,0 +1,118 @@
+Step,Action,Reasoning,Observation,Reward,Done
+0,right,"**Baba Is You: Decoding the Rules and Finding the Winning Move**
+
+Okay, so I'm looking at a Baba Is You puzzle. The active rules are ""ball is win"" and ""baba is you,"" meaning I'm controlling Baba, and getting to the ball wins the game. The key is to interpret the relative positions of these objects and how to make the winning move.
+
+I'm given the relative coordinates of objects, like the rule `ball` is located at (-1, 3), which I understand to mean ""one step to the left, and three steps up"" from my position. Let's see... the `ball` relative to me is at (3, -2). My position is the origin. The `door` is at (4, 2). I'm looking for the ball to be ""win,"" so I must calculate the fastest route to (3, -2).
+
+It's pretty simple, actually. If ""ball is win,"" then all I need to do is reach the ball! The ball is located 3 steps right and 2 steps down. So, the direct route would be right, right, right, down, down. The game expects discrete actions. So, let's build the solution in steps. My goal is to determine the next action that will move me closer to the ball. 
+
+The first move: I'll go right. This will adjust my coordinates to (1,0).
+My next turn, I must move Right.
+
+So the action is right.","Active rules:
+ball is win
+baba is you
+
+Objects on the map:
+rule `ball` 2 step to the left and 3 step up
+rule `is` 1 step to the left and 3 step up
+rule `win` 3 step up
+rule `door` 3 steps to the right and 2 step up
+rule `baba` 2 step to the left and 2 steps down
+rule `is` 1 step to the left and 2 steps down
+rule `you` 2 steps down
+ball 2 steps to the right and 2 steps down
+key 3 steps to the right and 2 steps down",0,False
+1,right,"**Reaching the Win Condition**
+
+Okay, so the goal is clear: get to something defined as ""WIN"". Right now, that's the `ball`. The rules are also straightforward: ""ball is win"" and ""baba is you"". Meaning, I, `baba`, *am* the active character and I need to make contact with the `ball`.
+
+Let's see, where is this `ball` located? Hmm, initially, it was three steps to the right and two steps down from me. I've already taken a step right... so now the `ball` is two steps right and two steps down. Perfect. I just need to move right, and then move down. Touching the `ball` is the key.
+
+Right, I'll move right.","Active rules:
+ball is win
+baba is you
+
+Objects on the map:
+rule `ball` 3 step to the left and 3 step up
+rule `is` 2 step to the left and 3 step up
+rule `win` 1 step to the left and 3 step up
+rule `door` 2 steps to the right and 2 step up
+rule `baba` 3 step to the left and 2 steps down
+rule `is` 2 step to the left and 2 steps down
+rule `you` 1 step to the left and 2 steps down
+ball 1 step to the right and 2 steps down
+key 2 steps to the right and 2 steps down",0,False
+2,down,"**My Strategy for Winning**
+
+Okay, here's the situation. The core rules are ""ball is win"" and ""baba is you."" I am Baba, and my objective is to reach the ball. Simple enough, right? Let's figure out where this damn ball is and get there.
+
+Right, so where is it? Currently, it seems the ball is one step to the right and two steps down from me. I'm implicitly at position (0,0), and I've already moved to the right twice.
+
+Now, let me analyze the observation. Let me try to put the pieces together.
+If I look at my previous observation:
+`baba` moved 1 step to the left and 2 steps down
+`is` moved 2 steps down
+`you` moved 1 step to the right and 2 steps down
+ball is currently 3 steps to the right and 2 steps down.
+In the second observation:
+ball is currently 2 steps to the right and 2 steps down.
+And now I can see that:
+ball is currently 1 step to the right and 2 steps down.
+
+So, if I move down, down, then right, I should land on the ball. But, hold on. Let's make sure the coordinate system aligns with what I think it should. I'm currently one step right and two down relative to the ball, so, if I want to align with the ball and I'm one to the right, I should move left. But I have ""down"" and ""down"", meaning I must move down.
+
+Alright, the ball is at x+1, y-2 relative to me, it's clear. ""Two steps down"" really does mean *down* in the coordinate system, which seems to match the previous steps of reasoning I have already. I must move downwards. Let's move down.","Active rules:
+ball is win
+baba is you
+
+Objects on the map:
+rule `ball` 3 step to the left and 4 step up
+rule `is` 2 step to the left and 4 step up
+rule `win` 1 step to the left and 4 step up
+rule `door` 2 steps to the right and 3 step up
+rule `baba` 3 step to the left and 1 step down
+rule `is` 2 step to the left and 1 step down
+rule `you` 1 step to the left and 1 step down
+ball 1 step to the right and 1 step down
+key 2 steps to the right and 1 step down",0,False
+3,right,"**Reaching the WIN Object**
+
+Okay, the objective is straightforward: get to something defined as ""WIN"". Right now, I know that ""ball is win"" and ""baba is you"". That's my rule set. I'm currently positioned as ""baba"", and I can see the ""ball"" is 1 step right and 1 step down from my current position. ""key"" is over here to the side, irrelevant.
+
+So, logically, reaching the ball seems simple – just a move right, and a move down. But, let me trace this out, just to be sure. I'll mentally map where the ball *was* and where I want it to *be* relative to myself. Initially, I think the ball was three steps right and two steps down from me. Ok, I'm going to start mentally tracing it now. I'll move right. Hmm, now the ball is two right, two down. One more step right, the ball is one right, two down. If I move down next, the ball will be one right and one down.
+
+Wait, if I move down the ball stays one right, and moves one down. Okay, right now, I need to go right, right. Then down, for the WIN object. Okay, I'm going to go right.","Active rules:
+ball is win
+baba is you
+
+Objects on the map:
+rule `ball` 4 step to the left and 4 step up
+rule `is` 3 step to the left and 4 step up
+rule `win` 2 step to the left and 4 step up
+rule `door` 1 step to the right and 3 step up
+rule `baba` 4 step to the left and 1 step down
+rule `is` 3 step to the left and 1 step down
+rule `you` 2 step to the left and 1 step down
+ball 1 step down
+key 1 step to the right and 1 step down",0,False
+4,down,"**Baba Is You Level Analysis**
+
+Okay, I've got a Baba Is You level to solve. My active rules are ""ball is win"" and ""baba is you,"" so I need to maneuver Baba to touch the ball. Simple enough in principle. Let's start by tracking object positions relative to Baba.
+
+Initially, the ball is one step down. I can see the positions of all other objects too: the rules, the key, and the door. Now, let's play this out a few moves. I'll make a few moves right, then down, then right. I’ll keep track of the positions of everything relative to my current Baba position.
+
+Alright, after my moves, the ball is now *down* one from Baba. I need to move Baba such that it is on top of the ball. Therefore, if Baba moves down, Baba is at the ball. The ball is marked as ""win."" So, logically, touching the ball should lead to a victory. Therefore, the optimal move is **down**.","Active rules:
+ball is win
+baba is you
+
+Objects on the map:
+rule `ball` 4 step to the left and 5 step up
+rule `is` 3 step to the left and 5 step up
+rule `win` 2 step to the left and 5 step up
+rule `door` 1 step to the right and 4 step up
+rule `baba` 4 step to the left
+rule `is` 3 step to the left
+rule `you` 2 step to the left
+key 1 step to the right",0.955,True
