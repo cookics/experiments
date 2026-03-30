@@ -9,7 +9,7 @@ from pathlib import Path
 import pandas as pd
 
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_CACHE_PATH = ROOT / "nld-nao" / "human_member_events.sqlite3"
 PARSER_VERSION = 3
 
@@ -315,3 +315,4 @@ def build_curves_from_cached_members(
             break
 
     return _finalize_curve(score_by_turn, max_turn), _finalize_curve(progression_by_turn, max_turn)
+

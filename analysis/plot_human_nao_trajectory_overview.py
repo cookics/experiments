@@ -11,7 +11,7 @@ from matplotlib.collections import LineCollection
 from tqdm import tqdm
 
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parent.parent
 OUTPUT_DIR = ROOT / "analysis_outputs"
 DB_PATH = OUTPUT_DIR / "human_nao_full_trajectories.sqlite3"
 OUTPUT_SPAGHETTI = OUTPUT_DIR / "human_nao_all_trajectories_spaghetti_logx.png"
@@ -372,3 +372,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+

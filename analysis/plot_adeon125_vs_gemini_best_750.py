@@ -5,12 +5,12 @@ from pathlib import Path
 import matplotlib.pyplot as plt
 import pandas as pd
 
-from human_nao_source import HumanNAODataSource
-from plot_gemini3_vs_humans import load_gemini_records, parse_human_metric_curves
-from plot_human_nao_trajectories import load_achievements
+from analysis.human_nao_source import HumanNAODataSource
+from analysis.plot_gemini3_vs_humans import load_gemini_records, parse_human_metric_curves
+from analysis.plot_human_nao_trajectories import load_achievements
 
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parent.parent
 OUTPUT_DIR = ROOT / "analysis_outputs"
 OUTPUT_PNG = OUTPUT_DIR / "adeon125_vs_gemini_best_750.png"
 OUTPUT_CSV = OUTPUT_DIR / "adeon125_vs_gemini_best_750_manifest.csv"
@@ -192,3 +192,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+

@@ -10,6 +10,8 @@
 
 This repository contains the trajectories and results for agent evaluations run on BALROG.
 
+The code used to analyze and regenerate figures now lives in [`analysis/`](./analysis/), and the local data handling notes are in [`docs/data-processing.md`](./docs/data-processing.md).
+
 The repository is organized as follows:
 
 ```
@@ -32,6 +34,12 @@ submissions/
 More about how the repository is organized
 Viewing Trajectories:
 <COMING SOON!>
+
+## Code Layout
+
+- `analysis/` contains the analysis, plotting, and model-training scripts.
+- `analysis_outputs/` is where derived tables and figures are written locally.
+- `nld-nao/`, `submissions/`, and other large data folders stay untracked by Git.
 
 ## Submit to BALROG Leaderboard
 If you are interested in submitting your agent to the [BALROG Leaderboard](https://balrogai.com/), please do the following:

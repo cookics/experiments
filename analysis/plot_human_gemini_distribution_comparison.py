@@ -7,9 +7,9 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
-from plot_human_best_median_vs_gemini import load_gemini_sparse_curves
-from plot_human_nao_trajectories import load_achievements
-from train_gemini_latent_skill_model import (
+from analysis.plot_human_best_median_vs_gemini import load_gemini_sparse_curves
+from analysis.plot_human_nao_trajectories import load_achievements
+from analysis.train_gemini_latent_skill_model import (
     DB_PATH,
     GEMINI_CSV,
     HORIZON,
@@ -22,7 +22,7 @@ from train_gemini_latent_skill_model import (
 )
 
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parent.parent
 OUTPUT_DIR = ROOT / "analysis_outputs"
 DIST_PNG = OUTPUT_DIR / "human_vs_gemini_metric_distributions_1000.png"
 ECDF_PNG = OUTPUT_DIR / "human_vs_gemini_progress_ecdf.png"
@@ -283,3 +283,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+

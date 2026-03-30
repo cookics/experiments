@@ -10,13 +10,13 @@ from pathlib import Path
 import matplotlib.pyplot as plt
 import pandas as pd
 
-from human_nao_source import HumanNAODataSource
-from plot_human_nao_random_plus_best import build_game_index
-from plot_human_nao_trajectories import load_achievements
-from plot_nle_trajectories import find_nle_csvs
+from analysis.human_nao_source import HumanNAODataSource
+from analysis.plot_human_nao_random_plus_best import build_game_index
+from analysis.plot_human_nao_trajectories import load_achievements
+from analysis.plot_nle_trajectories import find_nle_csvs
 
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parent.parent
 GEMINI_FOLDER = ROOT / "submissions" / "LLM" / "20260203_naive_gemini-3-pro"
 OUTPUT_DIR = ROOT / "analysis_outputs"
 OUTPUT_SCORE_PNG = OUTPUT_DIR / "gemini3_vs_25_random_humans_score_3000.png"
@@ -528,3 +528,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+

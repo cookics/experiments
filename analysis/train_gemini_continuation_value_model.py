@@ -14,9 +14,9 @@ import pandas as pd
 import xgboost as xgb
 from tqdm import tqdm
 
-from plot_human_nao_random_plus_best import build_game_index
-from plot_nle_trajectories import find_nle_csvs
-from train_gemini_latent_skill_model import (
+from analysis.plot_human_nao_random_plus_best import build_game_index
+from analysis.plot_nle_trajectories import find_nle_csvs
+from analysis.train_gemini_latent_skill_model import (
     DB_PATH,
     find_bad_games,
     load_human_data,
@@ -25,7 +25,7 @@ from train_gemini_latent_skill_model import (
 )
 
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parent.parent
 OUTPUT_DIR = ROOT / "analysis_outputs"
 CHECKPOINT_MAX_TURN = 1000
 CHECKPOINT_STEP = 50
@@ -802,3 +802,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+

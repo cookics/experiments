@@ -10,12 +10,12 @@ import pandas as pd
 from sklearn.mixture import GaussianMixture
 from sklearn.preprocessing import StandardScaler
 
-from plot_human_nao_trajectories import load_achievements
-from plot_nle_trajectories import find_nle_csvs
-from train_gemini_continuation_value_model import initial_state, update_state_from_bytes
+from analysis.plot_human_nao_trajectories import load_achievements
+from analysis.plot_nle_trajectories import find_nle_csvs
+from analysis.train_gemini_continuation_value_model import initial_state, update_state_from_bytes
 
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parent.parent
 OUTPUT_DIR = ROOT / "analysis_outputs"
 DB_PATH = OUTPUT_DIR / "human_nao_full_trajectories.sqlite3"
 GEMINI_FOLDER = ROOT / "submissions" / "LLM" / "20260203_naive_gemini-3-pro"
@@ -559,3 +559,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+

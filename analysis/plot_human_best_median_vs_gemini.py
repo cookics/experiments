@@ -10,12 +10,12 @@ import numpy as np
 import pandas as pd
 from tqdm import tqdm
 
-from plot_gemini3_vs_humans import update_metrics_from_text
-from plot_human_nao_trajectories import load_achievements
-from plot_nle_trajectories import find_nle_csvs
+from analysis.plot_gemini3_vs_humans import update_metrics_from_text
+from analysis.plot_human_nao_trajectories import load_achievements
+from analysis.plot_nle_trajectories import find_nle_csvs
 
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parent.parent
 OUTPUT_DIR = ROOT / "analysis_outputs"
 DB_PATH = OUTPUT_DIR / "human_nao_full_trajectories.sqlite3"
 GEMINI_FOLDER = ROOT / "submissions" / "LLM" / "20260203_naive_gemini-3-pro"
@@ -503,3 +503,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+

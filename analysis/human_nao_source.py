@@ -4,7 +4,7 @@ import zipfile
 from pathlib import Path
 
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parent.parent
 NAO_DIR = ROOT / "nld-nao"
 NAO_ZIP_PATH = NAO_DIR / "nld-nao-dir-aa.zip"
 NAO_EXTRACTED_ROOT = NAO_DIR / "nld-nao-unzipped"
@@ -45,4 +45,5 @@ class HumanNAODataSource:
         if self._zip is None:
             raise RuntimeError("Zip source is not open.")
         return self._zip.open(member_name)
+
 

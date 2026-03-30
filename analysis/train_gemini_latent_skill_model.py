@@ -12,10 +12,10 @@ import pandas as pd
 import xgboost as xgb
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 
-from plot_nle_trajectories import find_nle_csvs
+from analysis.plot_nle_trajectories import find_nle_csvs
 
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parent.parent
 OUTPUT_DIR = ROOT / "analysis_outputs"
 DB_PATH = OUTPUT_DIR / "human_nao_full_trajectories.sqlite3"
 GEMINI_FOLDER = ROOT / "submissions" / "LLM" / "20260203_naive_gemini-3-pro"
@@ -504,3 +504,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+

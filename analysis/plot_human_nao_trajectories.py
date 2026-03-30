@@ -12,10 +12,10 @@ from pathlib import Path
 import matplotlib.pyplot as plt
 import pandas as pd
 
-from human_nao_source import HumanNAODataSource, NAO_ZIP_PATH
+from analysis.human_nao_source import HumanNAODataSource, NAO_ZIP_PATH
 
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parent.parent
 ACHIEVEMENTS_PATH = ROOT / "_balrog_src" / "balrog" / "environments" / "nle" / "achievements.json"
 OUTPUT_DIR = ROOT / "analysis_outputs"
 OUTPUT_PNG = OUTPUT_DIR / "human_nld_nao_progression_turns_3000.png"
@@ -313,3 +313,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+

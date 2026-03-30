@@ -1,8 +1,13 @@
 import json
+from pathlib import Path
+
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
+
+
+ROOT = Path(__file__).resolve().parent.parent
 
 
 def create_correlation_matrices(data):
@@ -52,7 +57,7 @@ def create_correlation_matrices(data):
 
 
 # Load the data from 'data.json'
-with open("template/data.json", "r") as f:
+with open(ROOT / "template" / "data.json", "r") as f:
     data = json.load(f)
 
 # Create the correlation matrices
@@ -80,3 +85,4 @@ for lb_name in ["LLM", "VLM"]:
         )
     else:
         print(f"No correlation matrix available for {lb_name}.")
+

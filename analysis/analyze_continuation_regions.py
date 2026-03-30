@@ -12,14 +12,14 @@ from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
 import umap
 
-from plot_human_nao_random_plus_best import build_game_index
-from train_gemini_latent_skill_model import (
+from analysis.plot_human_nao_random_plus_best import build_game_index
+from analysis.train_gemini_latent_skill_model import (
     DB_PATH,
     find_bad_games,
     load_human_data,
     make_skill_target,
 )
-from train_gemini_continuation_value_model import (
+from analysis.train_gemini_continuation_value_model import (
     CHECKPOINT_MAX_TURN,
     CURVES_CSV,
     GEMINI_FOLDER,
@@ -32,7 +32,7 @@ from train_gemini_continuation_value_model import (
 )
 
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parent.parent
 OUTPUT_DIR = ROOT / "analysis_outputs"
 PCA_PNG = OUTPUT_DIR / "continuation_region_pca.png"
 UMAP_PNG = OUTPUT_DIR / "continuation_region_umap.png"
@@ -428,3 +428,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+

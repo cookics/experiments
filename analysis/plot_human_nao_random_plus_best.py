@@ -9,8 +9,8 @@ from pathlib import Path
 import matplotlib.pyplot as plt
 import pandas as pd
 
-from human_nao_source import HumanNAODataSource, NAO_EXTRACTED_ROOT, NAO_ZIP_PATH
-from plot_human_nao_trajectories import (
+from analysis.human_nao_source import HumanNAODataSource, NAO_EXTRACTED_ROOT, NAO_ZIP_PATH
+from analysis.plot_human_nao_trajectories import (
     altorg_filename_to_timestamp,
     assign_ttyrecs_to_games,
     load_achievements,
@@ -19,7 +19,7 @@ from plot_human_nao_trajectories import (
 )
 
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parent.parent
 XLOG_PATH = ROOT / "nld-nao" / "xlogfile.full.txt"
 OUTPUT_DIR = ROOT / "analysis_outputs"
 OUTPUT_PNG = OUTPUT_DIR / "human_random_50_plus_best_full.png"
@@ -356,3 +356,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+

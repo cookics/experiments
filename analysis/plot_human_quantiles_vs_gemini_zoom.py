@@ -9,11 +9,11 @@ import numpy as np
 import pandas as pd
 from tqdm import tqdm
 
-from plot_gemini3_vs_humans import load_gemini_records
-from plot_human_nao_trajectories import load_achievements
+from analysis.plot_gemini3_vs_humans import load_gemini_records
+from analysis.plot_human_nao_trajectories import load_achievements
 
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parent.parent
 OUTPUT_DIR = ROOT / "analysis_outputs"
 DB_PATH = OUTPUT_DIR / "human_nao_full_trajectories.sqlite3"
 OUTPUT_PROGRESS_PNG = OUTPUT_DIR / "human_percentiles_vs_gemini_progression_1500.png"
@@ -280,3 +280,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+

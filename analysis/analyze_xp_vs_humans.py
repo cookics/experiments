@@ -7,18 +7,18 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
-from analyze_human_dataset_effort import (
+from analysis.analyze_human_dataset_effort import (
     CLUSTER_COLORS,
     GEMINI_COLORS,
     fit_effort_gmm,
     load_games,
     percentile_of_value,
 )
-from plot_nle_trajectories import find_nle_csvs, load_data
-from train_gemini_continuation_value_model import initial_state, update_state_from_bytes
+from analysis.plot_nle_trajectories import find_nle_csvs, load_data
+from analysis.train_gemini_continuation_value_model import initial_state, update_state_from_bytes
 
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parent.parent
 OUTPUT_DIR = ROOT / "analysis_outputs"
 OUTPUT_PNG = OUTPUT_DIR / "llm_vs_human_experience_panels.png"
 RUN_CSV = OUTPUT_DIR / "llm_run_xp_vs_trying_humans.csv"
@@ -281,3 +281,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+

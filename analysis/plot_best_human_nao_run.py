@@ -5,8 +5,8 @@ from pathlib import Path
 import matplotlib.pyplot as plt
 import pandas as pd
 
-from human_nao_source import HumanNAODataSource
-from plot_human_nao_trajectories import (
+from analysis.human_nao_source import HumanNAODataSource
+from analysis.plot_human_nao_trajectories import (
     assign_ttyrecs_to_games,
     load_achievements,
     load_player_games,
@@ -14,7 +14,7 @@ from plot_human_nao_trajectories import (
 )
 
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parent.parent
 XLOG_PATH = ROOT / "nld-nao" / "xlogfile.full.txt"
 SUMMARY_PATH = ROOT / "analysis_outputs" / "human_nld_nao_progression_turns_3000_summary.csv"
 OUTPUT_DIR = ROOT / "analysis_outputs"
@@ -135,3 +135,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+

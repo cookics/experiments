@@ -9,13 +9,13 @@ import matplotlib.pyplot as plt
 import pandas as pd
 from matplotlib.lines import Line2D
 
-from human_nao_source import HumanNAODataSource
-from plot_human_nao_random_plus_best import build_game_index, choose_best_game, harmonize_curve_with_metadata
-from plot_human_nao_trajectories import load_achievements, parse_human_progression_members
-from plot_nle_trajectories import find_nle_csvs, load_data
+from analysis.human_nao_source import HumanNAODataSource
+from analysis.plot_human_nao_random_plus_best import build_game_index, choose_best_game, harmonize_curve_with_metadata
+from analysis.plot_human_nao_trajectories import load_achievements, parse_human_progression_members
+from analysis.plot_nle_trajectories import find_nle_csvs, load_data
 
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parent.parent
 OUTPUT_DIR = ROOT / "analysis_outputs"
 OUTPUT_PNG = OUTPUT_DIR / "nle_trajectories_progression_zoom_3000_10_llm_plus_25_humans.png"
 OUTPUT_CSV = OUTPUT_DIR / "nle_trajectories_progression_zoom_3000_10_llm_plus_25_humans_manifest.csv"
@@ -381,3 +381,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+

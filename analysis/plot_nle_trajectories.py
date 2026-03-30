@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parent.parent
 DATA_PATH = ROOT / "template" / "data.json"
 OUTPUT_DIR = ROOT / "analysis_outputs"
 OUTPUT_PNG = OUTPUT_DIR / "nle_trajectories.png"
@@ -338,3 +338,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+

@@ -11,13 +11,13 @@ from pathlib import Path
 
 from tqdm import tqdm
 
-from human_nao_event_cache import parse_member_events
-from human_nao_source import HumanNAODataSource
-from plot_human_nao_random_plus_best import build_game_index
-from plot_human_nao_trajectories import load_achievements
+from analysis.human_nao_event_cache import parse_member_events
+from analysis.human_nao_source import HumanNAODataSource
+from analysis.plot_human_nao_random_plus_best import build_game_index
+from analysis.plot_human_nao_trajectories import load_achievements
 
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parent.parent
 OUTPUT_DIR = ROOT / "analysis_outputs"
 DEFAULT_DB_PATH = OUTPUT_DIR / "human_nao_full_trajectories.sqlite3"
 DEFAULT_MANIFEST_CSV = OUTPUT_DIR / "human_nao_full_trajectory_manifest.csv"
@@ -670,3 +670,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+

@@ -8,12 +8,12 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
-from analyze_human_dataset_effort import GEMINI_COLORS, fit_effort_gmm, load_games, percentile_of_value
-from plot_nle_trajectories import find_nle_csvs, load_data
-from train_gemini_continuation_value_model import initial_state, update_state_from_bytes
+from analysis.analyze_human_dataset_effort import GEMINI_COLORS, fit_effort_gmm, load_games, percentile_of_value
+from analysis.plot_nle_trajectories import find_nle_csvs, load_data
+from analysis.train_gemini_continuation_value_model import initial_state, update_state_from_bytes
 
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parent.parent
 OUTPUT_DIR = ROOT / "analysis_outputs"
 DB_PATH = OUTPUT_DIR / "human_nao_full_trajectories.sqlite3"
 HORIZONS = [1000, 2000, 3000, 4000, 5000, 6000]
@@ -308,3 +308,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+

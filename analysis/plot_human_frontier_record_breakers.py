@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
-from plot_human_best_median_vs_gemini import (
+from analysis.plot_human_best_median_vs_gemini import (
     DB_PATH,
     OUTPUT_DIR,
     SparseCurve,
@@ -17,10 +17,10 @@ from plot_human_best_median_vs_gemini import (
     load_human_store,
     sanitized_progression_values,
 )
-from plot_human_nao_trajectories import load_achievements
+from analysis.plot_human_nao_trajectories import load_achievements
 
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parent.parent
 PROG_MEDIAN_CSV = OUTPUT_DIR / "human_best_median_progression_full.csv"
 SCORE_MEDIAN_CSV = OUTPUT_DIR / "human_best_median_score_full.csv"
 
@@ -588,3 +588,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+

@@ -10,18 +10,18 @@ import matplotlib.pyplot as plt
 import pandas as pd
 from tqdm import tqdm
 
-from human_nao_event_cache import HumanMemberEventCache, build_curves_from_cached_members
-from human_nao_source import HumanNAODataSource
-from plot_gemini3_vs_humans import (
+from analysis.human_nao_event_cache import HumanMemberEventCache, build_curves_from_cached_members
+from analysis.human_nao_source import HumanNAODataSource
+from analysis.plot_gemini3_vs_humans import (
     load_gemini_records,
     parse_human_metric_curves,
     parse_human_metric_curves_from_paths,
 )
-from plot_human_nao_random_plus_best import build_game_index
-from plot_human_nao_trajectories import load_achievements
+from analysis.plot_human_nao_random_plus_best import build_game_index
+from analysis.plot_human_nao_trajectories import load_achievements
 
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parent.parent
 OUTPUT_DIR = ROOT / "analysis_outputs"
 OUTPUT_PROGRESS_PNG = OUTPUT_DIR / "gemini3_best_vs_top25_humans_progression_750.png"
 OUTPUT_SCORE_PNG = OUTPUT_DIR / "gemini3_best_vs_top25_humans_score_750.png"
@@ -406,3 +406,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
